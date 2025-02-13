@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <div class="slds-p-around_medium lgc-bg">
+            <!--Input de texto-->
+            <lightning-input data-label="Name" value={nome} required={requiredField} disabled={disableField} onkeydown={handleKeyDown} onchange={handleChange} onblur={handleBlur} onclick={handleClick} onfocus={handleFocus} type="text" label="Nome"></lightning-input>
+            <lightning-input data-label="ZipCode" maxlength="9" type="text" label="CEP" onchange={handleChange}></lightning-input>
+
+            <!--Botões de Ação-->
+            <lightning-input onchange={handleManualEdition} name="Edição Manual" label="Edição Manual" type="toggle" class="slds-var-m-left_x-small slds-p-left_none" message-toggle-active="" message-toggle-inactive=""> </lightning-input>
+            <lightning-button variant="brand" label="Save" title="Save" onclick={handleClickSave} class="slds-m-left_x-small"></lightning-button>
+        </div>
+    </div>
+</template>

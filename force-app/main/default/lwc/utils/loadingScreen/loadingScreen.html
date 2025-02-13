@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-align-vertical-center">
+        <div class="waiting-container" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10%">
+            <span lwc:if={showDots} class="slds-icon-typing slds-is-animated" title={message} style="zoom: 350%">
+                <span class="slds-icon-typing__dot"></span>
+                <span class="slds-icon-typing__dot"></span>
+                <span class="slds-icon-typing__dot"></span>
+                <span class="slds-assistive-text">{message}</span>
+            </span>
+            <h2 class="slds-m-around_medium" style={zoomLevel}>
+                <span>{message}</span>
+            </h2>
+        </div>
+    </div> 
+</template>

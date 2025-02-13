@@ -1,0 +1,83 @@
+<template>
+    <lightning-card>
+        <div class="slds-grid slds-wrap">         
+            <div class="slds-col slds-size_1-of-2" >
+                <lightning-input
+                    class="slds-var-p-left_large slds-var-p-right_xx-small"
+                    label="Cep" 
+                    data-field="Cep"
+                    value={addressInformations.cep}
+                    onchange={handleChange}
+                    maxlength="9"
+                    disabled={fieldsPermissionScreen.cepDisabled}
+                    required=true
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    class="slds-var-p-left_xxx-small slds-var-p-right_large"
+                    label="Rua" 
+                    data-field="Rua"
+                    value={addressInformations.logradouro}
+                    onchange={handleChange}
+                    disabled={fieldsPermissionScreen.logradouroDisabled}
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    class="slds-var-p-left_large slds-var-p-right_xx-small"
+                    label="Bairro" 
+                    data-field="Bairro"
+                    value={addressInformations.bairro}
+                    onchange={handleChange}
+                    disabled={fieldsPermissionScreen.bairroDisabled}
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input
+                    class="slds-var-p-left_xxx-small slds-var-p-right_large"
+                    label="Cidade" 
+                    data-field="Cidade"
+                    value={addressInformations.cidade}
+                    onchange={handleChange}
+                    disabled={fieldsPermissionScreen.cidadeDisabled}
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input 
+                    class="slds-var-p-left_large slds-var-p-right_xx-small"
+                    label="Estado"
+                    data-field="Estado"
+                    maxlength="2"
+                    value={addressInformations.estado}
+                    onchange={handleChange}
+                    disabled={fieldsPermissionScreen.estadoDisabled}
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input 
+                    class="slds-p-left_xxx-small slds-p-right_large"
+                    type="Text"
+                    label="Numero"
+                    data-field="Numero"
+                    value={addressInformations.numero}
+                    onchange={handleChange}
+                    disabled={fieldsPermissionScreen.numeroDisabled}
+                    required=true
+                ></lightning-input>
+            </div>
+        </div>
+        <div slot="footer" class="slds-grid slds-gutters slds-p-vertical_none slds-p-bottom_none">
+            <div class="slds-col slds-size_6-of-12 slds-text-align_center">
+                <p> {TITLE} </p>
+            </div>
+            <div class="slds-col slds-size_3-of-12 slds-is-relative slds-float_left slds-col_bump-small slds-align_absolute-center">
+                <lightning-input name="Edição Manual" label="Edição Manual" type="toggle" class="slds-var-m-left_x-small slds-p-left_none" onchange={unlockFields} message-toggle-active="" message-toggle-inactive=""> </lightning-input>
+            </div>
+            <div class="slds-col slds-size_3-of-12 slds-is-relative slds-float_left slds-col_bump-small slds-align_absolute-center">
+                <lightning-button variant="Neutral" label="Limpar" title="Save the Address Informations" onclick={clear} class="slds-var-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Save" title="Save the Address Informations" onclick={save} class="slds-var-m-left_x-small"></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

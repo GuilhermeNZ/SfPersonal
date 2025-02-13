@@ -1,0 +1,31 @@
+.yellow-warning-bg {
+  background-color: #fcc003;
+}
+
+.red-error-bg {
+  background-color: #ba0517;
+}
+
+
+.black-icon {
+  --sds-c-icon-color-foreground-default: #000000;
+  --sds-c-icon-color-foreground: #000000;
+}
+
+.white-icon {
+  --sds-c-icon-color-foreground-default: #fff;
+  --sds-c-icon-color-foreground: #fff;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.wrapped-content {
+  overflow-wrap: break-word;
+}
+
+.slds-box {
+  border-radius: 0;
+  border: 0;
+}

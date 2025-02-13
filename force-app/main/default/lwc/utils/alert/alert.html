@@ -1,0 +1,26 @@
+<template>
+    <div class={style.notify} role="alert">
+      <span class="slds-assistive-text">{title}</span>
+  
+      <div class="slds-col" if:false={hiddeIcon}>
+        <lightning-icon class={style.icon.color} icon-name={style.icon.name} alternative-text={style.icon.description} title={style.icon.description}></lightning-icon>
+      </div>
+
+      <div class="slds-col" lwc:if={showonlytitle}>
+        <p class={titlealert}>
+          <b class={titlecss}>{title}</b>
+        </p>
+      </div>
+      
+      <div class="slds-col" lwc:if={message}>
+        <p class={titlealert}>
+          <b class={titlecss}>{title}</b> {message}
+          <a href="#" if:true={action}>Mais informações</a>
+        </p>
+      </div>
+  
+    </div>
+    <div class={style.notify} if:true={hasSlot} role="alert">
+      <slot></slot>
+    </div>
+  </template>

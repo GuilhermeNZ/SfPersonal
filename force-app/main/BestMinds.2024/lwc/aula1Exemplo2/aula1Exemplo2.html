@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_3-of-12 fundo" if:true={aprensentaDiv1}>
+            <c-aula1-exemplo nome-da-conta="FELIZBERTO SA"></c-aula1-exemplo>
+            <!-- No meu LWC Filho quero inserir informções na variavel nomeDaConta  -->
+        </div>
+        <div class="slds-col slds-size_9-of-12" lwc:if={aprensentaDiv2}>
+            <lightning-tabset><!-- Abrir tabs -->
+                <lightning-tab label="Contacts"><!-- tab 1 -->
+                    <template for:each={contacts} for:item="contact">
+                        <div class="slds-m-around_medium slds-p-around_none lgc-bg" key={Name}>
+                            <lightning-input type={contact.fieldType} label={contact.Name} value={contact.valor}></lightning-input>
+                        </div>
+                    </template>
+                </lightning-tab>
+                <lightning-tab label="Contact List"> <!-- tab 2 -->
+                    <lightning-datatable
+                        key-field="Name"
+                        data={contacts}
+                        columns={columns}>
+                    </lightning-datatable>
+                </lightning-tab>
+            </lightning-tabset>
+
+        </div>
+    </div>
+</template>

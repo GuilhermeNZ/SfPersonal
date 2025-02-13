@@ -1,0 +1,55 @@
+<template>
+    <lightning-card icon-name="standard:logging" title='Importar dados'>
+        <div style="margin-left: 5%; margin-right: 5%">
+            <lightning-combobox
+                name="Carga-CSV-Picklist"
+                label={OBJECT}
+                placeholder={SELECT_OBJECT}
+                options={acceptedObjects}
+                onchange={comboboxHandleChange} >
+            </lightning-combobox>
+            <div lwc:if={objectName}>
+                <lightning-file-upload
+                    name="Carga-CSV-UploadComponent"
+                    accept={acceptedCSVFormats} 
+                    label={ARCHIVE_CSV}
+                    onuploadfinished={uploadFileHandler}>
+                </lightning-file-upload>
+            </div>
+        </div>
+        <div lwc:if={hasError} style="margin-top: 3%;">
+            <c-alert 
+                state="warning" 
+                title={ERROR_INSTRUCTIONS} 
+                showonlytitle="true"
+                notify-style={STYLE.NOTIFY_STYLE}
+                titlealert={STYLE.TITLE_STYLE}
+                hidde-icon="true">
+                    <ul for:each={ERROR_MESSAGE} for:item="errorMessage" key={objectName} class="slds-col slds-text-heading_small">
+                        <li>
+                            {errorMessage.Title}
+                            <ul for:each={errorMessage.SubTopics} for:item="subTopic" key={errorMessage.Title} class="slds-is-nested">
+                                <li>
+                                    {subTopic}
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+            </c-alert>
+        </div><br/>
+        <div lwc:if={objectName} class="example-style">
+            <hr class="slds-m-vertical_none"></hr>
+            <p class="slds-text-heading_medium wrapped-content slds-text-align_center">
+                <b>{LOAD_EXAMPLE}</b>
+            </p>
+            <div style="margin-top: 2%">
+                <lightning-card lwc:if={viewExamples} class="slds-grid slds-grid_align-center">
+                    <a onclick={previewHandler}><img src={urlPNG}/></a>
+                    <div class="slds-text-align_center slds-m-top_x-small">
+                        <lightning-button variant="Brand" label={DOWNLOAD} onclick={handleDownload}></lightning-button>
+                    </div>
+                </lightning-card> 
+            </div>
+        </div>
+    </lightning-card>
+</template>

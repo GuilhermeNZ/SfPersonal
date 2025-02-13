@@ -1,0 +1,41 @@
+<template>
+    <div class="slds-card_header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure slds-m-left_x-small slds-m-vertical_x-small">
+                <lightning-icon icon-name="action:new_account" alternative-text="Account" title="Conta" style="zoom: 150%"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-col slds-card__header-title">Informações da Conta</h2>
+            </div>
+        </header>
+    </div>
+    <hr class="slds-m-vertical_none"></hr>
+    <div class="slds-grid slds-m-bottom_xx-small"><!-- linha -->
+        <div class="slds-col slds-m-horizontal_small"><!-- coluna 1 -->
+            <lightning-input class="slds-m-around_xx-small" type="text" label="Primeiro Nome"></lightning-input>
+            <lightning-input class="slds-m-around_xx-small" type="text" label="Ultimo Nome"></lightning-input>
+            <lightning-input class="slds-m-around_xx-small" type="date" name="" label="Data de Nascimento" ></lightning-input>
+        </div>
+        <div class="slds-col slds-m-horizontal_small"><!-- coluna 2 -->
+            <lightning-input class="slds-m-around_xx-small" type="text" label="CPF"></lightning-input>
+            <lightning-input class="slds-m-around_xx-small" type="text" label="RG"></lightning-input>
+            <lightning-input class="slds-m-around_xx-small" type="text" label="Numero do Passaporte" ></lightning-input>
+        </div>
+        <div class="slds-col slds-m-horizontal_small"><!-- coluna 3  -->
+            <lightning-input class="slds-m-around_xx-small" type="text" label="Tipo Do Cliente"></lightning-input>
+            <lightning-input class="slds-m-around_xx-small" type="text" label="Setor de Vendas"></lightning-input>
+            <lightning-input class="slds-m-around_xx-small" type="text" label="Classificação do Comprador" value="Classificação 1" disabled></lightning-input>
+        </div>
+    </div>
+    <div>
+        <lightning-accordion for:each={account.Contacts} for:item="contact" key={Type} allow-multiple-sections-open active-section-name={active}>
+            <lightning-accordion-section name={contact.Type} label={contact.Type}>
+                <lightning-input class="slds-m-around_xx-small" type="tel" label="Numero" value={contact.Numero} disabled></lightning-input>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </div>
+    <lightning-modal-footer>
+        <lightning-button variant="destructive" label="Cancelar" title="Cancel" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="success" label="Salvar" title="Save" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+    </lightning-modal-footer>
+</template>
