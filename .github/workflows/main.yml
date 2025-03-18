@@ -1,5 +1,10 @@
 name: Salesforce Code Analyzer Workflow
-on: push
+on: 
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'force-app/**'
 jobs:
   salesforce-code-analyzer-workflow:
     runs-on: ubuntu-latest
