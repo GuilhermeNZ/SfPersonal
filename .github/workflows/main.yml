@@ -1,0 +1,26 @@
+            - name: Run Salesforce Code Analyzer
+  # You may pin to the exact commit or the version.
+  # uses: forcedotcom/run-code-analyzer@bfae1fe9a8894aea78cf26d2463cc865fbf67b17
+  uses: forcedotcom/run-code-analyzer@v1.0.0
+  with:
+    # Specifies the Salesforce Code Analyzer command to run.
+Possible values are: "run", "run dfa". Default: "run"
+
+For more info on Code Analyzer, read our [documentation](https://forcedotcom.github.io/sfdx-scanner).
+    run-command: # optional, default is run
+    # Specifies arguments passed to the specified run-command value.
+Default: "--normalize-severity"
+
+The arguments provided must include --normalize-severity.
+
+To control the output file included in the uploaded artifact, specify an output file name with the --outfile argument.
+If an output file isn’t specified, results are written to GitHub workflow run logs and a SalesforceCodeAnalyzerResults.json file is included in the uploaded artifact.
+
+For a full list of acceptable arguments, read the appropriate Command Reference:
+- [sf scanner run](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/scanner-commands/run)
+- [sf scanner run dfa](https://forcedotcom.github.io/sfdx-scanner/en/v3.x/scanner-commands/dfa)
+    run-arguments: # optional, default is --normalize-severity
+    # Specifies the name of the zip archive job artifact where the results output file is uploaded.
+Default: "code-analyzer-results"
+    results-artifact-name: # optional, default is code-analyzer-results
+          
