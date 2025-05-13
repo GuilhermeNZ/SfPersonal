@@ -1,4 +1,11 @@
-public with sharing class AccountRepository {
+public with sharing class AccountRepository extends AbstractRepository {
+
+    public static AccountRepository instance = null;
+
+    public static AccountRepository getInstance() {
+        if( instance == null ) instance = new AccountRepository();
+        return instance;
+    }
     
     public List<Account> findByBillingPostalCodes( Set<String> billingPostalCodes ) {
         return [
@@ -8,6 +15,17 @@ public with sharing class AccountRepository {
             FROM
                 Account
             WHERE BillingPostalCode IN :billingPostalCodes
+        ];
+    }
+
+    public List<Account> findByIds( Set<String> ids ) {
+        return [
+            SELECT
+                Id
+                , Description__c
+            FROM
+                Account
+            WHERE Id IN :ids
         ];
     }
 
