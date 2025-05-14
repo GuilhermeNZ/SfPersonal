@@ -1,4 +1,4 @@
-public with sharing class AccountRepository extends AbstractRepository {
+public virtual class AccountRepository extends AbstractRepository {
 
     public static AccountRepository instance = null;
 
@@ -18,7 +18,7 @@ public with sharing class AccountRepository extends AbstractRepository {
         ];
     }
 
-    public List<Account> findByIds( Set<String> ids ) {
+    public virtual List<Account> findByIds( Set<String> ids ) {
         return [
             SELECT
                 Id
