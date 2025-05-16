@@ -72,7 +72,13 @@ public without sharing class Maps {
 
     private static Map<String, SObject> newEmptyMap (List<SObject> records) {
 
-        Type sobjectType = Type.forName( 'Map<String, ' + records.getSObjectType() + '>' );
+        if ( Lists.isEmpty(records) ) return null;
+
+        Schema.DescribeSObjectResult describer = records.get(0).getSObjectType().getDescribe();
+
+        String sobjectName = describer.getName();
+
+        Type sobjectType = Type.forName( 'Map<String, ' + sobjectName + '>' );
 
         return (Map<String, SObject>) sobjectType.newInstance();
     }

@@ -33,4 +33,9 @@ public with sharing class TCO_AccountService {
         return this.repository.save( enrichedAccounts );
     }
 
+    @TestVisible
+    private void setRepository( AccountRepository repositoryMock ) {
+        this.repository = repositoryMock;
+    }
+
 }
