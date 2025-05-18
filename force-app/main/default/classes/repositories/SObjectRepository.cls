@@ -11,4 +11,9 @@ public virtual class SObjectRepository extends AbstractRepository {
         return Database.query( query );
     }
 
+    public List<SObject> findByIdsToUseInRulesExecution( List<String> sObjectIds ) {
+        //Working
+        return new List<SObject>();
+    }
+
 }

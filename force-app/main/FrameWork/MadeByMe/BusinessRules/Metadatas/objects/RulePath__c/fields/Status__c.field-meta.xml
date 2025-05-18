@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Em Análise</fullName>
+                <default>false</default>
+                <label>Em Análise</label>
+            </value>
+            <value>
+                <fullName>Em Processamento</fullName>
+                <default>false</default>
+                <label>Em Processamento</label>
+            </value>
+            <value>
+                <fullName>Regra Atendida</fullName>
+                <default>false</default>
+                <label>Regra Atendida</label>
+            </value>
+            <value>
+                <fullName>Regra nao Atendida</fullName>
+                <default>false</default>
+                <label>Regra nao Atendida</label>
+            </value>
+            <value>
+                <fullName>Aguardando Pagamento</fullName>
+                <default>false</default>
+                <label>Aguardando Pagamento</label>
+            </value>
+            <value>
+                <fullName>Em Aprovacao</fullName>
+                <default>false</default>
+                <label>Em Aprovação</label>
+            </value>
+            <value>
+                <fullName>Faturamento Parcial Realizado</fullName>
+                <default>false</default>
+                <label>Faturamento Parcial Realizado</label>
+            </value>
+            <value>
+                <fullName>Erro Integracao</fullName>
+                <default>false</default>
+                <label>Erro Integração</label>
+            </value>
+            <value>
+                <fullName>Aguardando Retorno da Integracao</fullName>
+                <default>false</default>
+                <label>Aguardando Retorno da Integração</label>
+            </value>
+            <value>
+                <fullName>Erro ao Executar Regra</fullName>
+                <default>false</default>
+                <label>Erro ao Executar Regra</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

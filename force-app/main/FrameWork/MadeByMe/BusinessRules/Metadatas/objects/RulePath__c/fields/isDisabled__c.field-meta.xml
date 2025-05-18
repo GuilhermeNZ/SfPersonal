@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>isDisabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo identificador para saber se o conjunto de regras ainda esta em processo de análise, caso esteja marcada com o valor &quot;false&quot;, o conjunto de regras ainda esta em andamento, caso esteja com o valor &quot;true&quot;, o conjunto de regras que essa regra pertence foi cancelado ou alguma regra nao foi atendida.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Campo identificador para saber se o conjunto de regras ainda esta em processo de análise, caso esteja marcada com o valor &quot;false&quot;, o conjunto de regras ainda esta em andamento, caso esteja com o valor &quot;true&quot;, o conjunto de regras que essa regra pertence foi cancelado ou alguma regra nao foi atendida.</inlineHelpText>
+    <label>Está Desativado</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

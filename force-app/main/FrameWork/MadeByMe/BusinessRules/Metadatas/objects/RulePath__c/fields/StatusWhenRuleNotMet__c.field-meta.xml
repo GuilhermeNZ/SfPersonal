@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StatusWhenRuleNotMet__c</fullName>
+    <description>Status que será atualizado a cotação relacionada quando a regra não for atendida, caso não queira que seja feito atualização de status, deixar campo sem nenhum valor.</description>
+    <externalId>false</externalId>
+    <formula>BusinessRulesPath__r.StatusWhenRuleNotMet__c</formula>
+    <inlineHelpText>Status que será atualizado a cotação relacionada quando a regra não for atendida, caso não queira que seja feito atualização de status, deixar campo sem nenhum valor.</inlineHelpText>
+    <label>Status quando regra não for atendida</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
