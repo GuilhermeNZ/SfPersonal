@@ -32,16 +32,12 @@ public with sharing class RulePathExecuteService {
         this.resultsByClassName = new Map<String,Map<String,List<SObject>>>();
         this.approvalProcess = new List<Approval.ProcessSubmitRequest>();
     }
-    
-    //Working
+
     public void executeRules( List<RulePath__c> rulesPaths ) {
 
         try{
             Map<String, List<RulePath__c>> rulesPathsByClassName = (Map<String, List<RulePath__c>>)
             Maps.groupBy( 'ClassName__c', rulesPaths );
-    
-            List<SObject> sObjects = this.sObjectRepositoryInstance.findByIdsToUseInRulesExecution( Lists.byField( rulesPaths, 'SObjectId__c' ) );
-            Map<String,SObject> sObjectById = new Map<String,SObject>( sObjects );
 
             for( String className : rulesPathsByClassName.keySet() ) {
                 RulePathAbstract rulePathAbstract = (RulePathAbstract) Type.forName( className ).newInstance();
@@ -49,10 +45,8 @@ public with sharing class RulePathExecuteService {
                 Map<String,RulePath__c> rulePathBySObjectId = (Map<String,RulePath__c>)
                     Maps.indexBy( 'SObjectId__c', rulesPathsByClassName.get( className ) );
 
-                Map<String,SObject> filteredSObjects = this.provideSObjects( sObjectById, rulesPathsByClassName.get( className ) );
+                rulePathAbstract.executeRule( rulePathBySObjectId );
 
-                rulePathAbstract.executeRule( filteredSObjects, rulePathBySObjectId );
-                
                 this.resultsByClassName.put( className, rulePathAbstract.getSObjectsByName() );
                 this.approvalProcess.addAll( rulePathAbstract.getApprovalProcess() );
             }
@@ -65,18 +59,6 @@ public with sharing class RulePathExecuteService {
         }
 
         
-    }
-
-    private Map<String,SObject> provideSObjects( Map<String,SObject> sObjectById, List<RulePath__c> rulesPathsToExecute ) {
-
-        Map<String,SObject> filteredSObjects = new Map<String,SObject>();
-
-        for( RulePath__c rulePathToExecute : rulesPathsToExecute ){
-            if( filteredSObjects.containsKey( rulePathToExecute.SObjectId__c ) ) continue;
-            filteredSObjects.put( rulePathToExecute.SObjectId__c, sObjectById.get( rulePathToExecute.SObjectId__c ) );
-        }
-
-        return filteredSObjects;
     }
 
     private void postExecuteRules( List<Approval.ProcessSubmitRequest> approvalProcess, Map<String,Map<String,List<SObject>>> resultsByClassName ) {

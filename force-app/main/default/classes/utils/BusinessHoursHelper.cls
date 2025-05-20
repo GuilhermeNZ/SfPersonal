@@ -13,11 +13,6 @@ public with sharing class BusinessHoursHelper {
 
     private BusinessHoursHelper(){}
 
-    //Working, colocar em uma repository
-    private BusinessHours getDefaultBusinessHours(){
-        return [SELECT Id FROM BusinessHours WHERE IsDefault = true Limit 1];
-    }
-
     public Decimal getTimeIntervalMinutes( DateTime startDate, DateTime endDate, BusinessHours defaultBusinessHours ) {
         if( startDate == null || endDate == null ) return 0;
 

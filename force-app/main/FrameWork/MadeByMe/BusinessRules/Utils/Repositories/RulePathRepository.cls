@@ -32,7 +32,6 @@ public virtual with sharing class RulePathRepository extends AbstractRepository 
                 , SObjectId__c
                 , Sequence__c
                 , isActivated__c
-                , StatusWhenRuleNotMet__c
             FROM
                 RulePath__c
             WHERE SObjectId__c IN :sObjectIds
@@ -94,7 +93,6 @@ public virtual with sharing class RulePathRepository extends AbstractRepository 
                 , Status__c
                 , isActivated__c
                 , Sequence__c
-                , StatusWhenRuleNotMet__c
                 , ExecuteSubRule__c
             FROM
                 RulePath__c

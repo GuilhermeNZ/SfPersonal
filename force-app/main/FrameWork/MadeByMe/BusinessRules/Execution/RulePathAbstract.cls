@@ -16,7 +16,7 @@ public abstract class RulePathAbstract {
         this.approvalProcess = new List<Approval.ProcessSubmitRequest>();
     }
 
-    public virtual Map<String,List<SObject>> executeRule( Map<String,SObject> sObjectById, Map<String,RulePath__c> rulePathBySObjectId ){
+    public virtual Map<String,List<SObject>> executeRule( Map<String,RulePath__c> rulePathBySObjectId ){
         /*
         ---Execution Ordem---
             Queries

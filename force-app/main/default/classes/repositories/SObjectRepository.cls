@@ -11,9 +11,12 @@ public virtual class SObjectRepository extends AbstractRepository {
         return Database.query( query );
     }
 
-    public List<SObject> findByIdsToUseInRulesExecution( List<String> sObjectIds ) {
-        //Working
-        return new List<SObject>();
+    public SObject buildAndFindById( List<String> fields, String SObjectName, String idValue ) {
+        String query = 'SELECT ' + String.join( fields, ',' ) + ' FROM ' + SObjectName + ' WHERE Id = :idValue';
+
+        List<SObject> sObjects = Database.query( query );
+
+        return sObjects.isEmpty() ? null : sObjects[0];
     }
 
 }

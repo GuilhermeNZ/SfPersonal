@@ -11,18 +11,32 @@ public with sharing class RulePathCreatorService {
         return instance;
     }
 
-    public BusinessRulesSettingFinder businessRulesSettingFinderInstance;
+    private SObjectRepository sObjectRepository;
+    private RulePathSObjectSettingRepository rulePathSObjectSettingRepositoryInstance;
+
+    private BusinessRulesSettingFinder businessRulesSettingFinderInstance;
 
     private RulePathCreatorService(){
         this.businessRulesSettingFinderInstance = BusinessRulesSettingFinder.getInstance();
+        this.rulePathSObjectSettingRepositoryInstance = RulePathSObjectSettingRepository.getInstance();
+
+        this.sObjectRepository = new SObjectRepository();
     }
 
     public List<RulePath__c> byIdAndSObjectApiName( String sObjectId, String sObjectApiName ) {
 
-        //Working: GetSObjetc By Id Dynamic
-        SObject sObjectRecord;
+        //Working, criar o objeto sempre que colocar novos campos na settings
+        RulePathSObjectSetting__c rulePathSObjectSetting = this.rulePathSObjectSettingRepositoryInstance.findByName( sObjectApiName );
 
-        BusinessRulesSetting__c businessRulesSetting = businessRulesSettingFinderInstance.byIdAndSObjectApiName( sObjectRecord, sObjectApiName );
+        //Working, thown exception when dont return rulePathSObjectSetting
+
+        SObject sObjectRecord = this.sObjectRepository.buildAndFindById(
+            rulePathSObjectSetting.FieldsToUseInQuery__c.split( ',' )
+            , sObjectApiName
+            , sObjectId
+        );
+
+        BusinessRulesSetting__c businessRulesSetting = this.businessRulesSettingFinderInstance.byIdAndSObjectApiName( sObjectRecord, sObjectApiName );
 
         List<RulePath__c> rulePath = new List<RulePath__c>();
 
