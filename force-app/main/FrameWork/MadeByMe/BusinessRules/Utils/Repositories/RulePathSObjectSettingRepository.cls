@@ -2,7 +2,7 @@
  * @description: Repository for RulePathSObjectSetting__c Object
  * @author: Guilherme Zwipp
  */
-public virtual class RulePathSObjectSettingRepository {
+public virtual class RulePathSObjectSettingRepository extends AbstractRepository{
 
     private static RulePathSObjectSettingRepository instance = null;
 
@@ -22,11 +22,17 @@ public virtual class RulePathSObjectSettingRepository {
         return[
             SELECT
                 Id
+                , Name
                 , FieldsToUseInQuery__c
             FROM
                 RulePathSObjectSetting__c
             WHERE Name IN :names
         ];
+    }
+
+    @TestVisible
+    private static void setMock( RulePathSObjectSettingRepository mockInstance ) {
+        instance = mockInstance;
     }
 
 }

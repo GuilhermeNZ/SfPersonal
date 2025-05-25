@@ -4,10 +4,8 @@
  */
 public with sharing class RulePathHandler extends TriggerHandler {
         
-    private List<RulePath__c> tNew;
-	private List<RulePath__c> tOld;
-	private Map<Id, RulePath__c> tNewMap;
-	private Map<Id, RulePath__c> tOldMap;
+    private List<RulePath__c> newRulePaths;
+	private Map<Id, RulePath__c> oldRulePathById;
 
     private RulePathFilter filter;
     private RulePathEnricher enricher;
@@ -18,10 +16,8 @@ public with sharing class RulePathHandler extends TriggerHandler {
     //private QuoteDirector quoteDirectorInstance;
 
     public RulePathHandler() {
-		this.tNew = (List<RulePath__c>) Trigger.new;
-		this.tOld = (List<RulePath__c>) Trigger.old;
-		this.tNewMap = (Map<Id, RulePath__c>) Trigger.newMap;
-		this.tOldMap = (Map<Id, RulePath__c>) Trigger.oldMap;
+		this.newRulePaths = (List<RulePath__c>) Trigger.new;
+		this.oldRulePathById = (Map<Id, RulePath__c>) Trigger.oldMap;
 
         this.filter = RulePathFilter.getInstance();
         this.enricher = RulePathEnricher.getInstance();
@@ -33,23 +29,23 @@ public with sharing class RulePathHandler extends TriggerHandler {
 	}
 
     public override void beforeInsert() {
-        this.putFirstRuleInAnalisy( this.tNew );
-        this.enrichStatusTracker( this.tNew, this.tOldMap );
+        this.putFirstRuleInAnalisy( this.newRulePaths );
+        this.enrichStatusTracker( this.newRulePaths, this.oldRulePathById );
     }
 
     public override void afterInsert() {
-        this.executeFirstRules( this.tNew );
+        this.executeFirstRules( this.newRulePaths );
     }
 
     public override void beforeUpdate(){
-        this.enrichStatusTracker( this.tNew, this.tOldMap );
+        this.enrichStatusTracker( this.newRulePaths, this.oldRulePathById );
     }
 
     public override void afterUpdate(){
-        this.putNextRuleInAnalisy( this.tNew, this.tOldMap );
-        this.afterReprovedActions( this.tNew, this.tOldMap );
-        //this.updateQuoteStatusAfterRulesExecution( this.tNew, this.tOldMap );
-        this.executeNextRules( this.tNew, this.tOldMap );
+        this.putNextRuleInAnalisy( this.newRulePaths, this.oldRulePathById );
+        this.afterReprovedActions( this.newRulePaths, this.oldRulePathById );
+        //this.updateQuoteStatusAfterRulesExecution( this.newRulePaths, this.oldRulePathById );
+        this.executeNextRules( this.newRulePaths, this.oldRulePathById );
     }
 
     private void putFirstRuleInAnalisy( List<RulePath__c> rulesPaths ) {
