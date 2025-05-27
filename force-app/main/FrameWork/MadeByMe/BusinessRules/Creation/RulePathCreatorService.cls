@@ -25,7 +25,6 @@ public with sharing class RulePathCreatorService {
 
     public List<RulePath__c> byIdAndSObjectApiName( String sObjectId, String sObjectApiName ) {
 
-        //Working, criar o objeto sempre que colocar novos campos na settings
         RulePathSObjectSetting__c rulePathSObjectSetting = this.rulePathSObjectSettingRepositoryInstance.findByName( sObjectApiName );
 
         //Working, thown exception when dont return rulePathSObjectSetting
