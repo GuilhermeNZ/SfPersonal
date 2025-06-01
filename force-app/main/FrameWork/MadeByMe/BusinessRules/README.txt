@@ -3,7 +3,7 @@ Tag:
 
     Automated process to enrich RulePathSettings__mdt with new fields to query
         New object do storage the fields when RuleKey updated - COMPLETED
-        Trigger before to validate field entered in the query, return error if dont exist
+        Trigger before to validate field entered in the query, return error if dont exist - COMPLETED 50%
         Possible to delete fields in query
 
 
