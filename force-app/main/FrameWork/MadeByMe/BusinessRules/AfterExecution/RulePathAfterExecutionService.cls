@@ -23,7 +23,7 @@ public with sharing class RulePathAfterExecutionService {
         this.approvalProcess = new List<Approval.ProcessSubmitRequest>();
     }
 
-    //Working
+    //Working, use the idea os after objects to store the after actions, and enable use a class apex to make this
     private final Map<String,String> CLASSNAME_BY_AFTER_EXECUTION_CLASSNAME = new Map<String,String>{
         'SupplierValidationRule' => 'SupplierAfterExecutionRule',
         'ProductHasStockValidationRule' => 'ProductHasStockAfterExecutionRule'

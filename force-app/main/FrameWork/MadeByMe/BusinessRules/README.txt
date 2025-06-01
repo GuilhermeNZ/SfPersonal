@@ -5,11 +5,11 @@ Tag:
         New object do storage the fields when RuleKey updated - COMPLETED
         Trigger before to validate field entered in the query, return error if dont exist - COMPLETED 50%
         Possible to delete fields in query
+        *Resolution: BusinessRules/BusinessRulesSettings
 
 
     Definir alguns campos para atualizar do objeto principal dinamicamente
         Inside businessRulesPath, make another object to define the updates
-        When one field in excluded, remove from the setting too
 
 
     Screen flow to show the rules in the object layout

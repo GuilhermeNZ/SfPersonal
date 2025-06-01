@@ -44,7 +44,6 @@ public with sharing class RulePathHandler extends TriggerHandler {
     public override void afterUpdate(){
         this.putNextRuleInAnalisy( this.newRulePaths, this.oldRulePathById );
         this.afterReprovedActions( this.newRulePaths, this.oldRulePathById );
-        //this.updateQuoteStatusAfterRulesExecution( this.newRulePaths, this.oldRulePathById );
         this.executeNextRules( this.newRulePaths, this.oldRulePathById );
     }
 
@@ -88,17 +87,6 @@ public with sharing class RulePathHandler extends TriggerHandler {
 
         System.enqueueJob( new RulePathQueue( rulesPathsInAnalisy ) );
     }
-
-    //Working
-    // private void updateQuoteStatusAfterRulesExecution( List<RulePath__c> rulesPaths, Map<Id, RulePath__c> oldRulePathById ) {
-    //     List<RulePath__c> quoteRulesPathsWithStatusRuleMetAndNotMet = this.filter.relevantChangeRecordsFilter(
-    //         rulesPaths, oldRulePathById, 'Status__c', new List<String>{'Regra Atendida', 'Regra nao Atendida'}
-    //     );
-
-    //     if( quoteRulesPathsWithStatusRuleMetAndNotMet.isEmpty() ) return;
-
-    //     this.quoteDirectorInstance.enrichAfterQuoteRulesExecution( quoteRulesPathsWithStatusRuleMetAndNotMet );
-    // }
 
     private void afterReprovedActions( List<RulePath__c> rulesPaths, Map<Id, RulePath__c> oldRulePathById ) {
 
