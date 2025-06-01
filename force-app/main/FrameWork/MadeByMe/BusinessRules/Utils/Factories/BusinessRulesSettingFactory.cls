@@ -21,6 +21,10 @@ public with sharing class BusinessRulesSettingFactory {
         }
 
     }
+
+    public static BusinessRulesSetting__c fromJson( String payload ){
+        return (BusinessRulesSetting__c) JSON.deserialize( payload, BusinessRulesSetting__c.class );
+    }
     
     public static List<BusinessRulesSetting__c> fromJsonArray( String payload ){
         return (List<BusinessRulesSetting__c>) JSON.deserialize( payload, List<BusinessRulesSetting__c>.class );

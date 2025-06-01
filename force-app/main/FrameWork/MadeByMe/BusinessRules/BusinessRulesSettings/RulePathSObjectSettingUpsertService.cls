@@ -5,19 +5,23 @@
 public with sharing class RulePathSObjectSettingUpsertService {
 
     private RulePathSObjectSettingRepository repository;
+    private BusinessRulesSettingValidator validator;
 
     public RulePathSObjectSettingUpsertService(){
         this.repository = RulePathSObjectSettingRepository.getInstance();
+        this.validator = new BusinessRulesSettingValidator();
     }
     
     public List<RulePathSObjectSetting__c> byBusinessRulesSettingsRuleKey( List<BusinessRulesSetting__c> newBusinessRulesSettings, Map<Id,BusinessRulesSetting__c> oldBusinessRulesSettingById ) {
 
-        List<RulePathSObjectSetting__c> rulePathSObjectSettingsInOrg = this.repository.findByNames(
-            Lists.byField( newBusinessRulesSettings, 'Object__c' )
-        );
+        List<String> objectNames = Lists.byField( newBusinessRulesSettings, 'Object__c' );
+
+        List<RulePathSObjectSetting__c> rulePathSObjectSettingsInOrg = this.repository.findByNames( objectNames );
 
         Map<String, RulePathSObjectSetting__c> rulePathSObjectSettingByObjectName = rulePathSObjectSettingsInOrg.isEmpty() ? new Map<String, RulePathSObjectSetting__c>()
             : (Map<String, RulePathSObjectSetting__c>) Maps.indexBy( 'Name' , rulePathSObjectSettingsInOrg );
+
+        Map<String,Schema.DescribeSobjectResult> describeSObjectByName = this.getDescribreSObjectByName( objectNames );
 
         for( BusinessRulesSetting__c newBusinessRulesSetting : newBusinessRulesSettings ) {
             if( String.isBlank( newBusinessRulesSetting.RuleKey__c ) ) continue;
@@ -37,6 +41,10 @@ public with sharing class RulePathSObjectSettingUpsertService {
 
             List<String> fieldsToAddInQuery = this.getFieldsToAddInQueryByBusinessRulesSettingRuleKey( stringDifference );
 
+            this.validator.ruleKeyFieldsIsValid( fieldsToAddInQuery, describeSObjectByName, newBusinessRulesSetting );
+
+            if( newBusinessRulesSetting.hasErrors() ) continue;
+
             for( String fieldToAddInQuery : fieldsToAddInQuery ) {
                 if( rulePathSObjectSetting.FieldsToUseInQuery__c.contains( fieldToAddInQuery ) ) continue;
                 rulePathSObjectSetting.FieldsToUseInQuery__c += ',' + fieldToAddInQuery;
@@ -48,6 +56,17 @@ public with sharing class RulePathSObjectSettingUpsertService {
         }
 
         return this.repository.save( rulePathSObjectSettingByObjectName.values() );
+    }
+
+    private Map<String,Schema.DescribeSobjectResult> getDescribreSObjectByName( List<String> objectNames ) {
+
+        Map<String,Schema.DescribeSobjectResult> describeSObjectByName = new Map<String,Schema.DescribeSobjectResult>();
+
+        for( Schema.DescribeSobjectResult result : Schema.describeSObjects( objectNames ) ) {
+            describeSObjectByName.put( result.getName(), result );
+        }
+
+        return describeSObjectByName;
     }
 
     private List<String> getFieldsToAddInQueryByBusinessRulesSettingRuleKey( String ruleKeyStringDifference ) {
