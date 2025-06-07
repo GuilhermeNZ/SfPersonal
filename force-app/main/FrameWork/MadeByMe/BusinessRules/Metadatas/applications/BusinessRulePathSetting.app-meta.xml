@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>X67e1077751cd4dc5a9642f43cd883caf</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>App to manage Business Rule Framework, maded by Guilherme Zwipp (https://www.linkedin.com/in/guilherme-salesforce/)</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>true</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Business Rule Path Setting</label>
+    <navType>Standard</navType>
+    <tabs>BusinessRulesSetting__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Business_Rule_Path_Setting_UtilityBar</utilityBar>
+</CustomApplication>

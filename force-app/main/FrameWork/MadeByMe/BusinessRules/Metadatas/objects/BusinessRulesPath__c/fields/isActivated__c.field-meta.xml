@@ -3,7 +3,7 @@
     <fullName>isActivated__c</fullName>
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
-    <label>Ativo</label>
+    <label>isActivated</label>
     <trackTrending>false</trackTrending>
     <type>Checkbox</type>
 </CustomField>

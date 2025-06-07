@@ -130,7 +130,7 @@
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>BusinessRulesValidation_Record_Page</content>
-        <formFactor>Large</formFactor>
+        <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
@@ -138,7 +138,7 @@
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>BusinessRulesValidation_Record_Page</content>
-        <formFactor>Small</formFactor>
+        <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
@@ -160,9 +160,9 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <gender>Feminine</gender>
-    <label>Validações de Regras de Negócios</label>
+    <label>BusinessRulesValidation</label>
     <nameField>
-        <label>BusinessRulesValidation Name</label>
+        <label>Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>BusinessRulesValidations</pluralLabel>

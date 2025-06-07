@@ -129,7 +129,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>BusinessRulesPath_Record_Page</content>
+        <content>BusinessRulesPathRecordPage</content>
         <formFactor>Small</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -137,7 +137,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>BusinessRulesPath_Record_Page</content>
+        <content>BusinessRulesPathRecordPage</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
@@ -160,9 +160,9 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <gender>Feminine</gender>
-    <label>Sequência da Regra de Negocio</label>
+    <label>BusinessRulesPath</label>
     <nameField>
-        <label>BusinessRulesPath Name</label>
+        <label>Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>BusinessRulesPaths</pluralLabel>

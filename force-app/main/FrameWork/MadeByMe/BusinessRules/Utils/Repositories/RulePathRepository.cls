@@ -75,7 +75,6 @@ public virtual with sharing class RulePathRepository extends AbstractRepository 
                 Id
                 , SObjectId__c
                 , Status__c
-                , BusinessRulesPath__r.BusinessRulesSetting__r.StatusWhenRulesAreCompleted__c
                 , ExecuteSubRule__c
             FROM
                 RulePath__c

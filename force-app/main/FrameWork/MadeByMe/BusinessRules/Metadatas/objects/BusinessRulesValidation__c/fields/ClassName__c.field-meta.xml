@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>ClassName__c</fullName>
     <externalId>false</externalId>
-    <label>Nome da Classe</label>
+    <label>ClassName</label>
     <length>250</length>
     <required>false</required>
     <trackTrending>false</trackTrending>
