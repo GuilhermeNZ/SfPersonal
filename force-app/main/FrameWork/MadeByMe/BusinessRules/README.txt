@@ -15,10 +15,17 @@ Tag:
     Screen flow to show the rules in the object layout
 
 
-    App to manage the frameWork
+    App to manage the frameWork - 30%
+        Adiciuonar imagem ao meu app do businessRule
+        Criar uma home para o app, com instruçoes, video etc...
+        Colocar algumas imagens nos layouts, tornando visualmente mais agradável
+        Criar relatórios etc...
+        Colocar descriçao nos campos/objetos
 
 
     Permission sets to admnin and user, to use the framework
+        Admnin - 100% ( If some field are added, dont forget do add here )
+        User - 
 
 
     Final improvement: Better Logic in BusinessRulesSetting RuleKey__c ( OR, AND, != etc... )
