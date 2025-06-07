@@ -7,7 +7,7 @@
     <referenceTo>BusinessRulesPath__c</referenceTo>
     <relationshipLabel>RulePaths</relationshipLabel>
     <relationshipName>RulePaths</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
