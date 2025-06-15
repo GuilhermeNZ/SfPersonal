@@ -39,10 +39,10 @@ public class BusinessRulesSettingFinder{
 
         List<BusinessRulesSetting__c> businessRulesSettings = this.repository.findByIsActivatedAndObjectWithPatchsOrderByCreatedDateDESCLimit49999( 'Quote' );
 
-        return this.byQuote( sObjectRecord, businessRulesSettings );
+        return this.byIdAndSObjectApiName( sObjectRecord, businessRulesSettings );
     }
 
-    public BusinessRulesSetting__c byQuote( SObject sObjectRecord, List<BusinessRulesSetting__c> businessRulesSettings ) {
+    public BusinessRulesSetting__c byIdAndSObjectApiName( SObject sObjectRecord, List<BusinessRulesSetting__c> businessRulesSettings ) {
 
         for( BusinessRulesSetting__c businessRulesSetting : businessRulesSettings ) {
 

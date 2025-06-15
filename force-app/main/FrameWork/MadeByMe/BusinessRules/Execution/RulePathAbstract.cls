@@ -16,8 +16,7 @@ public abstract class RulePathAbstract {
         this.approvalProcess = new List<Approval.ProcessSubmitRequest>();
     }
 
-    public virtual Map<String,List<SObject>> executeRule( Map<String,RulePath__c> rulePathBySObjectId ){
-        /*
+    /*
         ---Execution Ordem---
             Queries
             getErrorMessageBySObjectId
@@ -26,8 +25,7 @@ public abstract class RulePathAbstract {
             Queries
             executeRuleAndEnrichAfterRuleExecution
         */
-        return this.sObjectsByName;
-    }
+    public abstract Map<String,List<SObject>> executeRule( Map<String,RulePath__c> rulePathBySObjectId );
 
     protected virtual Map<String,String> enrichErrorMessageBySObjectIdMap( Map<String, String> errorMessageBySObjectId, String sObjectId, String errorMessage, String errorTitle ) {
 
