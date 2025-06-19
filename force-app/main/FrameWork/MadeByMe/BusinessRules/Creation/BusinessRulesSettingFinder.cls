@@ -37,7 +37,7 @@ public class BusinessRulesSettingFinder{
 
     public BusinessRulesSetting__c byIdAndSObjectApiName( SObject sObjectRecord, String sObjectApiName ) {
 
-        List<BusinessRulesSetting__c> businessRulesSettings = this.repository.findByIsActivatedAndObjectWithPatchsOrderByCreatedDateDESCLimit49999( 'Quote' );
+        List<BusinessRulesSetting__c> businessRulesSettings = this.repository.findByIsActivatedAndObjectWithPatchsOrderByCreatedDateDESCLimit49999( sObjectApiName );
 
         return this.byIdAndSObjectApiName( sObjectRecord, businessRulesSettings );
     }

@@ -10,10 +10,13 @@ Tag:
 
     Definir alguns campos para atualizar do objeto principal dinamicamente
         Inside businessRulesPath, make another object to define the updates
+        Inside BusinessRulesSettings, make the same thing
 
 
     Screen flow to show the rules in the object layout
 
+    BusinessRulesSettingFinder
+        Método para buscar por lista de objetos
 
     App to manage the frameWork - 30%
         Adiciuonar imagem ao meu app do businessRule

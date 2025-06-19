@@ -23,6 +23,10 @@ public with sharing class RulePathCreatorService {
         this.sObjectRepository = new SObjectRepository();
     }
 
+    public List<RulePath__c> byIdAndSObjectApiNameAndCreate( String sObjectId, String sObjectApiName ) {
+        return this.sObjectRepository.save( this.byIdAndSObjectApiName( sObjectId, sObjectApiName ) );
+    }
+
     public List<RulePath__c> byIdAndSObjectApiName( String sObjectId, String sObjectApiName ) {
 
         RulePathSObjectSetting__c rulePathSObjectSetting = this.rulePathSObjectSettingRepositoryInstance.findByName( sObjectApiName );
