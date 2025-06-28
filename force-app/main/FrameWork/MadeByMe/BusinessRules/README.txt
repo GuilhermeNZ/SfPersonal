@@ -16,7 +16,8 @@ Tag:
     Screen flow to show the rules in the object layout
 
     BusinessRulesSettingFinder
-        Método para buscar por lista de objetos
+        Método para buscar por lista de objetos - FEITO
+        Aumentar limite de 49999 registros
 
     App to manage the frameWork - 30%
         Adiciuonar imagem ao meu app do businessRule

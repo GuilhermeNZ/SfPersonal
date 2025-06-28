@@ -1,6 +1,6 @@
 /**
  * @description: Class to provide stored SObject collections
- * @author: Guilherme Zwipp - Everymind
+ * @author: Guilherme Zwipp
  */
 public virtual class SObjectRepository extends AbstractRepository {
 
@@ -17,6 +17,12 @@ public virtual class SObjectRepository extends AbstractRepository {
         List<SObject> sObjects = Database.query( query );
 
         return sObjects.isEmpty() ? null : sObjects[0];
+    }
+
+    public List<SObject> buildAndFindByIds( List<String> fields, String SObjectName, List<Id> ids ) {
+        String query = 'SELECT ' + String.join( fields, ',' ) + ' FROM ' + SObjectName + ' WHERE Id IN :ids';
+
+        return Database.query( query );
     }
 
 }

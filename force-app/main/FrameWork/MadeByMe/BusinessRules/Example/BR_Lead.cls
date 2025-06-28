@@ -1,3 +1,7 @@
+/**
+ * @description: Example class using BusinessRulesSetting framework
+ * @author: Guilherme Zwipp
+ */
 public with sharing class BR_Lead {
     
     private static RulePathCreatorService rulePathCreatorServiceInstance;
@@ -7,7 +11,7 @@ public with sharing class BR_Lead {
     }
     
     public static void createRulesPath( Lead lead ) {
-        rulePathCreatorServiceInstance.byIdAndSObjectApiNameAndCreate( lead.Id, 'Lead' );
+        rulePathCreatorServiceInstance.bySObjectIdCreate( lead.Id );
     }
 
 }

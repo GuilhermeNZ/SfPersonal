@@ -14,11 +14,11 @@ public virtual class RulePathSObjectSettingRepository extends AbstractRepository
     protected RulePathSObjectSettingRepository() {}
 
     public virtual RulePathSObjectSetting__c findByName( String name ) {
-        List<RulePathSObjectSetting__c> rulePathSObjectSettings = this.findByNames( new List<String>{name} );
+        List<RulePathSObjectSetting__c> rulePathSObjectSettings = this.findByNames( new Set<String>{name} );
         return rulePathSObjectSettings.isEmpty() ? null : rulePathSObjectSettings[0];
     }
 
-    public virtual List<RulePathSObjectSetting__c> findByNames( List<String> names ) {
+    public virtual List<RulePathSObjectSetting__c> findByNames( Set<String> names ) {
         return[
             SELECT
                 Id

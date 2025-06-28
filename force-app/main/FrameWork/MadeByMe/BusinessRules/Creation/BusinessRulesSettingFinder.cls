@@ -1,5 +1,5 @@
 /**
- * @description: Class responsable to find BusinessRulesSetting by parameters
+ * @description: Class responsible to find BusinessRulesSetting by parameters
  * @author: Guilherme Zwipp
  */
 public class BusinessRulesSettingFinder{
@@ -17,77 +17,83 @@ public class BusinessRulesSettingFinder{
         this.repository = BusinessRulesSettingRepository.getInstance();
     }
 
-    // public Map<BusinessRulesSetting__c,List<Quote>> byQuotes( List<Quote> quotes ) {
+    private static final Integer QUERY_LIMIT = 49999;
+    private static final String RULE_KEY_DELIMITER = ';';
 
-    //     Map<BusinessRulesSetting__c,List<Quote>> quotesByBusinessRulesSettings = new Map<BusinessRulesSetting__c,List<Quote>>();
+    public Map<String,BusinessRulesSetting__c> byRecordsAndSObjectApiNames( List<SObject> sObjectRecords, Set<String> sObjectApiNames ) {
 
-    //     List<BusinessRulesSetting__c> businessRulesSettings = this.repository.findByIsActivatedAndObjectWithPatchsOrderByCreatedDateDESCLimit49999( 'Quote' ); //[SELECT Id, KeyValue__c, (SELECT Id, BusinessRulesValidation__r.ClassName__c, BusinessRulesValidation__r.FieldName__c FROM BusinessRulesPaths__r AND Active__c = true ORDER BY Priority__c ASC) FROM BusinessRulesSettings__c WHERE Active__c = True ORDER BY CreatedDate DESC];
+        List<BusinessRulesSetting__c> businessRulesSettings = this.repository.findByObjectNamesAndIsActivatedAndQueryLimit(
+            sObjectApiNames, true, QUERY_LIMIT
+        );
 
-    //     for( Quote quote : quotes ) {
-    //         BusinessRulesSetting__c businessRulesSetting = this.byQuote( quote, businessRulesSettings );
+        Map<String,List<BusinessRulesSetting__c>> businessRulesSettingsByObjectName = businessRulesSettings.isEmpty() ? new Map<String,List<BusinessRulesSetting__c>>()
+            : (Map<String,List<BusinessRulesSetting__c>>) Maps.groupBy( 'Object__c', businessRulesSettings );
 
-    //         if( businessRulesSetting == null ) continue;
-
-    //         if( !quotesByBusinessRulesSettings.containsKey( businessRulesSetting ) ) quotesByBusinessRulesSettings.put( businessRulesSetting, new List<Quote>() );
-    //         quotesByBusinessRulesSettings.get( businessRulesSetting ).add( quote );
-    //     }
-
-    //     return quotesByBusinessRulesSettings;
-    // }
-
-    public BusinessRulesSetting__c byIdAndSObjectApiName( SObject sObjectRecord, String sObjectApiName ) {
-
-        List<BusinessRulesSetting__c> businessRulesSettings = this.repository.findByIsActivatedAndObjectWithPatchsOrderByCreatedDateDESCLimit49999( sObjectApiName );
-
-        return this.byIdAndSObjectApiName( sObjectRecord, businessRulesSettings );
+        return this.bySObjectRecordsAndBusinessRulesSettingsByObjectName( sObjectRecords, businessRulesSettingsByObjectName );
     }
 
-    public BusinessRulesSetting__c byIdAndSObjectApiName( SObject sObjectRecord, List<BusinessRulesSetting__c> businessRulesSettings ) {
+    private Map<String,BusinessRulesSetting__c> bySObjectRecordsAndBusinessRulesSettingsByObjectName( List<SObject> sObjectRecords, Map<String,List<BusinessRulesSetting__c>> businessRulesSettingsByObjectName ) {
+
+        Map<String,BusinessRulesSetting__c> businessRulesSettingByObjectId = new Map<String,BusinessRulesSetting__c>();
+
+        for( SObject sObjectRecord : sObjectRecords ) {
+
+            String sObjectApiName = sObjectRecord.getSObjectType().getDescribe().getName();
+
+            if( !businessRulesSettingsByObjectName.containsKey( sObjectApiName ) ) {
+                throw new BusinessRulesSettingFinderException( 'No BusinessRulesSetting__c found for SObject type: ' + sObjectApiName );
+            }
+
+            BusinessRulesSetting__c settingFound = this.findFirstMatchingSetting(
+                businessRulesSettingsByObjectName.get( sObjectApiName ), sObjectRecord
+            );
+
+            if( settingFound == null ) {
+                throw new BusinessRulesSettingFinderException( 'No matching BusinessRulesSetting__c found for SObject with Id: ' + sObjectRecord.Id );
+            }
+
+            businessRulesSettingByObjectId.put( sObjectRecord.Id, settingFound );
+
+        }
+
+        return businessRulesSettingByObjectId;
+
+    }
+
+    private BusinessRulesSetting__c findFirstMatchingSetting( List<BusinessRulesSetting__c> businessRulesSettings, SObject sObjectRecord ) {
 
         for( BusinessRulesSetting__c businessRulesSetting : businessRulesSettings ) {
 
-            Boolean settingFound = true;
+            if( String.isBlank( businessRulesSetting.RuleKey__c ) ) continue;
 
-            List<String> keyValues = businessRulesSetting.RuleKey__c.split(';');
-
-            if( keyValues.isEmpty() ) continue;
-
-            for( String keyValue : keyValues ) {
-
-                List<String> keyAndValue = keyValue.replace(' ','').split('=');
-    
-                if( this.getFieldValue( sObjectRecord, keyAndValue[0] ).replace( ' ', '' ) != keyAndValue[1] ) {
-                    settingFound = false;
-                    break;
-                }
-
-            }
-
-            if( !settingFound ) continue;
+            if( !this.doesRecordMatchKeyValues( businessRulesSetting.RuleKey__c.split( RULE_KEY_DELIMITER ), sObjectRecord ) ) continue;
 
             return businessRulesSetting;
 
         }
-
-        return new BusinessRulesSetting__c();
-
+        
+        return null;
     }
 
-    private String getFieldValue( SObject record, String field ) {
-        List<String> splitedField = field.split('\\.');
-        for ( Integer i = 0; i < splitedField.size(); i++ ) {
-            if( i == splitedField.size() - 1 ) {
-                return String.valueOf( record.get( splitedField[i] ) );
+    private Boolean doesRecordMatchKeyValues( List<String> keyValues, SObject sObjectRecord ) {
+
+        if( keyValues.isEmpty() ) return false;
+
+        for( String keyValue : keyValues ) {
+
+            List<String> keyAndValue = keyValue.replace( ' ','' ).split( '=' );
+            if( keyAndValue.size() != 2 ) return false;
+
+            String fieldValue = SObjectHelper.getFieldValue( sObjectRecord, keyAndValue[0] );
+            if( String.isBlank( fieldValue ) ) fieldValue = 'null';
+
+            if( !fieldValue.replace( ' ', '' ).equals( keyAndValue[1] ) ) {
+                return false;
             }
-            record = record.getSObject( splitedField[i] );
-            if( record == null ) return null;
-        }
-        return '';
-    }
 
-    @TestVisible
-    private void setBusinessRulesSettingRepository( BusinessRulesSettingRepository repositoryMock ) {
-        this.repository = repositoryMock;
+        }
+
+        return true;
     }
 
 }

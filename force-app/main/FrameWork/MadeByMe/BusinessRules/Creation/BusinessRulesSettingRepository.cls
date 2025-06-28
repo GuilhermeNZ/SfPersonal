@@ -14,7 +14,7 @@ public virtual class BusinessRulesSettingRepository extends AbstractRepository {
     @TestVisible
     private BusinessRulesSettingRepository(){}
 
-    public virtual List<BusinessRulesSetting__c> findByIsActivatedAndObjectWithPatchsOrderByCreatedDateDESCLimit49999( String objectName ) {
+    public virtual List<BusinessRulesSetting__c> findByObjectNameAndIsActivatedAndQueryLimit( String objectName, Boolean isActivated, Integer queryLimit ) {
         return [
             SELECT
                 Id
@@ -34,9 +34,41 @@ public virtual class BusinessRulesSettingRepository extends AbstractRepository {
             FROM
                 BusinessRulesSetting__c
             WHERE Object__c = :objectName
-                AND isActivated__c = true
+                AND isActivated__c = :isActivated
             ORDER BY CreatedDate DESC
-            LIMIT 49999
+            LIMIT :queryLimit
         ];
     }
+
+    public virtual List<BusinessRulesSetting__c> findByObjectNamesAndIsActivatedAndQueryLimit( Set<String> objectNames, Boolean isActivated, Integer queryLimit ) {
+        return [
+            SELECT
+                Id
+                , Name
+                , RuleKey__c
+                , isActivated__c
+                , Object__c
+                , (
+                    SELECT
+                        Id
+                        , Name
+                        , Sequence__c
+                        , isActivated__c
+                    FROM
+                        BusinessRulesPaths__r
+                )
+            FROM
+                BusinessRulesSetting__c
+            WHERE Object__c IN :objectNames
+                AND isActivated__c = :isActivated
+            ORDER BY CreatedDate DESC
+            LIMIT :queryLimit
+        ];
+    }
+
+    @TestVisible
+    private static void setMock( BusinessRulesSettingRepository mockInstance ) {
+        instance = mockInstance;
+    }
+
 }
