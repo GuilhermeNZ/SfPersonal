@@ -32,14 +32,16 @@ public with sharing class RulePathCreatorService {
 
         Map<String,List<Id>> idsBySObjectApiName = IdHelper.buildMapIdsBySObjectApiName( sObjectIds );
 
-        List<RulePathSObjectSetting__c> rulePathSObjectSettings = this.rulePathSObjectSettingRepositoryInstance.findByNames( idsBySObjectApiName.keySet() );
+        Map<String,RulePathSObjectSetting__c> rulePathSObjectSettingBySObjectName = (Map<String,RulePathSObjectSetting__c>) Maps.indexBy(
+            'Name'
+            , this.rulePathSObjectSettingRepositoryInstance.findByNames( idsBySObjectApiName.keySet() )
+            , Map<String,RulePathSObjectSetting__c>.class
+        );
 
-        Map<String,RulePathSObjectSetting__c> rulePathSObjectSettingBySObjectName = rulePathSObjectSettings.isEmpty() ? new Map<String,RulePathSObjectSetting__c>()
-            : (Map<String,RulePathSObjectSetting__c>) Maps.indexBy( 'Name', rulePathSObjectSettings );
-
-        List<SObject> sObjectRecords = this.findSObjectsToCreateRulePaths( idsBySObjectApiName, rulePathSObjectSettingBySObjectName );
-
-        Map<String,BusinessRulesSetting__c> businessRulesSettingByObjectId = this.businessRulesSettingFinderInstance.byRecordsAndSObjectApiNames( sObjectRecords, idsBySObjectApiName.keySet() );
+        Map<String,BusinessRulesSetting__c> businessRulesSettingByObjectId = this.businessRulesSettingFinderInstance.byRecordsAndSObjectApiNames(
+            this.findSObjectsToCreateRulePaths( idsBySObjectApiName, rulePathSObjectSettingBySObjectName )
+            , idsBySObjectApiName.keySet()
+        );
 
         return this.buildRulePaths( businessRulesSettingByObjectId );
 
