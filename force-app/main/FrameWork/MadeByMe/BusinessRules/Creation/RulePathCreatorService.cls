@@ -4,19 +4,12 @@
  */
 public with sharing class RulePathCreatorService {
 
-    private static RulePathCreatorService instance = null;
-
-    public static RulePathCreatorService getInstance() {
-        if( instance == null ) instance = new RulePathCreatorService();
-        return instance;
-    }
-
     private SObjectRepository sObjectRepository;
     private RulePathSObjectSettingRepository rulePathSObjectSettingRepositoryInstance;
 
     private BusinessRulesSettingFinder businessRulesSettingFinderInstance;
 
-    private RulePathCreatorService(){
+    public RulePathCreatorService(){
         this.businessRulesSettingFinderInstance = BusinessRulesSettingFinder.getInstance();
         this.rulePathSObjectSettingRepositoryInstance = RulePathSObjectSettingRepository.getInstance();
 
@@ -25,6 +18,10 @@ public with sharing class RulePathCreatorService {
 
     public List<RulePath__c> bySObjectIdCreate( Id sObjectId ) {
         return this.sObjectRepository.save( this.bySObjectIdBuild( sObjectId ) );
+    }
+
+    public List<RulePath__c> bySObjectIdsCreate( List<Id> sObjectIds ) {
+        return this.sObjectRepository.save( this.bySObjectIdsBuild( sObjectIds ) );
     }
 
     public List<RulePath__c> bySObjectIdBuild( Id sObjectId ) {
