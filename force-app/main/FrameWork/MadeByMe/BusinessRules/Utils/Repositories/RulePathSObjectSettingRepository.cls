@@ -18,6 +18,10 @@ public virtual class RulePathSObjectSettingRepository extends AbstractRepository
         return rulePathSObjectSettings.isEmpty() ? null : rulePathSObjectSettings[0];
     }
 
+    public virtual List<RulePathSObjectSetting__c> findByNames( List<String> names ) {
+        return this.findByNames( new Set<String>( names ) );
+    }
+
     public virtual List<RulePathSObjectSetting__c> findByNames( Set<String> names ) {
         return[
             SELECT
