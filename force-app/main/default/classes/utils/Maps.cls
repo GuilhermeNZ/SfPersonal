@@ -1,6 +1,6 @@
 /**
  * @description: Utility class to handle and working with Maps
- * @author: Henrique Bustillos & Guilherme Zwipp - Everymind
+ * @author: Henrique Bustillos & Guilherme Zwipp
  */
 public without sharing class Maps {
 
@@ -9,6 +9,24 @@ public without sharing class Maps {
         if ( Lists.isEmpty(records) ) return newEmptyMap(records);
 
         Map<String, SObject> values = newEmptyMap(records);
+
+        for ( SObject record : records ) {
+
+            String value = getFieldValue( record, fieldName );
+
+            if ( value == null ) continue;
+
+            values.put( value, record );
+        }
+
+        return values;
+    }
+
+    public static Map<String, SObject> indexBy ( String fieldName, List<SObject> records, Type mapType ) {
+
+        if ( Lists.isEmpty(records) ) return (Map<String, SObject>) mapType.newInstance();
+
+        Map<String, SObject> values = (Map<String, SObject>) mapType.newInstance();
 
         for ( SObject record : records ) {
 
