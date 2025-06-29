@@ -2,7 +2,6 @@ Tag:
     //Working, is proccess dont finished yet
 
     Automated process to enrich RulePathSettings__mdt with new fields to query
-        New object do storage the fields when RuleKey updated - COMPLETED
         Trigger before to validate field entered in the query, return error if dont exist - COMPLETED 50%
         Possible to delete fields in query
         *Resolution: BusinessRules/BusinessRulesSettings
@@ -16,7 +15,6 @@ Tag:
     Screen flow to show the rules in the object layout
 
     BusinessRulesSettingFinder
-        Método para buscar por lista de objetos - FEITO
         Aumentar limite de 49999 registros
 
     App to manage the frameWork - 30%
@@ -34,3 +32,10 @@ Tag:
 
     Final improvement: Better Logic in BusinessRulesSetting RuleKey__c ( OR, AND, != etc... )
         Create new SObject to keep the fields and value (BusinessRulesRuleKey), and use a field equal flow trigger start
+
+
+
+
+Revision:
+    Creation:
+        RulePathCreatorService -> 100%
