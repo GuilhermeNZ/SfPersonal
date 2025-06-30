@@ -21,11 +21,11 @@ public with sharing class BusinessRulesSettingHandler extends TriggerHandler {
     }
 
     public override void afterInsert() {
-        this.insertOrEnrichRulePathSetting( newBusinessRulesSettings, oldBusinessRulesSettingById );
+        this.insertOrEnrichRulePathSetting( this.newBusinessRulesSettings, this.oldBusinessRulesSettingById );
     }
 
     public override void afterUpdate() {
-        this.insertOrEnrichRulePathSetting( newBusinessRulesSettings, oldBusinessRulesSettingById );
+        this.insertOrEnrichRulePathSetting( this.newBusinessRulesSettings, this.oldBusinessRulesSettingById );
     }
 
     private void insertOrEnrichRulePathSetting( List<BusinessRulesSetting__c> newBusinessRulesSettings, Map<Id,BusinessRulesSetting__c> oldBusinessRulesSettingById ) {
