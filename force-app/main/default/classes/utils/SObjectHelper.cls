@@ -20,4 +20,15 @@ public with sharing class SObjectHelper {
         return null;
     }
 
+    public static Map<String,Schema.DescribeSobjectResult> getDescribreSObjectByName( List<String> objectNames ) {
+
+        Map<String,Schema.DescribeSobjectResult> describeSObjectByName = new Map<String,Schema.DescribeSobjectResult>();
+
+        for( Schema.DescribeSobjectResult result : Schema.describeSObjects( objectNames ) ) {
+            describeSObjectByName.put( result.getName(), result );
+        }
+
+        return describeSObjectByName;
+    }
+
 }
