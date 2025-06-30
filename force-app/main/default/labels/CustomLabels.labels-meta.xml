@@ -1,0 +1,2735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AccountClassificationWithoutPharmaceuticalRestrictions</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Account classification without pharmaceutical restrictions</shortDescription>
+        <value>Não foi possivel encontrar Restrição Farmacêutica para a classificação da conta</value>
+    </labels>
+    <labels>
+        <fullName>AccountDifferent</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Different</shortDescription>
+        <value>The account selected as the delivery customer is not of the type (Legal Account)</value>
+    </labels>
+    <labels>
+        <fullName>AccountProductNotSelected</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACCOUNT PRODUCT NOT SELECTED</shortDescription>
+        <value>Still for products with no stock selected, all products in all accounts must have quantities, otherwise create unit agreements.</value>
+    </labels>
+    <labels>
+        <fullName>AccountUnRegistered</fullName>
+        <categories>LWC</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>AccountUnRegistered</shortDescription>
+        <value>A conta vinculada a esta cotação não se encontra registrada no Salesforce.</value>
+    </labels>
+    <labels>
+        <fullName>AccountWithoutDocumentsError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountWithoutDocumentsError</shortDescription>
+        <value>Account does not have any linked documents!</value>
+    </labels>
+    <labels>
+        <fullName>AccountWithoutTheTwoMandatoryDocuments</fullName>
+        <categories>BusinessRules</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>AccountWithoutTheTwoMandatoryDocuments</shortDescription>
+        <value>A conta vinculada a essa cotação não possui os dois tipos de documentos obrigatórios: Licença Sanitária e CRT. Para prosseguir, é necessário que a conta possua ambos os documentos.</value>
+    </labels>
+    <labels>
+        <fullName>AccountWithoutUF</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Without UF</shortDescription>
+        <value>The account selected as the delivery customer does not contain the same information as (UF)</value>
+    </labels>
+    <labels>
+        <fullName>ActivePrinciple</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Active principle</shortDescription>
+        <value>Active principle</value>
+    </labels>
+    <labels>
+        <fullName>Alert</fullName>
+        <categories>Geral</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Alert</shortDescription>
+        <value>Alert!</value>
+    </labels>
+    <labels>
+        <fullName>AlertKitSell</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Alert Kit Sell</shortDescription>
+        <value>Alert: Kit Sell</value>
+    </labels>
+    <labels>
+        <fullName>ApprovalCommercial</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Commercial</shortDescription>
+        <value>requires the approval of the Commercial Manager.</value>
+    </labels>
+    <labels>
+        <fullName>ApprovalNotAuthorized</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Not Authorized</shortDescription>
+        <value>You do not have authorization to approve this process.</value>
+    </labels>
+    <labels>
+        <fullName>ApprovalPricing</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approval Pricing</shortDescription>
+        <value>requires approval from the Pricing team.</value>
+    </labels>
+    <labels>
+        <fullName>ArchiveCSV</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Archive CSV</shortDescription>
+        <value>Archive CSV</value>
+    </labels>
+    <labels>
+        <fullName>Arrow</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Arrow</shortDescription>
+        <value>-&gt;</value>
+    </labels>
+    <labels>
+        <fullName>AssistantAddressError</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>AssistantAddressError</shortDescription>
+        <value>A consulta de CEP não está disponível. Verifique Manualmente os dados.</value>
+    </labels>
+    <labels>
+        <fullName>AttentionIncorrectValue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Attention Incorrect Value</shortDescription>
+        <value>Attention: Incorrect Value</value>
+    </labels>
+    <labels>
+        <fullName>AttentionLockedEdition</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Attention Locked Edition</shortDescription>
+        <value>Attention: Locked Edition</value>
+    </labels>
+    <labels>
+        <fullName>AutoSync</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AutoSync</shortDescription>
+        <value>AutoSync?</value>
+    </labels>
+    <labels>
+        <fullName>AvailableQuantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available Quantity</shortDescription>
+        <value>Available Quantity</value>
+    </labels>
+    <labels>
+        <fullName>AvailableWithCharacter</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Available With Character</shortDescription>
+        <value>/ Available:</value>
+    </labels>
+    <labels>
+        <fullName>AverageGrossMargin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Average Gross Margin</shortDescription>
+        <value>Average Gross Margin</value>
+    </labels>
+    <labels>
+        <fullName>BatchCode</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Batch Code</shortDescription>
+        <value>Batch Code</value>
+    </labels>
+    <labels>
+        <fullName>BellowPermitted</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Bellow Permitted</shortDescription>
+        <value>, is below the minimum allowed</value>
+    </labels>
+    <labels>
+        <fullName>BestMindsTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BestMindsTitle</shortDescription>
+        <value>BestMinds-LWC</value>
+    </labels>
+    <labels>
+        <fullName>BetterLocation</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Better Location</shortDescription>
+        <value>It has a better location:</value>
+    </labels>
+    <labels>
+        <fullName>Branch</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Branch</shortDescription>
+        <value>Branch</value>
+    </labels>
+    <labels>
+        <fullName>BranchBlockedForCustomerState</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BranchBlockedForCustomerState</shortDescription>
+        <value>The following products, with their respective branch, cannot be sold to the customer&apos;s state:</value>
+    </labels>
+    <labels>
+        <fullName>BranchNotFound</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Branch not found</shortDescription>
+        <value>Não foram encontradas filiais cadastradas no salesforce relacionadas a busca, contate um administrador.</value>
+    </labels>
+    <labels>
+        <fullName>BuildDataDealSync</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Build Data Deal Sync</shortDescription>
+        <value>Failed to process data for deal synchronization, contact an Administrator.</value>
+    </labels>
+    <labels>
+        <fullName>BulletPoint</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Bullet Point</shortDescription>
+        <value>●</value>
+    </labels>
+    <labels>
+        <fullName>BusinessRuleProductsWithExternalBranches</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>BusinessRuleProductsWithExternalBranches</shortDescription>
+        <value>Os seguintes produtos possuem filiais internas, mas estão sendo atendidos por filiais externas:</value>
+    </labels>
+    <labels>
+        <fullName>BusinessRuleWithoutBranchCode</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Business rule without branch code</shortDescription>
+        <value>Não foi encontrado nenhuma linha de cotação com Código de Filial para essa regra de negócios</value>
+    </labels>
+    <labels>
+        <fullName>BusinessRuleWithoutQuoteLine</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Business rule without quote line</shortDescription>
+        <value>Não foi encontrado nenhuma linha de cotação para essa regra de negócios</value>
+    </labels>
+    <labels>
+        <fullName>BusinessRuledirectSaleQuoteSettingsEmpty</fullName>
+        <categories>BusinessRule</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>BusinessRuledirectSaleQuoteSettingsEmpty</shortDescription>
+        <value>Armazem para integrar não configurado no metadado: &quot;Quote Setting&quot;</value>
+    </labels>
+    <labels>
+        <fullName>BusinessRulesDuplicatedOrder</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>BusinessRulesDuplicatedOrder</shortDescription>
+        <value>Foi identificada uma cotação semelhante à cotação atual associada a esta conta</value>
+    </labels>
+    <labels>
+        <fullName>BusinessRulesInvalidFields</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>BusinessRulesInvalidFields</shortDescription>
+        <value>Invalid Fields:</value>
+    </labels>
+    <labels>
+        <fullName>BySelectedAccount</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>BySelectedAccount</shortDescription>
+        <value>By Selected Account</value>
+    </labels>
+    <labels>
+        <fullName>CDSale</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CD Sale</shortDescription>
+        <value>CD Sale</value>
+    </labels>
+    <labels>
+        <fullName>Calculate</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Calculate</shortDescription>
+        <value>Calculate</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>CannotChangedOLItem</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot Changed OL Item</shortDescription>
+        <value>This product is an OL item and its value cannot be changed.</value>
+    </labels>
+    <labels>
+        <fullName>Cart</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cart</shortDescription>
+        <value>Cart</value>
+    </labels>
+    <labels>
+        <fullName>Category</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Category</shortDescription>
+        <value>Category</value>
+    </labels>
+    <labels>
+        <fullName>CityAdress</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>City Adress</shortDescription>
+        <value>City</value>
+    </labels>
+    <labels>
+        <fullName>ClassificationDoesNotMeet</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Classification does not meet</shortDescription>
+        <value>Classificação não atende:</value>
+    </labels>
+    <labels>
+        <fullName>ClassificationDoesNotMeetDeliveryCustomer</fullName>
+        <categories>BusinessRules</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ClassificationDoesNotMeetDeliveryCustomer</shortDescription>
+        <value>Pedido Bloqueado, o(s) seguinte(s) produto(s) não atendem a classificação do cliente de entrega:</value>
+    </labels>
+    <labels>
+        <fullName>CloneError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CloneError</shortDescription>
+        <value>Failed to process data for clone, contact an administrator</value>
+    </labels>
+    <labels>
+        <fullName>CloneLoadMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CloneLoadMessage</shortDescription>
+        <value>Preparing data for cloning...</value>
+    </labels>
+    <labels>
+        <fullName>Code</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Code</shortDescription>
+        <value>Code</value>
+    </labels>
+    <labels>
+        <fullName>CompanyFieldEmpty</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Field Empty</shortDescription>
+        <value>Your user&apos;s company field is not filled in, ask an administrator to fill it in before continuing with the process.</value>
+    </labels>
+    <labels>
+        <fullName>ComplementAdress</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Complement Adress</shortDescription>
+        <value>Complement</value>
+    </labels>
+    <labels>
+        <fullName>ComponentNotAvailable</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Component Not Available</shortDescription>
+        <value>This component is not available in this operation.</value>
+    </labels>
+    <labels>
+        <fullName>Confirm</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirm</shortDescription>
+        <value>Confirm</value>
+    </labels>
+    <labels>
+        <fullName>ContainsOnlyExternalProducts</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contains Only External Products</shortDescription>
+        <value>Contains products that are for external order only:</value>
+    </labels>
+    <labels>
+        <fullName>Continue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Continue</shortDescription>
+        <value>Continue</value>
+    </labels>
+    <labels>
+        <fullName>Create</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create</shortDescription>
+        <value>Create</value>
+    </labels>
+    <labels>
+        <fullName>CreateQuoteInAccount</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CreateQuoteInAccount</shortDescription>
+        <value>Create a Negotiation</value>
+    </labels>
+    <labels>
+        <fullName>CreatedSuccessfully</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CreatedSuccessfully</shortDescription>
+        <value>Created Successfully</value>
+    </labels>
+    <labels>
+        <fullName>CreatingDeal</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Creating Deal</shortDescription>
+        <value>Creating Deal</value>
+    </labels>
+    <labels>
+        <fullName>CreatingQuote</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Creating Quote</shortDescription>
+        <value>Creating Quote</value>
+    </labels>
+    <labels>
+        <fullName>CustomerDeliveryEmpty</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Delivery Empty</shortDescription>
+        <value>The delivery customer&apos;s Delivery data is empty, please fill it in before continuing with the quote.</value>
+    </labels>
+    <labels>
+        <fullName>CustomerDontHaveCredit</fullName>
+        <categories>BusinessRule</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>CustomerDontHaveCredit</shortDescription>
+        <value>A conta vinculada a essa cotação não possui limite de crédito disponivel</value>
+    </labels>
+    <labels>
+        <fullName>CustomerGroupPharmaceuticalRestriction</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer Group Pharmaceutical Restriction</shortDescription>
+        <value>At least one account in the selected customer group has a pharmaceutical restriction for this product.</value>
+    </labels>
+    <labels>
+        <fullName>DataImportError</fullName>
+        <categories>DataImport</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DataImportError</shortDescription>
+        <value>Error in the data import process.</value>
+    </labels>
+    <labels>
+        <fullName>DataImportInvalidCSVMessage</fullName>
+        <categories>DataImport</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DataImportInvalidCSVMessage</shortDescription>
+        <value>The file sent is not in the accepted format. If your file is in CSV format, follow these steps:
+1 - Identify where your file is stored.
+2 - Right click on the file and open it with Notepad.
+3 - Check that the columns are separated by &apos;;&apos;.
+4 - If they are, contact an administrator. If not, generate the file again.</value>
+    </labels>
+    <labels>
+        <fullName>DataImportInvalidExcel</fullName>
+        <categories>Carga</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DataImportInvalidExcel</shortDescription>
+        <value>Invalid Excel! Please check if the file is correct! If so, check the possible errors that may have occurred below.</value>
+    </labels>
+    <labels>
+        <fullName>DataInconsistenciesBetweenAccountandQuote</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Data Inconsistencies Between Account and Quote</shortDescription>
+        <value>Há divergências nos dados da conta fornecidos na cotação.</value>
+    </labels>
+    <labels>
+        <fullName>DataNotYetFilled</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Data Not Yet Filled</shortDescription>
+        <value>Data not yet filled in</value>
+    </labels>
+    <labels>
+        <fullName>DealCreationError</fullName>
+        <categories>LWC_CreateQuoteInAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Deal Creation Error</shortDescription>
+        <value>Failed to create Deal!</value>
+    </labels>
+    <labels>
+        <fullName>DealSyncWithoutProductQuantities</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Deal Sync Without Procut Quantities</shortDescription>
+        <value>To proceed with synchronization, you must enter the quantities of the products.</value>
+    </labels>
+    <labels>
+        <fullName>DealSynchronization</fullName>
+        <categories>LWC_DealSync</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DealSynchronization</shortDescription>
+        <value>Deal Synchronization</value>
+    </labels>
+    <labels>
+        <fullName>Dealer</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer</shortDescription>
+        <value>Dealer</value>
+    </labels>
+    <labels>
+        <fullName>DefaultTypeSale</fullName>
+        <categories>LWC-ProductSearch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Default Type Sale</shortDescription>
+        <value>Padrão</value>
+    </labels>
+    <labels>
+        <fullName>DeliveryCustomer</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delivery Customer</shortDescription>
+        <value>Delivery Customer</value>
+    </labels>
+    <labels>
+        <fullName>DeliveryForecast</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delivery Forecast</shortDescription>
+        <value>Delivery Forecast</value>
+    </labels>
+    <labels>
+        <fullName>DeliveryType</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delivery Type</shortDescription>
+        <value>Delivery Type</value>
+    </labels>
+    <labels>
+        <fullName>DiscountUnder</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Discount under</shortDescription>
+        <value>Discount Under PF (%)</value>
+    </labels>
+    <labels>
+        <fullName>DoNotChangeTabWhileEditing</fullName>
+        <categories>Deal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>You Should Not Change Tab While Editing</shortDescription>
+        <value>Save or cancel before change tab</value>
+    </labels>
+    <labels>
+        <fullName>DocumentAlreadyExist</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>DocumentAlreadyExist</shortDescription>
+        <value>Já existe outro documento do mesmo tipo SAP anexado:</value>
+    </labels>
+    <labels>
+        <fullName>DocumentNotUploaded</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>DocumentNotUploaded</shortDescription>
+        <value>Documento não carregado para o Salesforce</value>
+    </labels>
+    <labels>
+        <fullName>Download</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Download</shortDescription>
+        <value>Download</value>
+    </labels>
+    <labels>
+        <fullName>DuplicateDocument</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Duplicate Document</shortDescription>
+        <value>Duplicate Document Detected: The document you are trying to upload already exists in the system. Please verify and try again.</value>
+    </labels>
+    <labels>
+        <fullName>DuplicatedAccountDocumentType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DuplicatedAccountDocumentType</shortDescription>
+        <value>A linked document with the same type already exists!</value>
+    </labels>
+    <labels>
+        <fullName>DuplicatedCNAEType</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DuplicatedCNAEType</shortDescription>
+        <value>There is already a CNAE linked to the same type!</value>
+    </labels>
+    <labels>
+        <fullName>EnterFilter</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enter filter</shortDescription>
+        <value>Enter filter</value>
+    </labels>
+    <labels>
+        <fullName>EnterQuantityValue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enter Quantity Value</shortDescription>
+        <value>Enter a value for the quantity</value>
+    </labels>
+    <labels>
+        <fullName>Equally</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Equally</shortDescription>
+        <value>Equally</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <categories>Geral</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorControledProductDifferentAddress</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Produto contolado não deve possuir endereços diferentes</shortDescription>
+        <value>Para produtos controlados, não pode ser faturado com endereços diferente.</value>
+    </labels>
+    <labels>
+        <fullName>ErrorCreateQuote</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Create Quote</shortDescription>
+        <value>Error: Create Quote</value>
+    </labels>
+    <labels>
+        <fullName>ErrorDeleteArchiveInvalid</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Delete Archive Invalid</shortDescription>
+        <value>An error was encountered while deleting the invalid file! Contact an Administrator!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorDeleteShippingAddress</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ErrorDeleteShippingAddress</shortDescription>
+        <value>Não é possível excluir esse registro porque ele esta sendo usado!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorDeliveryCustomer</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Delivery Customer</shortDescription>
+        <value>Erro: Delivery Customer</value>
+    </labels>
+    <labels>
+        <fullName>ErrorDuplicateRecordInDataLoad</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ErrorDuplicateRecordInDataLoad</shortDescription>
+        <value>Registro duplicado na carga de dados!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorDuplicateRecordWhenUpsertRecord</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ErrorDuplicateRecordWhenUpsertRecord</shortDescription>
+        <value>Registro duplicado!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorFactoryPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Factory Price</shortDescription>
+        <value>Error: Factory Price</value>
+    </labels>
+    <labels>
+        <fullName>ErrorFillFields</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Fill Fields</shortDescription>
+        <value>Error: Fill Fields</value>
+    </labels>
+    <labels>
+        <fullName>ErrorGetAccountData</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Get Account Data</shortDescription>
+        <value>Error: Get Account Data</value>
+    </labels>
+    <labels>
+        <fullName>ErrorGetCustomerDelivery</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Get Customer Delivery</shortDescription>
+        <value>Error obtaining data from the delivery customer.</value>
+    </labels>
+    <labels>
+        <fullName>ErrorGetFactoryPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Get Factory Price</shortDescription>
+        <value>Error getting the factory price of the product</value>
+    </labels>
+    <labels>
+        <fullName>ErrorGetProposalTypes</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Get Proposal Types</shortDescription>
+        <value>Error: Get Proposal Types</value>
+    </labels>
+    <labels>
+        <fullName>ErrorInsertArchive</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Insert Archive</shortDescription>
+        <value>An error was encountered while inserting the file! Contact an Administrator!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorInsertingQuote</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorInsertingQuote</shortDescription>
+        <value>Error inserting quote, please contact an administrator! | Error:</value>
+    </labels>
+    <labels>
+        <fullName>ErrorInsertingQuoteLineItem</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ErrorInsertingQuoteLineItem</shortDescription>
+        <value>Error inserting Quote Line Item, please contact an administrator! | Error:</value>
+    </labels>
+    <labels>
+        <fullName>ErrorInstructions</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Instructions</shortDescription>
+        <value>Error Instructions</value>
+    </labels>
+    <labels>
+        <fullName>ErrorLWC</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error LWC</shortDescription>
+        <value>Error:</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMarginIntegration</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Margin Integration</shortDescription>
+        <value>Error Margin Integration</value>
+    </labels>
+    <labels>
+        <fullName>ErrorRecommendation</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Recommendation</shortDescription>
+        <value>Error (Recommendation)</value>
+    </labels>
+    <labels>
+        <fullName>ErrorSellerCompany</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Seller Company</shortDescription>
+        <value>Error: Seller Company</value>
+    </labels>
+    <labels>
+        <fullName>ErrorTimeLimitExceeded</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Time Limit Exceeded</shortDescription>
+        <value>Error: Time Limit Exceeded</value>
+    </labels>
+    <labels>
+        <fullName>ErrorTitle</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error to Title</shortDescription>
+        <value>Error:</value>
+    </labels>
+    <labels>
+        <fullName>ErrorUpdateDirectShippingAddress</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ErrorUpdateDirectShippingAddress</shortDescription>
+        <value>Não é possível alterar o registro diretamente, utilize o &quot;Assistente de Endereço&quot;!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorUpdateShippingAddress</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ErrorUpdateShippingAddress</shortDescription>
+        <value>Não é possível editar esse registro porque ele esta sendo usado!</value>
+    </labels>
+    <labels>
+        <fullName>ErrorVisaDocumentNotFound</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Erro documento Visa não encontrado</shortDescription>
+        <value>Não foi encontrado endereço VISA válido para o cliente do endereço de entrega</value>
+    </labels>
+    <labels>
+        <fullName>ExceededFactoryPrice</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Exceeded factory price</shortDescription>
+        <value>Excedeu preço fábrica:</value>
+    </labels>
+    <labels>
+        <fullName>ExpiratedDateDocumentError</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Expirated Date Document Error</shortDescription>
+        <value>Documento com Data de Validade vencida</value>
+    </labels>
+    <labels>
+        <fullName>ExpiredDocument</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Expired document</shortDescription>
+        <value>● O seguinte documento se encontra expirado:</value>
+    </labels>
+    <labels>
+        <fullName>ExternalOrderAccount</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>External Order Account</shortDescription>
+        <value>External order account details</value>
+    </labels>
+    <labels>
+        <fullName>ExternalOrderOnly</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>External Order Only</shortDescription>
+        <value>External order only</value>
+    </labels>
+    <labels>
+        <fullName>FactoryPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Factory Price</shortDescription>
+        <value>Factory Price</value>
+    </labels>
+    <labels>
+        <fullName>FailedCustomerData</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failed Customer Data</shortDescription>
+        <value>Failed to obtain delivery customer data, try again later</value>
+    </labels>
+    <labels>
+        <fullName>FailedObtainProposalTypes</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failed Obtain Proposal Types</shortDescription>
+        <value>Failed to obtain proposal types, check that this account has access to all data</value>
+    </labels>
+    <labels>
+        <fullName>FailedSearch</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failed Search</shortDescription>
+        <value>Failed product search</value>
+    </labels>
+    <labels>
+        <fullName>FailureCompanyAndAccount</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Failure Company And Account</shortDescription>
+        <value>Failure to obtain data from the company and account relationship, check that the account has all the data</value>
+    </labels>
+    <labels>
+        <fullName>FieldError</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field Error</shortDescription>
+        <value>Field search error</value>
+    </labels>
+    <labels>
+        <fullName>FieldsMustFilled</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fields Must Filled</shortDescription>
+        <value>All fields marked with (*) must be filled in.</value>
+    </labels>
+    <labels>
+        <fullName>FieldsNotYetFilled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fields not yet filled</shortDescription>
+        <value>Fields marked with (*) must be filled in.</value>
+    </labels>
+    <labels>
+        <fullName>FilialCode</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filial Code</shortDescription>
+        <value>Filial Code</value>
+    </labels>
+    <labels>
+        <fullName>FilialStateNotParameterized</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FilialStateNotParameterized</shortDescription>
+        <value>● Branch state not parameterized in the &quot;Lock Sales By State&quot; Object:</value>
+    </labels>
+    <labels>
+        <fullName>FillDataFailed</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fill Data Failed</shortDescription>
+        <value>Fill Data Failed</value>
+    </labels>
+    <labels>
+        <fullName>FillFields</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fill Fields</shortDescription>
+        <value>Fill Fields</value>
+    </labels>
+    <labels>
+        <fullName>FillMarginField</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fill Margin field</shortDescription>
+        <value>Fill in a margin field to make the calculation</value>
+    </labels>
+    <labels>
+        <fullName>FillingIntegrationData</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filling Integration Data</shortDescription>
+        <value>Filling in integration data</value>
+    </labels>
+    <labels>
+        <fullName>FoundError</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Found Error</shortDescription>
+        <value>Found Error</value>
+    </labels>
+    <labels>
+        <fullName>FoundtFiscalBenefit</fullName>
+        <categories>FiscalBenefit</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Found&apos;t Fiscal Benefit</shortDescription>
+        <value>Tax Benefit Not Found</value>
+    </labels>
+    <labels>
+        <fullName>GenericIntegrationErrorNotification</fullName>
+        <categories>MuleEventQueue__c</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Integration Error Notification</shortDescription>
+        <value>An error occurred in the click to view the referenced object.</value>
+    </labels>
+    <labels>
+        <fullName>GoogleKey</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>GoogleKey</shortDescription>
+        <value>AIzaSyBg77ZrclJj_-u-TMoMuF02hlplOcOXzzU</value>
+    </labels>
+    <labels>
+        <fullName>HappenedSuccessfully</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Happened Successfully</shortDescription>
+        <value>It happened successfully</value>
+    </labels>
+    <labels>
+        <fullName>HasNegativeMargin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Has Negative Margin</shortDescription>
+        <value>, has a negative margin</value>
+    </labels>
+    <labels>
+        <fullName>HighCost</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>High Cost</shortDescription>
+        <value>Hight Cost</value>
+    </labels>
+    <labels>
+        <fullName>IdealLocations</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Ideal Locations</shortDescription>
+        <value>Ideal Locations:</value>
+    </labels>
+    <labels>
+        <fullName>IntegratedOLProduct</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integrated OL Product</shortDescription>
+        <value>Integrated OL Product</value>
+    </labels>
+    <labels>
+        <fullName>Integration</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration</shortDescription>
+        <value>Integration</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationError</fullName>
+        <categories>MuleEventQueue__c</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>IntegrationError</shortDescription>
+        <value>Integration Error</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationErrorLWC</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration Error LWC</shortDescription>
+        <value>Error Integration</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationFailed</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration Failed</shortDescription>
+        <value>Integration Failed</value>
+    </labels>
+    <labels>
+        <fullName>IntegrationNoValues</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Integration No Values</shortDescription>
+        <value>The integration returned no values</value>
+    </labels>
+    <labels>
+        <fullName>InvalidFederalTaxId</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>CNPJ Inválido</shortDescription>
+        <value>CNPJ Inválido!</value>
+    </labels>
+    <labels>
+        <fullName>InvalidPersonalTaxId</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>CPF Inválido</shortDescription>
+        <value>CPF Inválido!</value>
+    </labels>
+    <labels>
+        <fullName>InvalidPhone</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Telefone Inválido</shortDescription>
+        <value>Telefone inválido!</value>
+    </labels>
+    <labels>
+        <fullName>InvalidRating</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Invalid rating</shortDescription>
+        <value>● Classificação inválida:</value>
+    </labels>
+    <labels>
+        <fullName>InventoryIntegrationFailed</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Inventory Integration Failed</shortDescription>
+        <value>Não foi possivel realizar a integração de estoque para o(s) seguinte(s) produto(s):</value>
+    </labels>
+    <labels>
+        <fullName>ItemDeal</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Item Deal</shortDescription>
+        <value>Item of deal</value>
+    </labels>
+    <labels>
+        <fullName>KeepExternalOrder</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Keep External Order</shortDescription>
+        <value>Keep External Order</value>
+    </labels>
+    <labels>
+        <fullName>LackPadding</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lack of Padding</shortDescription>
+        <value>Lack of padding</value>
+    </labels>
+    <labels>
+        <fullName>LoadExample</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Load Example</shortDescription>
+        <value>Load Example</value>
+    </labels>
+    <labels>
+        <fullName>Loading</fullName>
+        <categories>LWC_loadingScreen</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loading</shortDescription>
+        <value>Loading</value>
+    </labels>
+    <labels>
+        <fullName>LoadingDataDealSync</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loading Data Deal Sync</shortDescription>
+        <value>Preparing data for synchronization...</value>
+    </labels>
+    <labels>
+        <fullName>Loading_Data</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loading Data</shortDescription>
+        <value>Loading Data</value>
+    </labels>
+    <labels>
+        <fullName>Local</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Local</shortDescription>
+        <value>Local</value>
+    </labels>
+    <labels>
+        <fullName>LocalChoseed</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Local Choseed</shortDescription>
+        <value>Local Choseed:</value>
+    </labels>
+    <labels>
+        <fullName>Location1</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Location 1</shortDescription>
+        <value>Location 1:</value>
+    </labels>
+    <labels>
+        <fullName>Location2</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Location 2</shortDescription>
+        <value>Location 2:</value>
+    </labels>
+    <labels>
+        <fullName>Location3</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Location 3</shortDescription>
+        <value>Location 3:</value>
+    </labels>
+    <labels>
+        <fullName>MainCNAEError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MainCNAEError</shortDescription>
+        <value>It is possible to create only one main CNAE!</value>
+    </labels>
+    <labels>
+        <fullName>ManualCancellationRequired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ManualCancellationRequired</shortDescription>
+        <value>Manual cancellation required. Use the button available in quick actions to make the necessary cancellation.</value>
+    </labels>
+    <labels>
+        <fullName>Margin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Margin</shortDescription>
+        <value>Margin</value>
+    </labels>
+    <labels>
+        <fullName>MarginCalculation</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Margin Calculation</shortDescription>
+        <value>Margin Calculation</value>
+    </labels>
+    <labels>
+        <fullName>MarginIncorrect</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Margin Incorrect</shortDescription>
+        <value>The margin doesn&apos;t have the correct value because the calculation is unfinished</value>
+    </labels>
+    <labels>
+        <fullName>MarginPercentage</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Margin percentage</shortDescription>
+        <value>Margin Percentage</value>
+    </labels>
+    <labels>
+        <fullName>Material</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Material</shortDescription>
+        <value>Material</value>
+    </labels>
+    <labels>
+        <fullName>Medicine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Medicine</shortDescription>
+        <value>Medicine</value>
+    </labels>
+    <labels>
+        <fullName>MensalQuantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MensalQuantity</shortDescription>
+        <value>Mensal Quantity</value>
+    </labels>
+    <labels>
+        <fullName>MessageConfigurationErrorDuplicated</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>MessageConfigurationErrorDuplicated</shortDescription>
+        <value>Já existe uma configuração de mensagem com os mesmos parâmetros salva</value>
+    </labels>
+    <labels>
+        <fullName>MinimumPriceAlert</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Minimum Price Alert</shortDescription>
+        <value>Minimum Price Alert</value>
+    </labels>
+    <labels>
+        <fullName>MinimumValueNotReached</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Minimum Value Not Reached</shortDescription>
+        <value>Para a(s) seguinte(s) filial(is), não foi alcançado o valor mínimo de compra de</value>
+    </labels>
+    <labels>
+        <fullName>MissingData</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Missing Data</shortDescription>
+        <value>Missing Data</value>
+    </labels>
+    <labels>
+        <fullName>MonthlyEstimate</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Monthly Estimate</shortDescription>
+        <value>Monthly Estimate</value>
+    </labels>
+    <labels>
+        <fullName>Name</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>NameMoreCharacters</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name More Characters</shortDescription>
+        <value>The quotation name has more characters than allowed, reduce the length to proceed</value>
+    </labels>
+    <labels>
+        <fullName>NegativeMarginAlert</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Negative Margin alert</shortDescription>
+        <value>Negative margin alert</value>
+    </labels>
+    <labels>
+        <fullName>NegativeMonthlyEstimate</fullName>
+        <categories>Deal</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NegativeMonthlyEstimate</shortDescription>
+        <value>You can&apos;t save products with negative monthly quantity, they have been disregarded.</value>
+    </labels>
+    <labels>
+        <fullName>NegotiatedValue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Negotiated Value</shortDescription>
+        <value>The negotiated value for the item</value>
+    </labels>
+    <labels>
+        <fullName>NeighborhoodAdress</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Neighborhood Adress</shortDescription>
+        <value>Neighborhood</value>
+    </labels>
+    <labels>
+        <fullName>NewSalesPriceAboveFactoryPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Sales Price Above Factory Price</shortDescription>
+        <value>This product has a new sales price value above the factory price, edit it again to a new value.</value>
+    </labels>
+    <labels>
+        <fullName>NoAccountBusinessRule</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>No account business rule</shortDescription>
+        <value>Não foi encontrado nenhuma conta para a cotação vinculada a essa regra de negócios</value>
+    </labels>
+    <labels>
+        <fullName>NoBranch</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>No branch</shortDescription>
+        <value>Não foram enviadas filiais para efetuar a busca</value>
+    </labels>
+    <labels>
+        <fullName>NoBranchAvailable</fullName>
+        <categories>LWC_createQuoteInAccount</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoBranchAvailable</shortDescription>
+        <value>No branches found for the selected product!</value>
+    </labels>
+    <labels>
+        <fullName>NoQuoteBusinessRule</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>No quote business rule</shortDescription>
+        <value>Não foi encontrado nenhuma cotação para essa regra de negócios</value>
+    </labels>
+    <labels>
+        <fullName>NoQuoteLineItemsToClone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoQuoteLineItemsToClone</shortDescription>
+        <value>No quote line available for cloning was found!</value>
+    </labels>
+    <labels>
+        <fullName>NoValidationRulesActive</fullName>
+        <categories>Mensagem caso nenhuma regra de validação para o objeto: &quot;Regras de Negócio ( BusinessRules__c )&quot; esteja ativa</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>NoValidationRulesActive</shortDescription>
+        <value>No active validations found!</value>
+    </labels>
+    <labels>
+        <fullName>NotFoundMarginProduct</fullName>
+        <categories>Margin</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not Found Margin Product</shortDescription>
+        <value>Margin product not found</value>
+    </labels>
+    <labels>
+        <fullName>NotSaveProductWithoutBranch</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>NotSaveProductWithoutBranch</shortDescription>
+        <value>Não é possível salvar o registro pois não existem filiais atreladas a este produto.</value>
+    </labels>
+    <labels>
+        <fullName>NoteValueChangeRequests</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Note value change requests</shortDescription>
+        <value>● Solicitação De Alteração de Valores Nota:</value>
+    </labels>
+    <labels>
+        <fullName>NumberAdress</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Number Adress</shortDescription>
+        <value>Number</value>
+    </labels>
+    <labels>
+        <fullName>Nutrition</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Nutrition</shortDescription>
+        <value>Nutrition</value>
+    </labels>
+    <labels>
+        <fullName>Object</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Object</shortDescription>
+        <value>Object</value>
+    </labels>
+    <labels>
+        <fullName>ObjectSentQueue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Object Sent Queue</shortDescription>
+        <value>Your object has been queued for insertion! We will send you an email upon completion!</value>
+    </labels>
+    <labels>
+        <fullName>ObjectWithoutExamples</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Object Without Examples</shortDescription>
+        <value>No examples were found for this object, contact an Administrator</value>
+    </labels>
+    <labels>
+        <fullName>OneOrMoreApprovalProcessRefused</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OneOrMoreApprovalProcessRefused</shortDescription>
+        <value>One or more approval processes for the same object were refused</value>
+    </labels>
+    <labels>
+        <fullName>OpportunityStageNotClosedWon</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>OpportunityStageNotClosedWon</shortDescription>
+        <value>Para enviar ao SAP, a oportunidade precisa estar em fase &apos;Fechado/Ganho&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>OrderQuantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order Quantity</shortDescription>
+        <value>Order Quantity</value>
+    </labels>
+    <labels>
+        <fullName>OrderWithApprovalProcess</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Order With Approval Process</shortDescription>
+        <value>With this product, your order will be approved.</value>
+    </labels>
+    <labels>
+        <fullName>OutStock</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Out Stock</shortDescription>
+        <value>, is out of stock, Requested:</value>
+    </labels>
+    <labels>
+        <fullName>P002</fullName>
+        <categories>Distribuidor</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>P002</shortDescription>
+        <value>81887838000302</value>
+    </labels>
+    <labels>
+        <fullName>P005</fullName>
+        <categories>Distribuidor</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>P005</shortDescription>
+        <value>81887838000655</value>
+    </labels>
+    <labels>
+        <fullName>P006</fullName>
+        <categories>Distribuidor</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>P006</shortDescription>
+        <value>81887838000736</value>
+    </labels>
+    <labels>
+        <fullName>P008</fullName>
+        <categories>Distribuidor</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>P008</shortDescription>
+        <value>81887838000906</value>
+    </labels>
+    <labels>
+        <fullName>P010</fullName>
+        <categories>Distribuidor</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>P010</shortDescription>
+        <value>81887838001112</value>
+    </labels>
+    <labels>
+        <fullName>PaymentConditionFixed</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Payment Condition Fixed</shortDescription>
+        <value>The payment condition is fixed because it contains deal items.</value>
+    </labels>
+    <labels>
+        <fullName>PaymentInformationDuplicated</fullName>
+        <categories>PaymentInformation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PaymentInformationDuplicated</shortDescription>
+        <value>This payment information has duplicated value between Status and Quote.</value>
+    </labels>
+    <labels>
+        <fullName>PercentageMargin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Percentage Margin</shortDescription>
+        <value>Percentage Margin</value>
+    </labels>
+    <labels>
+        <fullName>PharmaceuticalCustomerRestriction</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pharmaceutical Customer Restriction</shortDescription>
+        <value>, contains a pharmaceutical restriction for this customer.</value>
+    </labels>
+    <labels>
+        <fullName>PharmaceuticalRestriction</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pharmaceutical Restriction</shortDescription>
+        <value>Pharmaceutical Restriction</value>
+    </labels>
+    <labels>
+        <fullName>PhoneContact</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone Contact</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>PleaseRestartBrowser</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Restart Browser</shortDescription>
+        <value>Please restart the browser and try again. If the error persists, contact an administrator.</value>
+    </labels>
+    <labels>
+        <fullName>ProcessExecutionError</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Process Execution Error</shortDescription>
+        <value>Process execution error</value>
+    </labels>
+    <labels>
+        <fullName>Product</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product</shortDescription>
+        <value>Product</value>
+    </labels>
+    <labels>
+        <fullName>ProductBatches</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Batches</shortDescription>
+        <value>Product Batches</value>
+    </labels>
+    <labels>
+        <fullName>ProductCode</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Code</shortDescription>
+        <value>Product Code</value>
+    </labels>
+    <labels>
+        <fullName>ProductDontHaveStock</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProductDontHaveStock</shortDescription>
+        <value>Product(s) with the following name(s) are out of stock:</value>
+    </labels>
+    <labels>
+        <fullName>ProductExternal</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product External</shortDescription>
+        <value>Product is external only</value>
+    </labels>
+    <labels>
+        <fullName>ProductHasKitMultiple</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Has Kit Multiple</shortDescription>
+        <value>This product is sold in kits of multiples of:</value>
+    </labels>
+    <labels>
+        <fullName>ProductKitSell</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Kit Sell</shortDescription>
+        <value>This product is sold in kits of multiples of:</value>
+    </labels>
+    <labels>
+        <fullName>ProductNoFound</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product No Found</shortDescription>
+        <value>No product was found</value>
+    </labels>
+    <labels>
+        <fullName>ProductNotClassified</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Product not classified</shortDescription>
+        <value>Esse Produto Não Foi Classificado</value>
+    </labels>
+    <labels>
+        <fullName>ProductOnlyMultipleQuantities</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Only Multiple Quantities</shortDescription>
+        <value>This product can only be sold in multiple quantities of:</value>
+    </labels>
+    <labels>
+        <fullName>ProductRestrictionError</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Restriction Error</shortDescription>
+        <value>Verify Product Restriction Error</value>
+    </labels>
+    <labels>
+        <fullName>ProductStock</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Stock</shortDescription>
+        <value>Product Stock</value>
+    </labels>
+    <labels>
+        <fullName>ProductUnRegistered</fullName>
+        <categories>LWC</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ProductUnRegistered</shortDescription>
+        <value>A cotação inclui os seguintes produtos não cadastrados no Salesforce:</value>
+    </labels>
+    <labels>
+        <fullName>ProductUnitValue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Unit Value</shortDescription>
+        <value>Product Unit Value</value>
+    </labels>
+    <labels>
+        <fullName>ProductWithNegativeInventory</fullName>
+        <categories>AgreementLineItem</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product With Negative Inventory</shortDescription>
+        <value>You&apos;ve changed the quantity of a product beyond what&apos;s available.</value>
+    </labels>
+    <labels>
+        <fullName>ProductWithPharmaceuticalRestriction</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product With Pharmaceutical Restriction</shortDescription>
+        <value>The selected product contains a pharmaceutical restriction.</value>
+    </labels>
+    <labels>
+        <fullName>ProductWithoutRegisteredMarginData</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Product without registered margin data</shortDescription>
+        <value>Esse produto não contém dados de margens cadastrados, contate um administrador para efetuar o cadastro.</value>
+    </labels>
+    <labels>
+        <fullName>ProductWithoutStock</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product Without Stock</shortDescription>
+        <value>Product Without Stock</value>
+    </labels>
+    <labels>
+        <fullName>ProductsAreNotInTheIdealLocation</fullName>
+        <categories>BusinessRule,BusinessRules,Quote</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>ProductsAreNotInTheIdealLocation</shortDescription>
+        <value>Os seguintes produtos contêm filiais ideais não selecionadas:</value>
+    </labels>
+    <labels>
+        <fullName>ProductsDeal</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Products Deal</shortDescription>
+        <value>Contains deal products:</value>
+    </labels>
+    <labels>
+        <fullName>ProductsDoNotHaveRoute</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Products Do Not Have Route</shortDescription>
+        <value>O(s) seguinte(s) produto(s) não possuem rota:</value>
+    </labels>
+    <labels>
+        <fullName>ProductsExternal</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Products External</shortDescription>
+        <value>Contains products that are for external order only:</value>
+    </labels>
+    <labels>
+        <fullName>ProductsOnlyOrderExternalMessage</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Mensagem de produtos somente pedidos externos</shortDescription>
+        <value>Os seguintes produtos precisarão passar por aprovação:</value>
+    </labels>
+    <labels>
+        <fullName>ProductsQuote</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Products in Quote</shortDescription>
+        <value>Products in Quote</value>
+    </labels>
+    <labels>
+        <fullName>ProductsStock</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Products in stock</shortDescription>
+        <value>Products in stock</value>
+    </labels>
+    <labels>
+        <fullName>ProductsSystem</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Products in system</shortDescription>
+        <value>Products in system</value>
+    </labels>
+    <labels>
+        <fullName>ProductsWithCodeAreNotInStock</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Products with code are not in stock</shortDescription>
+        <value>Deseja Realizar o Faturamento Parcial? O(s) Produto(s) com o(s) seguinte(s) nome(s) não possue(m) estoque:</value>
+    </labels>
+    <labels>
+        <fullName>ProductsWithoutASalesBranch</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Products without a sales branch</shortDescription>
+        <value>Erro ao criar a ordem: Os seguintes produtos não possuem Filial de venda:</value>
+    </labels>
+    <labels>
+        <fullName>Proposal</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposal</shortDescription>
+        <value>Proposal</value>
+    </labels>
+    <labels>
+        <fullName>ProposalAdditionalInformationHeaderTitle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProposalAdditionalInformationHeaderTitle</shortDescription>
+        <value>Additional Information</value>
+    </labels>
+    <labels>
+        <fullName>ProposalAdditionalInformationSendButton</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ProposalAdditionalInformationSendButton</shortDescription>
+        <value>Send</value>
+    </labels>
+    <labels>
+        <fullName>ProposalAlerts</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposal Alerts</shortDescription>
+        <value>Proposal Alerts</value>
+    </labels>
+    <labels>
+        <fullName>ProposalType</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposal Type</shortDescription>
+        <value>Proposal Type</value>
+    </labels>
+    <labels>
+        <fullName>ProposalValueWithDiscount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Proposal Value with Discount</shortDescription>
+        <value>Proposal Value with Discount</value>
+    </labels>
+    <labels>
+        <fullName>QLIMinimumOrderValueError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QLIMinimumOrderValueError</shortDescription>
+        <value>Minimum purchase value for the same branch of 300 reais not reached!</value>
+    </labels>
+    <labels>
+        <fullName>Quantity</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quantity</shortDescription>
+        <value>Quantity</value>
+    </labels>
+    <labels>
+        <fullName>QuantityQuoted</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quantity Quoted</shortDescription>
+        <value>Quantity Quoted</value>
+    </labels>
+    <labels>
+        <fullName>QueryIncorrect</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Query incorrect</shortDescription>
+        <value>This type of margin query does not exist.</value>
+    </labels>
+    <labels>
+        <fullName>Quote</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote</shortDescription>
+        <value>Quote</value>
+    </labels>
+    <labels>
+        <fullName>QuoteAlerts</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote Alerts</shortDescription>
+        <value>Quote Alerts</value>
+    </labels>
+    <labels>
+        <fullName>QuoteCreationFailed</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote Creation Failed</shortDescription>
+        <value>Quote creation failed.</value>
+    </labels>
+    <labels>
+        <fullName>QuoteFinalName</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote final name</shortDescription>
+        <value>Quote Final Name</value>
+    </labels>
+    <labels>
+        <fullName>QuoteHistory</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote History</shortDescription>
+        <value>Quote History</value>
+    </labels>
+    <labels>
+        <fullName>QuoteInformation</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote information</shortDescription>
+        <value>Quote Information</value>
+    </labels>
+    <labels>
+        <fullName>QuoteLineItemsDoNotMeetMinimumPrice</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Quote Line Items Do Not Meet Minimum Price</shortDescription>
+        <value>As seguintes QuoteLineItens não atendem ao preço minimo cadastrado:</value>
+    </labels>
+    <labels>
+        <fullName>QuoteLineItemsWithNoMinimumPrice</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Quote Line Items With No Minimum Price</shortDescription>
+        <value>QuoteLineItens sem preço minimo cadastrado: ●</value>
+    </labels>
+    <labels>
+        <fullName>QuoteName</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote name</shortDescription>
+        <value>Quote Name</value>
+    </labels>
+    <labels>
+        <fullName>QuoteNeedRecalculatedDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QuoteNeedRecalculatedDate</shortDescription>
+        <value>The quote requires a new calculation. The last day of recalculation was:</value>
+    </labels>
+    <labels>
+        <fullName>QuoteTitle</fullName>
+        <categories>LWC</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>QuoteTitle</shortDescription>
+        <value>Cotação</value>
+    </labels>
+    <labels>
+        <fullName>QuoteType</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quote Type</shortDescription>
+        <value>Quote Type</value>
+    </labels>
+    <labels>
+        <fullName>QuoteWithMarginLessThan0</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Quote with margin less than 0</shortDescription>
+        <value>Cotação com margem menor que 0!</value>
+    </labels>
+    <labels>
+        <fullName>QuoteWithoutMargin</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Quote without margin</shortDescription>
+        <value>Cotação sem margem!</value>
+    </labels>
+    <labels>
+        <fullName>QuotedMargin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Quoted Margin</shortDescription>
+        <value>Quoted Margin</value>
+    </labels>
+    <labels>
+        <fullName>RecalculatingMarginProducts</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Recalculating Margin Products</shortDescription>
+        <value>Recalculating margin for changed products</value>
+    </labels>
+    <labels>
+        <fullName>RefundValueIsNull</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>RefundValueIsNull</shortDescription>
+        <value>Para pedidos do tipo OL é necessário que o campo Margem BIS esteja preenchida para todos os itens da Cotação.</value>
+    </labels>
+    <labels>
+        <fullName>RegisterGroup</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Register Group</shortDescription>
+        <value>Register Group</value>
+    </labels>
+    <labels>
+        <fullName>Remaining_Quantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remaining_Quantity</shortDescription>
+        <value>Remaining Quantity</value>
+    </labels>
+    <labels>
+        <fullName>RequestsForFinancialValueChanges</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Requests for financial value changes</shortDescription>
+        <value>● Solicitação De Alteração de Valores Financeiro:</value>
+    </labels>
+    <labels>
+        <fullName>RequiresApproval</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Requires Approval</shortDescription>
+        <value>The selected item requires approval</value>
+    </labels>
+    <labels>
+        <fullName>ResearchSuccess</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Research Success</shortDescription>
+        <value>Research success</value>
+    </labels>
+    <labels>
+        <fullName>ReservedQuantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reserved Quantity</shortDescription>
+        <value>Reserved Quantity</value>
+    </labels>
+    <labels>
+        <fullName>ResetAll</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ResetAll</shortDescription>
+        <value>Reset</value>
+    </labels>
+    <labels>
+        <fullName>Return</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return</shortDescription>
+        <value>Return</value>
+    </labels>
+    <labels>
+        <fullName>SERASA_0002</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>SERASA_0002</shortDescription>
+        <value>Não é possível realizar uma chamada externa(Callout) após uma operaçao DML (Insert, Upsert, Delete).</value>
+    </labels>
+    <labels>
+        <fullName>SERASA_0006</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>SERASA_0006</shortDescription>
+        <value>O campo CPF está inválido.</value>
+    </labels>
+    <labels>
+        <fullName>SERASA_0007</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>SERASA_0007</shortDescription>
+        <value>Parâmetro Bureau requesto é obrigatório.</value>
+    </labels>
+    <labels>
+        <fullName>SFAccountData</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SF Account Data</shortDescription>
+        <value>Registered account details</value>
+    </labels>
+    <labels>
+        <fullName>SaleDate</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sale Date</shortDescription>
+        <value>Sale Date</value>
+    </labels>
+    <labels>
+        <fullName>SalesPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sales Price</shortDescription>
+        <value>Sales Price</value>
+    </labels>
+    <labels>
+        <fullName>SaveAdjusment</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Adjusment</shortDescription>
+        <value>Save Adjusment</value>
+    </labels>
+    <labels>
+        <fullName>Search</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>SearchNoValues</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search No Values</shortDescription>
+        <value>Your search returned no values</value>
+    </labels>
+    <labels>
+        <fullName>SearchProducts</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search products</shortDescription>
+        <value>Search products</value>
+    </labels>
+    <labels>
+        <fullName>SearchingProducts</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Searching Products</shortDescription>
+        <value>Searching for products</value>
+    </labels>
+    <labels>
+        <fullName>SeeMore</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>See more</shortDescription>
+        <value>See more</value>
+    </labels>
+    <labels>
+        <fullName>Segment</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Segment</shortDescription>
+        <value>Segment</value>
+    </labels>
+    <labels>
+        <fullName>SegmentInsight</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Segment Insight</shortDescription>
+        <value>Segment Insight</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>SelectCategory</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select category</shortDescription>
+        <value>Select category</value>
+    </labels>
+    <labels>
+        <fullName>SelectObject</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Object</shortDescription>
+        <value>Select the object to carry out the load...</value>
+    </labels>
+    <labels>
+        <fullName>SelectProposalType</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Proposal Type</shortDescription>
+        <value>Select proposal type</value>
+    </labels>
+    <labels>
+        <fullName>SelectSegment</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Segment</shortDescription>
+        <value>Select segment</value>
+    </labels>
+    <labels>
+        <fullName>SelectedProductOL</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected Product OL</shortDescription>
+        <value>The selected product is an Integrated OL product</value>
+    </labels>
+    <labels>
+        <fullName>SelectedProductUsedDeal</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Selected Product Used Deal</shortDescription>
+        <value>The selected product is being used as an deal</value>
+    </labels>
+    <labels>
+        <fullName>SellPriceAboveFactoryPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sell Price Above Factory Price</shortDescription>
+        <value>This product has a selling price above the factory price.</value>
+    </labels>
+    <labels>
+        <fullName>SellPriceInvalid</fullName>
+        <categories>Margin</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SellPrice is not valid</shortDescription>
+        <value>This product don&apos;t have any registered price, call an administrator.</value>
+    </labels>
+    <labels>
+        <fullName>SellerWithoutCompanyCode</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Seller without company code</shortDescription>
+        <value>O vendedor não tem company code cadastrado favor efetuar cadastro do mesmo</value>
+    </labels>
+    <labels>
+        <fullName>SeparateItems</fullName>
+        <categories>LWC_ProductSeparateByAccGroup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SegregateItems</shortDescription>
+        <value>Split Items</value>
+    </labels>
+    <labels>
+        <fullName>SharePointFolderIdAccDoc</fullName>
+        <categories>Share Point Folder</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>SharePointFolderIdAccDoc</shortDescription>
+        <value>item:L3NpdGVzL3JlcG9zaXRvcmlvX3JlZ3VsYXRvcmlv:3ffdcd05-0cbf-4ada-8fd2-6a5fdfedfc13:41f2b713-a795-4288-b0bb-1e0532cb1264:8</value>
+    </labels>
+    <labels>
+        <fullName>SharePointRepositoryId</fullName>
+        <categories>Share Point</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>SharePointRepositoryId</shortDescription>
+        <value>0XC1U000000TOC5WAO</value>
+    </labels>
+    <labels>
+        <fullName>StateAdress</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>State Adress</shortDescription>
+        <value>State</value>
+    </labels>
+    <labels>
+        <fullName>StatusRelatedToQuotationWithoutMinimumPrice</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Status related to quotation without minimum price</shortDescription>
+        <value>Não foi encontrado nenhum preço minimo cadastrado para o estado relacionado a cotação</value>
+    </labels>
+    <labels>
+        <fullName>Stock</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Stock</shortDescription>
+        <value>Stock</value>
+    </labels>
+    <labels>
+        <fullName>Street</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Street</shortDescription>
+        <value>Street</value>
+    </labels>
+    <labels>
+        <fullName>SubjectPharmaceuticalRestrictions</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Subject Pharmaceutical Restrictions</shortDescription>
+        <value>, is subject to pharmaceutical restrictions for at least one account in the selected customer group.</value>
+    </labels>
+    <labels>
+        <fullName>Success</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>SuccessChangedMargin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success Changed Margin</shortDescription>
+        <value>The editing of the margin value has been successfully saved!</value>
+    </labels>
+    <labels>
+        <fullName>SuccessChangedQuantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success Changed Quantity</shortDescription>
+        <value>The product quantity edit was successfully saved!</value>
+    </labels>
+    <labels>
+        <fullName>SuccessChangedSellPrice</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Success Changed Sell Price</shortDescription>
+        <value>The sales price issue has been successfully saved!</value>
+    </labels>
+    <labels>
+        <fullName>SupplierPartialBillingSuccess</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SupplierPartialBillingSuccess</shortDescription>
+        <value>Partial Supplier Invoicing Completed Successfully!</value>
+    </labels>
+    <labels>
+        <fullName>SupplierRuleExceptionIntegrationType</fullName>
+        <categories>SupplierRuleException</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SupplierRuleExceptionIntegrationType</shortDescription>
+        <value>Invalid integration type, accepted types: Canal Autorizador, Pedido Externo e Canal Autorizador &amp; Pedido Externo</value>
+    </labels>
+    <labels>
+        <fullName>SupplierRuleExceptionIntegrationTypeBlank</fullName>
+        <categories>SupplierRuleException</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SupplierRuleExceptionIntegrationTypeBlank</shortDescription>
+        <value>It is necessary to fill in the Integration Type using the method: setIntegrationType</value>
+    </labels>
+    <labels>
+        <fullName>Synced</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Synced</shortDescription>
+        <value>Synced</value>
+    </labels>
+    <labels>
+        <fullName>Synchronize</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Synchronize</shortDescription>
+        <value>Synchronize</value>
+    </labels>
+    <labels>
+        <fullName>TheProduct</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>The Product</shortDescription>
+        <value>The Product:</value>
+    </labels>
+    <labels>
+        <fullName>TimeExceeded</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Time Exceeded</shortDescription>
+        <value>Time Exceeded!</value>
+    </labels>
+    <labels>
+        <fullName>TimeLimitExceeded</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Time Limit Exceeded</shortDescription>
+        <value>Please restart your browser and try again. If the error persists, contact an administrator.</value>
+    </labels>
+    <labels>
+        <fullName>TitleSupplierIntegration</fullName>
+        <categories>LWC</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>TitleSupplierIntegration</shortDescription>
+        <value>Integração de Fornecedor</value>
+    </labels>
+    <labels>
+        <fullName>TituloQuote</fullName>
+        <categories>LWC</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>QuoteTitle</shortDescription>
+        <value>Cotação</value>
+    </labels>
+    <labels>
+        <fullName>TotalProductValue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Total Product Value</shortDescription>
+        <value>Total Product Value</value>
+    </labels>
+    <labels>
+        <fullName>TotalValue</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Total Value</shortDescription>
+        <value>Total Value</value>
+    </labels>
+    <labels>
+        <fullName>TryAgainLater</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Try Again Later</shortDescription>
+        <value>Try again later!</value>
+    </labels>
+    <labels>
+        <fullName>TwoFieldsEditing</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Two Fields Editing</shortDescription>
+        <value>You cannot edit both values ​​at the same time</value>
+    </labels>
+    <labels>
+        <fullName>TypeNegotiation</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TypeNegotiation</shortDescription>
+        <value>Type of Negotiation</value>
+    </labels>
+    <labels>
+        <fullName>TypeSale</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Type Sale</shortDescription>
+        <value>Type Sale</value>
+    </labels>
+    <labels>
+        <fullName>UnratedRelatedAccount</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>Unrated related account</shortDescription>
+        <value>Conta ou Cliente de Entrega relacionado à cotação não possui classificação!</value>
+    </labels>
+    <labels>
+        <fullName>UserNameMuleIntegration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>User Name Mule Integration</shortDescription>
+        <value>Integrações MuleSoft</value>
+    </labels>
+    <labels>
+        <fullName>ValidQuantity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Valid Quantity</shortDescription>
+        <value>Enter a valid quantity for the product</value>
+    </labels>
+    <labels>
+        <fullName>ValidateAccountDetails</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validate Account Details</shortDescription>
+        <value>Account data validation</value>
+    </labels>
+    <labels>
+        <fullName>Validity</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validity</shortDescription>
+        <value>Validity</value>
+    </labels>
+    <labels>
+        <fullName>ValueBranch</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Value Branch</shortDescription>
+        <value>The value branch</value>
+    </labels>
+    <labels>
+        <fullName>VerticalBar</fullName>
+        <categories>BusinessRules</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vertical Bar</shortDescription>
+        <value>|</value>
+    </labels>
+    <labels>
+        <fullName>View</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>WaitingIntegration</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Waiting Integration</shortDescription>
+        <value>Waiting Integration</value>
+    </labels>
+    <labels>
+        <fullName>WaitingProductSearch</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Waiting for product search</shortDescription>
+        <value>Waiting product search</value>
+    </labels>
+    <labels>
+        <fullName>WaitingSynchronization</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Waiting Synchronization</shortDescription>
+        <value>Waiting for data synchronization</value>
+    </labels>
+    <labels>
+        <fullName>WarningAccountType</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning Account Type</shortDescription>
+        <value>Warning: Account Type</value>
+    </labels>
+    <labels>
+        <fullName>WarningKitSell</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Warning Kit Sell</shortDescription>
+        <value>Warning: Kit Sell</value>
+    </labels>
+    <labels>
+        <fullName>WithoutRegisteredMargin</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Without Registered Margin</shortDescription>
+        <value>This product related to this branch does not have a registered margin, please consult an administrator.</value>
+    </labels>
+    <labels>
+        <fullName>YourSearch</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Your Search</shortDescription>
+        <value>Your search for:</value>
+    </labels>
+    <labels>
+        <fullName>ZipCodeAdress</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Zip Code Adress</shortDescription>
+        <value>Zip Code</value>
+    </labels>
+    <labels>
+        <fullName>accountName</fullName>
+        <categories>LWC</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Nome da Conta</shortDescription>
+        <value>This is Account name</value>
+    </labels>
+    <labels>
+        <fullName>orderTitle</fullName>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>orderTitle</shortDescription>
+        <value>Pedido</value>
+    </labels>
+</CustomLabels>

@@ -61,6 +61,13 @@ public virtual class Filter {
      * @param  changedFiedls changeableField separed by comma
      * @return New List of Only Relevant changes
      */
+    public List<SObject> relevantChangeRecordsFilter (
+        List<SObject> newRecords
+        , Map<Id, SObject> oldRecords
+        , String changedField ) {
+        return this.relevantChangeRecordsFilter( newRecords, oldRecords, new List<String>{changedField} );
+    }
+
     public List<SObject> relevantChangeRecordsFilter (List<SObject> newRecords
             , Map<Id, SObject> oldRecords
             , List<String> changedFiedls ) {

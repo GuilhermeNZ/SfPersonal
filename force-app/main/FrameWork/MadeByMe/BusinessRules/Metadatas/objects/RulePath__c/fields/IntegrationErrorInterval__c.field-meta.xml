@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IntegrationErrorInterval__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Data do Fim do Erro de Integracao - Data do Inicio do Erro de Integracao em minutos</description>
+    <externalId>false</externalId>
+    <label>Intervalo de Tempo do Erro de Integracao</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
