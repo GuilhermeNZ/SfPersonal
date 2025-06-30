@@ -62,6 +62,28 @@ public without sharing class Maps {
         return values;
     }
 
+    public static Map<String, List<SObject>> groupBy ( String fieldName, List<SObject> records, Type mapType ) {
+
+        if ( Lists.isEmpty( records ) ) return (Map<String, List<SObject>>) mapType.newInstance();
+
+        Map<String, List<SObject>> values = (Map<String, List<SObject>>) mapType.newInstance();
+
+        for ( SObject record : records ) {
+
+            String value = (String) getFieldValue( record, fieldName );
+
+            if ( value == null ) continue;
+
+            if ( !values.containsKey( value ) ) {
+                values.put( value, new List<SObject>() );
+            }
+
+            values.get( value ).add( record );
+        }
+
+        return values;
+    }
+
     public static Map<String,Object> putValue( Map<String,Object> valueByKey, Object value, String key ) {
         valueByKey.put( key, value );
 
