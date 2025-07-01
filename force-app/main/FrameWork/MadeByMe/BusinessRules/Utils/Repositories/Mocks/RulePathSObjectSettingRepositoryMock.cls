@@ -11,11 +11,15 @@ public with sharing class RulePathSObjectSettingRepositoryMock extends RulePathS
         this.payload = payload;
     }
 
-    public override RulePathSObjectSetting__c findByName( String name ) {
+    public override RulePathSObjectSetting__c findByObjectAPIName( String name ) {
         return (RulePathSObjectSetting__c) JSON.deserialize( this.payload, RulePathSObjectSetting__c.class );
     }
 
-    public override List<RulePathSObjectSetting__c> findByNames( List<String> names ) {
+    public override List<RulePathSObjectSetting__c> findByObjectAPINames( List<String> names ) {
+        return (List<RulePathSObjectSetting__c>) JSON.deserialize( this.payload, List<RulePathSObjectSetting__c>.class );
+    }
+
+    public override List<RulePathSObjectSetting__c> findByObjectAPINames( Set<String> names ) {
         return (List<RulePathSObjectSetting__c>) JSON.deserialize( this.payload, List<RulePathSObjectSetting__c>.class );
     }
 
