@@ -40,6 +40,24 @@ public without sharing class Maps {
         return values;
     }
 
+    public static Map<String, SObject> indexByCompositeKey ( List<String> fieldsName, List<SObject> records, String separator, Type mapType ) {
+
+        if ( Lists.isEmpty(records) ) return (Map<String, SObject>) mapType.newInstance();
+
+        Map<String, SObject> values = (Map<String, SObject>) mapType.newInstance();
+
+        for ( SObject record : records ) {
+
+            List<String> valuesToBuildCompositeKey = getFieldsValues( record, fieldsName );
+
+            if( valuesToBuildCompositeKey.isEmpty() ) continue;
+
+            values.put( String.join( valuesToBuildCompositeKey, separator ), record );
+        }
+
+        return values;
+    }
+
     public static Map<String, List<SObject>> groupBy ( String fieldName, List<SObject> records ) {
 
         if ( Lists.isEmpty( records ) ) return new Map<String, List<SObject>>();
@@ -111,6 +129,20 @@ public without sharing class Maps {
     public static SObject getMapValue ( Map<String,SObject> sObjectByKey, String key ) {
         if( sObjectByKey.containsKey( key ) ) return sObjectByKey.get( key );
         return null;
+    }
+
+    private static List<String> getFieldsValues( SObject record, List<String> fields ) {
+
+        List<String> values = new List<String>();
+
+        for ( String field : fields ) {
+            String value = getFieldValue( record, field );
+            if( value == null ) continue;
+
+            values.add( value );
+        }
+
+        return values;
     }
 
     private static String getFieldValue( SObject record, String field ) {
