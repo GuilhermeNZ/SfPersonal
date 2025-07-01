@@ -15,7 +15,8 @@ public class RulePathCreatorServiceTest {
             , 'BusinessRulesSetting__c'
         ).createRecord();
 
-        Assert.areEqual( 1, [SELECT Id FROM RulePathSObjectSetting__c WHERE Name = 'BusinessRulesSetting__c'].size(), 'Must create one RulePathSObjectSetting__c' );
+        Assert.areEqual( 1, [SELECT Id FROM RulePathSObjectSetting__c WHERE ObjectAPIName__c = 'BusinessRulesSetting__c'].size(), 'Must create one RulePathSObjectSetting__c' );
+        Assert.areEqual( 1, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must create one RulePathFieldSetting__c' );
 
         BusinessRulesPath__c businessRulesPath = (BusinessRulesPath__c) new BR_BusinessRulesPathFactory.BR_ExampleValidationRule(
             businessRulesSetting.Id
@@ -59,9 +60,10 @@ public class RulePathCreatorServiceTest {
 
         Assert.areEqual(
             2
-            , [SELECT Id FROM RulePathSObjectSetting__c WHERE Name = 'BusinessRulesPath__c' OR Name = 'BusinessRulesSetting__c'].size()
+            , [SELECT Id FROM RulePathSObjectSetting__c WHERE ObjectAPIName__c = 'BusinessRulesPath__c' OR ObjectAPIName__c = 'BusinessRulesSetting__c'].size()
             , 'Must create two RulePathSObjectSetting__c'
         );
+        Assert.areEqual( 2, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must create two RulePathFieldSetting__c' );
 
         BusinessRulesPath__c pathForFirstSetting = (BusinessRulesPath__c) new BR_BusinessRulesPathFactory.BR_ExampleValidationRule(
             firstBusinessRulesSetting.Id
@@ -122,7 +124,8 @@ public class RulePathCreatorServiceTest {
 
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
-        Assert.areEqual( 0, [SELECT Id FROM RulePathSObjectSetting__c WHERE Name = 'BusinessRulesSetting__c'].size(), 'Must dont create RulePathSObjectSetting__c' );
+        Assert.areEqual( 0, [SELECT Id FROM RulePathSObjectSetting__c WHERE ObjectAPIName__c = 'BusinessRulesSetting__c'].size(), 'Must dont create RulePathSObjectSetting__c' );
+        Assert.areEqual( 0, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must dont create RulePathFieldSetting__c' );
 
         Test.startTest();
 
@@ -156,6 +159,8 @@ public class RulePathCreatorServiceTest {
             'BusinessRulesSetting__c'
         ).createRecord();
 
+        Assert.areEqual( 0, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must dont create RulePathFieldSetting__c' );
+
         Test.startTest();
 
         try{
@@ -163,7 +168,7 @@ public class RulePathCreatorServiceTest {
             List<RulePath__c> createdRulePaths = service.bySObjectIdCreate( businessRulesSetting.Id );
             Assert.fail( 'Must throw a exception' );
         }catch( Exception error ) {
-            Assert.isTrue( error.getMessage().contains( 'is missing FieldsToUseInQuery__c' ) );
+            Assert.isTrue( error.getMessage().contains( 'is missing Field to Query' ) );
         }
 
         Test.stopTest();
@@ -180,7 +185,8 @@ public class RulePathCreatorServiceTest {
             , 'BusinessRulesSetting__c'
         ).createRecord();
 
-        Assert.areEqual( 1, [SELECT Id FROM RulePathSObjectSetting__c WHERE Name = 'BusinessRulesSetting__c'].size(), 'Must create one RulePathSObjectSetting__c' );
+        Assert.areEqual( 1, [SELECT Id FROM RulePathSObjectSetting__c WHERE ObjectAPIName__c = 'BusinessRulesSetting__c'].size(), 'Must create one RulePathSObjectSetting__c' );
+        Assert.areEqual( 1, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must create one RulePathFieldSetting__c' );
 
         Test.startTest();
 

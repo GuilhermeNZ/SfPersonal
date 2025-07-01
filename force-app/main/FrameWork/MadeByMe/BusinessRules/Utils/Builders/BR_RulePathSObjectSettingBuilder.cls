@@ -10,13 +10,8 @@ public with sharing class BR_RulePathSObjectSettingBuilder {
         rulePathSObjectSetting = new RulePathSObjectSetting__c();
     }
 
-    public BR_RulePathSObjectSettingBuilder withName( String name ) {
-        this.rulePathSObjectSetting.Name = name;
-        return this;
-    }
-
-    public BR_RulePathSObjectSettingBuilder withFieldsToUseInQuery( String fieldsToUseInQuery ) {
-        this.rulePathSObjectSetting.FieldsToUseInQuery__c = fieldsToUseInQuery;
+    public BR_RulePathSObjectSettingBuilder withObjectAPIName( String objectAPIName ) {
+        this.rulePathSObjectSetting.ObjectAPIName__c = objectAPIName;
         return this;
     }
 

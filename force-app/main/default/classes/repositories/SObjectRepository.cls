@@ -19,7 +19,7 @@ public virtual class SObjectRepository extends AbstractRepository {
         return sObjects.isEmpty() ? null : sObjects[0];
     }
 
-    public List<SObject> buildAndFindByIds( List<String> fields, String SObjectName, List<Id> ids ) {
+    public List<SObject> buildAndFindByIds( Set<String> fields, String SObjectName, List<Id> ids ) {
         String query = 'SELECT ' + String.join( fields, ',' ) + ' FROM ' + SObjectName + ' WHERE Id IN :ids';
 
         return Database.query( query );

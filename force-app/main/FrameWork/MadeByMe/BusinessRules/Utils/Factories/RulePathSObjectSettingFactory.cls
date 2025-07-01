@@ -5,21 +5,16 @@
 @isTest
 public with sharing class RulePathSObjectSettingFactory {
 
-    private static RulePathSObjectSetting__c buildNew( String name, String fieldsToUseInQuery ) {
+    private static RulePathSObjectSetting__c buildNew( String objectApiName ) {
         return new RulePathSObjectSetting__c(
-            Name = name
-            , FieldsToUseInQuery__c = fieldsToUseInQuery
+            ObjectAPIName__c = objectApiName
         );
     }
 
     public class DefaultRT extends SObjectFactory{
 
-        public DefaultRT( String name ) {
-            super( buildNew( name, '' ) );
-        }
-
-        public DefaultRT( String name, String fieldsToUseInQuery ) {
-            super( buildNew( name, fieldsToUseInQuery ) );
+        public DefaultRT( String objectApiName ) {
+            super( buildNew( objectApiName ) );
         }
 
     }
