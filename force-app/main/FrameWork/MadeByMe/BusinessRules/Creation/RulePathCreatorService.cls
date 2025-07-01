@@ -33,8 +33,8 @@ public with sharing class RulePathCreatorService {
         Map<String,List<Id>> idsBySObjectApiName = IdHelper.buildMapIdsBySObjectApiName( sObjectIds );
 
         Map<String,RulePathSObjectSetting__c> rulePathSObjectSettingBySObjectName = (Map<String,RulePathSObjectSetting__c>) Maps.indexBy(
-            'Name'
-            , this.rulePathSObjectSettingRepositoryInstance.findByNames( idsBySObjectApiName.keySet() )
+            'ObjectAPIName__c'
+            , this.rulePathSObjectSettingRepositoryInstance.findByObjectAPINames( idsBySObjectApiName.keySet() )
             , Map<String,RulePathSObjectSetting__c>.class
         );
 
@@ -56,13 +56,13 @@ public with sharing class RulePathCreatorService {
                 throw new RulePathCreatorServiceException( 'RulePathSObjectSetting__c not found to SObject: ' + sObjectApiName );
             }
 
-            if( String.isBlank( rulePathSObjectSettingBySObjectName.get( sObjectApiName ).FieldsToUseInQuery__c ) ) {
-                throw new RulePathCreatorServiceException( 'RulePathSObjectSetting__c for SObject: ' + sObjectApiName + ' is missing FieldsToUseInQuery__c' );
+            if( rulePathSObjectSettingBySObjectName.get( sObjectApiName ).RulePathFieldsSettings__r.isEmpty() ) {
+                throw new RulePathCreatorServiceException( 'RulePathSObjectSetting__c for SObject: ' + sObjectApiName + ' is missing Field to Query' );
             }
 
             sObjectRecords.addAll(
                 this.sObjectRepository.buildAndFindByIds(
-                    rulePathSObjectSettingBySObjectName.get( sObjectApiName ).FieldsToUseInQuery__c.split( ',' )
+                    new Set<String>( Lists.byField( rulePathSObjectSettingBySObjectName.get( sObjectApiName ).RulePathFieldsSettings__r, 'Name' ) )
                     , sObjectApiName
                     , idsBySObjectApiName.get( sObjectApiName )
                 )
