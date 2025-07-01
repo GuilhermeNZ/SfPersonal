@@ -18,12 +18,25 @@ public with sharing class BusinessRulesSettingHandlerTest {
 
         Test.stopTest();
 
-        RulePathSObjectSetting__c rulePathSObjectSetting = [SELECT Id, Name, FieldsToUseInQuery__c FROM RulePathSObjectSetting__c];
+        RulePathSObjectSetting__c rulePathSObjectSetting = [SELECT Id, ObjectAPIName__c FROM RulePathSObjectSetting__c];
 
         Assert.isNotNull( rulePathSObjectSetting, 'Must return one rulePathSObjectSetting' );
-        Assert.areEqual( 'BusinessRulesSetting__c', rulePathSObjectSetting.Name, 'Name field must be: BusinessRulesSetting__c' );
-        Assert.isTrue( rulePathSObjectSetting.FieldsToUseInQuery__c.contains( 'Name' ), 'Should contains Name in FieldsToUseInQuery__c field' );
-        Assert.isTrue( rulePathSObjectSetting.FieldsToUseInQuery__c.contains( 'Object__c' ), 'Should contains Object__c in FieldsToUseInQuery__c field' );
+        Assert.areEqual( 'BusinessRulesSetting__c', rulePathSObjectSetting.ObjectAPIName__c, 'ObjectAPIName__c field must be: BusinessRulesSetting__c' );
+
+        List<RulePathFieldSetting__c> rulePathFieldSettings = [SELECT Id, Name, RulePathSObjectSetting__c FROM RulePathFieldSetting__c];
+
+        Assert.isFalse( rulePathFieldSettings.isEmpty(), 'Must return rulePathFieldSettings' );
+        Assert.areEqual( 2, rulePathFieldSettings.size(), 'Must return two rulePathFieldSettings' );
+
+        Map<String,RulePathFieldSetting__c> rulePathFieldSettingByName = (Map<String,RulePathFieldSetting__c>) Maps.indexBy(
+            'Name', rulePathFieldSettings, Map<String,RulePathFieldSetting__c>.class
+        );
+
+        Assert.isTrue( rulePathFieldSettingByName.containsKey( 'Name' ), 'Should contains Name in rulePathFieldSettingByName map' );
+        Assert.isTrue( rulePathFieldSettingByName.containsKey( 'Object__c' ), 'Should contains Object__c in rulePathFieldSettingByName map' );
+
+        Assert.areEqual( rulePathSObjectSetting.id, rulePathFieldSettingByName.get( 'Name' ).RulePathSObjectSetting__c, 'RulePathSObjectSetting__c must be: ' + rulePathSObjectSetting.id );
+        Assert.areEqual( rulePathSObjectSetting.id, rulePathFieldSettingByName.get( 'Object__c' ).RulePathSObjectSetting__c, 'RulePathSObjectSetting__c must be: ' + rulePathSObjectSetting.id );
     }
 
     @isTest
@@ -38,7 +51,11 @@ public with sharing class BusinessRulesSettingHandlerTest {
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
         RulePathSObjectSetting__c rulePathSetting = (RulePathSObjectSetting__c) new RulePathSObjectSettingFactory.DefaultRT(
-            'BusinessRulesSetting__c', 'Name'
+            'BusinessRulesSetting__c'
+        ).createRecord();
+
+        RulePathFieldSetting__c rulePathFieldSetting = (RulePathFieldSetting__c) new BR_RulePathFieldSettingFactory.DefaultRT(
+            'Name', rulePathSetting.Id
         ).createRecord();
 
         Test.startTest();
@@ -48,12 +65,25 @@ public with sharing class BusinessRulesSettingHandlerTest {
 
         Test.stopTest();
 
-        RulePathSObjectSetting__c rulePathSObjectSetting = [SELECT Id, Name, FieldsToUseInQuery__c FROM RulePathSObjectSetting__c];
+        RulePathSObjectSetting__c rulePathSObjectSetting = [SELECT Id, ObjectAPIName__c FROM RulePathSObjectSetting__c];
 
         Assert.isNotNull( rulePathSObjectSetting, 'Must return one rulePathSObjectSetting' );
-        Assert.areEqual( 'BusinessRulesSetting__c', rulePathSObjectSetting.Name, 'Name field must be: BusinessRulesSetting__c' );
-        Assert.isTrue( rulePathSObjectSetting.FieldsToUseInQuery__c.contains( 'Name' ), 'Should contains Name in FieldsToUseInQuery__c field' );
-        Assert.isTrue( rulePathSObjectSetting.FieldsToUseInQuery__c.contains( 'Object__c' ), 'Should contains Object__c in FieldsToUseInQuery__c field' );
+        Assert.areEqual( 'BusinessRulesSetting__c', rulePathSObjectSetting.ObjectAPIName__c, 'ObjectAPIName__c field must be: BusinessRulesSetting__c' );
+
+        List<RulePathFieldSetting__c> rulePathFieldSettings = [SELECT Id, Name, RulePathSObjectSetting__c FROM RulePathFieldSetting__c];
+
+        Assert.isFalse( rulePathFieldSettings.isEmpty(), 'Must return rulePathFieldSettings' );
+        Assert.areEqual( 2, rulePathFieldSettings.size(), 'Must return two rulePathFieldSettings' );
+
+        Map<String,RulePathFieldSetting__c> rulePathFieldSettingByName = (Map<String,RulePathFieldSetting__c>) Maps.indexBy(
+            'Name', rulePathFieldSettings, Map<String,RulePathFieldSetting__c>.class
+        );
+
+        Assert.isTrue( rulePathFieldSettingByName.containsKey( 'Name' ), 'Should contains Name in rulePathFieldSettingByName map' );
+        Assert.isTrue( rulePathFieldSettingByName.containsKey( 'Object__c' ), 'Should contains Object__c in rulePathFieldSettingByName map' );
+
+        Assert.areEqual( rulePathSObjectSetting.id, rulePathFieldSettingByName.get( 'Name' ).RulePathSObjectSetting__c, 'RulePathSObjectSetting__c must be: ' + rulePathSObjectSetting.id );
+        Assert.areEqual( rulePathSObjectSetting.id, rulePathFieldSettingByName.get( 'Object__c' ).RulePathSObjectSetting__c, 'RulePathSObjectSetting__c must be: ' + rulePathSObjectSetting.id );
     }
 
     @isTest 
@@ -75,9 +105,13 @@ public with sharing class BusinessRulesSettingHandlerTest {
 
         Test.stopTest();
 
-        List<RulePathSObjectSetting__c> rulePathSObjectSettings = [SELECT Id, Name, FieldsToUseInQuery__c FROM RulePathSObjectSetting__c];
+        List<RulePathSObjectSetting__c> rulePathSObjectSettings = [SELECT Id, ObjectAPIName__c FROM RulePathSObjectSetting__c];
 
         Assert.isTrue( rulePathSObjectSettings.isEmpty(), 'Must dont return rulePathSObjectSettings' );
+
+        List<RulePathFieldSetting__c> rulePathFieldSettings = [SELECT Id, Name FROM RulePathFieldSetting__c];
+
+        Assert.isTrue( rulePathFieldSettings.isEmpty(), 'Must not return rulePathFieldSettings' );
     }
 
     @isTest
@@ -92,7 +126,11 @@ public with sharing class BusinessRulesSettingHandlerTest {
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
         RulePathSObjectSetting__c rulePathSetting = (RulePathSObjectSetting__c) new RulePathSObjectSettingFactory.DefaultRT(
-            'BusinessRulesSetting__c', 'Name'
+            'BusinessRulesSetting__c'
+        ).createRecord();
+
+        RulePathFieldSetting__c rulePathFieldSetting = (RulePathFieldSetting__c) new BR_RulePathFieldSettingFactory.DefaultRT(
+            'Name', rulePathSetting.Id
         ).createRecord();
 
         Test.startTest();
@@ -108,11 +146,15 @@ public with sharing class BusinessRulesSettingHandlerTest {
 
         Test.stopTest();
 
-        RulePathSObjectSetting__c rulePathSObjectSetting = [SELECT Id, Name, FieldsToUseInQuery__c FROM RulePathSObjectSetting__c];
+        RulePathSObjectSetting__c rulePathSObjectSettingAfterUpdate = [SELECT Id, ObjectAPIName__c FROM RulePathSObjectSetting__c];
 
-        Assert.isNotNull( rulePathSObjectSetting, 'Must return one rulePathSObjectSetting' );
-        Assert.areEqual( 'BusinessRulesSetting__c', rulePathSObjectSetting.Name, 'Name field must be: BusinessRulesSetting__c' );
-        Assert.areEqual( 'Name', rulePathSObjectSetting.FieldsToUseInQuery__c, 'FieldsToUseInQuery__c field must be: Name' );
+        Assert.isNotNull( rulePathSObjectSettingAfterUpdate, 'Must return one rulePathSObjectSettingAfterUpdate' );
+        Assert.areEqual( 'BusinessRulesSetting__c', rulePathSObjectSettingAfterUpdate.ObjectAPIName__c, 'ObjectAPIName__c field must be: BusinessRulesSetting__c' );
+
+        RulePathFieldSetting__c rulePathFieldSettingAfterUpdate = [SELECT Id, Name, RulePathSObjectSetting__c FROM RulePathFieldSetting__c WHERE Id = :rulePathFieldSetting.Id];
+        Assert.isNotNull( rulePathFieldSettingAfterUpdate, 'Must return one rulePathFieldSetting' );
+        Assert.areEqual( 'Name', rulePathFieldSettingAfterUpdate.Name, 'Name field must be: Name' );
+        Assert.areEqual( rulePathSetting.Id, rulePathFieldSettingAfterUpdate.RulePathSObjectSetting__c, 'RulePathSObjectSetting__c must be the same' );
     }
 
 }
