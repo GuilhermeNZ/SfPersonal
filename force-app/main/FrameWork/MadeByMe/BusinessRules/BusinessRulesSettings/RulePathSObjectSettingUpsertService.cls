@@ -7,39 +7,56 @@ public with sharing class RulePathSObjectSettingUpsertService {
     private RulePathSObjectSettingRepository repository;
     private BusinessRulesSettingValidator validator;
 
+    private BR_RulePathFieldSettingRepository rulePathFieldSettingRepositoryInstance;
+
     public RulePathSObjectSettingUpsertService(){
         this.repository = RulePathSObjectSettingRepository.getInstance();
         this.validator = BusinessRulesSettingValidator.getInstance();
+
+        this.rulePathFieldSettingRepositoryInstance = BR_RulePathFieldSettingRepository.getInstance();
     }
 
     private static final String RULE_KEY_DELIMITER = ';';
+    private static final String FIELD_SETTING_COMPOSITE_SEPARATOR = '-';
     
-    public List<RulePathSObjectSetting__c> byBusinessRulesSettingsRuleKey( List<BusinessRulesSetting__c> newBusinessRulesSettings, Map<Id,BusinessRulesSetting__c> oldBusinessRulesSettingById ) {
+    public Map<String,List<SObject>> byBusinessRulesSettingsRuleKey( List<BusinessRulesSetting__c> newBusinessRulesSettings, Map<Id,BusinessRulesSetting__c> oldBusinessRulesSettingById ) {
 
         List<String> objectNames = Lists.byField( newBusinessRulesSettings, 'Object__c' );
 
         Map<String, RulePathSObjectSetting__c> rulePathSObjectSettingByObjectName = (Map<String, RulePathSObjectSetting__c>) Maps.indexBy(
-            'Name'
-            , this.repository.findByNames( objectNames )
+            'ObjectAPIName__c'
+            , this.repository.findByObjectAPINames( objectNames )
             , Map<String, RulePathSObjectSetting__c>.class
+        );
+
+        Map<String,RulePathFieldSetting__c> rulePathFieldSettingByObjectNameAndFieldName = (Map<String,RulePathFieldSetting__c>) Maps.indexByCompositeKey(
+            new List<String>{ 'Name', 'ObjectAPIName__c' }
+            , this.rulePathFieldSettingRepositoryInstance.findByObjectNames( objectNames )
+            , FIELD_SETTING_COMPOSITE_SEPARATOR
+            , Map<String,RulePathFieldSetting__c>.class
         );
 
         Map<String,Schema.DescribeSobjectResult> describeSObjectByName = SObjectHelper.getDescribreSObjectByName( objectNames );
 
-        return this.repository.save(
-            this.getBusinessRulesSettingsToUpsert(
-                newBusinessRulesSettings
-                , oldBusinessRulesSettingById
-                , rulePathSObjectSettingByObjectName
-                , describeSObjectByName
-            )
+        Map<String,List<SObject>> result = this.getSObjectSettingsAndFieldSettingsToUpsert(
+            newBusinessRulesSettings
+            , oldBusinessRulesSettingById
+            , rulePathSObjectSettingByObjectName
+            , rulePathFieldSettingByObjectNameAndFieldName
+            , describeSObjectByName
         );
+
+        this.repository.save( result.get( 'RulePathSObjectSetting__c' ) );
+        this.rulePathFieldSettingRepositoryInstance.save( result.get( 'RulePathFieldSetting__c' ) );
+
+        return result;
     }
 
-    private List<RulePathSObjectSetting__c> getBusinessRulesSettingsToUpsert(
+    private Map<String,List<SObject>> getSObjectSettingsAndFieldSettingsToUpsert(
         List<BusinessRulesSetting__c> newBusinessRulesSettings
         , Map<Id,BusinessRulesSetting__c> oldBusinessRulesSettingById
         , Map<String, RulePathSObjectSetting__c> rulePathSObjectSettingByObjectName
+        , Map<String,RulePathFieldSetting__c> rulePathFieldSettingByObjectNameAndFieldName
         , Map<String,Schema.DescribeSobjectResult> describeSObjectByName
     ) {
         for( BusinessRulesSetting__c newBusinessRulesSetting : newBusinessRulesSettings ) {
@@ -48,19 +65,24 @@ public with sharing class RulePathSObjectSettingUpsertService {
             String ruleKeyDifference = this.getRuleKeyFieldsDifference( newBusinessRulesSetting, oldBusinessRulesSettingById );
             if( String.isBlank( ruleKeyDifference ) ) continue;
 
-            RulePathSObjectSetting__c rulePathSObjectSetting = this.getOrCreateRulePathSetting( rulePathSObjectSettingByObjectName, newBusinessRulesSetting );
-
             List<String> fieldsToAddInQuery = this.extractFieldsFromRuleKeyDifference( ruleKeyDifference );
 
             this.validator.ruleKeyFieldsIsValid( fieldsToAddInQuery, describeSObjectByName, newBusinessRulesSetting );
             if( newBusinessRulesSetting.hasErrors() ) continue;
 
-            rulePathSObjectSetting.FieldsToUseInQuery__c = this.mergeQueryFields( rulePathSObjectSetting.FieldsToUseInQuery__c, fieldsToAddInQuery );
+            RulePathSObjectSetting__c rulePathSObjectSetting = this.getOrCreateRulePathSetting( rulePathSObjectSettingByObjectName, newBusinessRulesSetting );
 
-            rulePathSObjectSettingByObjectName.put( rulePathSObjectSetting.Name, rulePathSObjectSetting );
+            rulePathFieldSettingByObjectNameAndFieldName = this.mergeQueryFields( rulePathFieldSettingByObjectNameAndFieldName, fieldsToAddInQuery, rulePathSObjectSetting.ObjectAPIName__c );
+
+            if( String.isBlank( rulePathSObjectSetting.Id ) ) {
+                rulePathSObjectSettingByObjectName.put( rulePathSObjectSetting.ObjectAPIName__c, rulePathSObjectSetting );
+            }
         }
 
-        return rulePathSObjectSettingByObjectName.values();
+        return new Map<String,List<SObject>>{
+            'RulePathSObjectSetting__c' => rulePathSObjectSettingByObjectName.values()
+            , 'RulePathFieldSetting__c' => rulePathFieldSettingByObjectNameAndFieldName.values()
+        };
     }
 
     private String getRuleKeyFieldsDifference( BusinessRulesSetting__c newBusinessRulesSetting, Map<Id,BusinessRulesSetting__c> oldBusinessRulesSettingById ) {
@@ -80,8 +102,7 @@ public with sharing class RulePathSObjectSettingUpsertService {
         }
 
         return new BR_RulePathSObjectSettingBuilder()
-            .withName( newBusinessRulesSetting.Object__c )
-            .withFieldsToUseInQuery( '' )
+            .withObjectAPIName( newBusinessRulesSetting.Object__c )
             .build();
     }
 
@@ -97,16 +118,21 @@ public with sharing class RulePathSObjectSettingUpsertService {
         return fieldsToAddInQuery;
     }
 
-    private String mergeQueryFields( String fieldsToUseInQuery, List<String> fieldsToAddInQuery ) {
+    private Map<String,RulePathFieldSetting__c> mergeQueryFields( Map<String,RulePathFieldSetting__c> rulePathFieldSettingByObjectNameAndFieldName, List<String> fieldsToAddInQuery, String objectApiName ) {
 
-        Set<String> fieldSet = new Set<String>();
+        for( String fieldToAddInQuery : fieldsToAddInQuery ) {
+            if( rulePathFieldSettingByObjectNameAndFieldName.containsKey( fieldToAddInQuery + FIELD_SETTING_COMPOSITE_SEPARATOR + objectApiName ) ) continue;
 
-        if ( !String.isBlank( fieldsToUseInQuery ) ) {
-            fieldSet.addAll( fieldsToUseInQuery.split( ',' ) );
+            rulePathFieldSettingByObjectNameAndFieldName.put(
+                fieldToAddInQuery + FIELD_SETTING_COMPOSITE_SEPARATOR + objectApiName
+                , new BR_RulePathFieldSettingBuilder()
+                    .withName( fieldToAddInQuery )
+                    .withRelatedSObjectAPIName( objectApiName )
+                    .build()
+            );
         }
 
-        fieldSet.addAll( fieldsToAddInQuery );
-        return String.join( new List<String>( fieldSet ), ',' );
+        return rulePathFieldSettingByObjectNameAndFieldName;
 
     }
 
