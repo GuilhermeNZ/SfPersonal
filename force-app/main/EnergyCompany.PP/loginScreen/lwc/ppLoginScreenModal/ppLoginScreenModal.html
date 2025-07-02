@@ -1,16 +1,51 @@
 <template>
-    <lightning-modal-body>
-        <div class="slds-grid slds-gutters">
-            <div class="slds-col slds-size_2-of-4">
-                <span>1</span>
+    <div class="container">
+        <div class="image-section">
+            <img src={imageUrl} alt="Login illustration" />
+        </div>
+        <div class="form-section">
+            <h2 class="title-text">
+                Welcome to<br />
+                <span class="highlight">Energy</span> <span class="company-name">Company</span>
+            </h2>
+
+            <lightning-input
+                type="email"
+                label="Email"
+                placeholder="hello@gmail.com"
+                onchange={handleEmailChange}>
+            </lightning-input>
+
+            <lightning-input
+                type="password"
+                label="Password (min 8 character)"
+                placeholder="********"
+                onchange={handlePasswordChange}>
+            </lightning-input>
+
+            <div class="forgot">
+                <a>Forgot password?</a>
             </div>
-            <div class="slds-col slds-size_2-of-4">
+
+            <div class="button-container">
                 <lightning-button
-                    onclick={handleOptionClick}
-                >
-                Fechar
-            </lightning-button>
+                    label="Sign in"
+                    variant="base"
+                    class="sign-button signin-button"
+                    onclick={handleSignIn}
+                    stretch>
+                </lightning-button>
+
+                <div class="divider">OR</div>
+
+                <lightning-button
+                    label="Sign up"
+                    variant="base"
+                    class="sign-button signup-button"
+                    onclick={handleSignUp}
+                    stretch>
+                </lightning-button>
             </div>
         </div>
-    </lightning-modal-body>
+    </div>
 </template>

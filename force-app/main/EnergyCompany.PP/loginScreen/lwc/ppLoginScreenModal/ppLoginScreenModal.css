@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.image-section {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 2rem;
+}
+
+.image-section img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.title-text {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+
+.highlight {
+    color: #f3c623;
+    font-weight: 700;
+}
+
+.company-name {
+    color: #222;
+    font-weight: 600;
+}
+
+.forgot {
+    text-align: right;
+    margin-top: -0.5rem;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.sign-button{
+    display: inline-block;
+    width: 250px;
+}
+
+.signin-button{
+    --sds-c-button-color-background: #f3c623;
+    --sds-c-button-color-background-hover: #f3c623;
+    --sds-c-button-color-background-active: #f3c623;
+
+    --sds-c-button-color-border: #f3c623;
+    --sds-c-button-color-border-active: #f3c623;
+    --sds-c-button-color-border-hover: #f3c623;
+
+    --sds-c-button-text-color: #222;
+    --sds-c-button-text-color-hover: #222;
+    --sds-c-button-text-color-active: #222;
+}
+
+.signup-button{
+    --sds-c-button-color-background: #222;
+    --sds-c-button-color-background-hover: #222;
+    --sds-c-button-color-background-active: #222;
+
+    --sds-c-button-color-border: #222;
+    --sds-c-button-color-border-active: #222;
+    --sds-c-button-color-border-hover: #222;
+
+    --sds-c-button-text-color: #f3c623;
+    --sds-c-button-text-color-hover: #f3c623;
+    --sds-c-button-text-color-active: #f3c623;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #999;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #999;
+    margin: 0 0.75rem;
+}
