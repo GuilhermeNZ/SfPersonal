@@ -4,6 +4,7 @@ Tag:
     BusinessRulesSettings
         Trigger before to validate field entered in the query, return error if dont exist - COMPLETED 50% ( Falta campo de relacionamento )
         Possible to delete fields in query
+            Create a relation objeto to rulePathSObjectSetting to storage the fields?
 
     Definir alguns campos para atualizar do objeto principal dinamicamente
         Inside businessRulesPath, make another object to define the updates
@@ -26,7 +27,8 @@ Tag:
     Tratativa para nao deixar adicionar campos no RuleKey caso nao esteja no formato campo=valor
 
     Final improvement: Better Logic in BusinessRulesSetting RuleKey__c ( OR, AND, != etc... )
-        Create new SObject to keep the fields and value (BusinessRulesRuleKey), and use a field equal flow trigger start
+        Usar classe boolean
+        Onde arrumar: BusinessRulesSettingFinder
 
     Custom Labels to messages
 
