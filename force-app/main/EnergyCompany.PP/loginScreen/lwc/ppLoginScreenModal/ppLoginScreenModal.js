@@ -1,16 +1,28 @@
-import { LightningElement, track } from 'lwc';
+import LightningModal from 'lightning/modal';
+import { track, wire } from 'lwc';
+import { getRecord, getFieldValue } from "lightning/uiRecordApi";
+
 import illustration from '@salesforce/resourceUrl/energyLoginImage';
 
-import LightningModal from 'lightning/modal';
+import USER_ID from '@salesforce/user/Id';
+import USER_NAME_FIELD from "@salesforce/schema/User.Name";
+import USER_EMAIL_FIELD from "@salesforce/schema/User.Email";
+import USER_PASSWORD_FIELD from "@salesforce/schema/User.PP_Password__c";
 
 export default class PpLoginScreenModal extends LightningModal {
-    imageUrl = illustration;
+    @track userName = '';
+    @track userEmail = '';
+    @track userPassword = '';
 
-    @track email = '';
-    @track password = '';
-
-    handleEmailChange(event) {
-        this.email = event.target.value;
+    @wire( getRecord, { recordId: USER_ID, fields: [USER_NAME_FIELD, USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
+    wiredUser( { error, data } ) {
+        if( data ) {
+            this.userName = getFieldValue( data, USER_NAME_FIELD );
+            this.userEmail = getFieldValue( data, USER_EMAIL_FIELD );
+            this.userPassword = getFieldValue( data, USER_PASSWORD_FIELD );
+        }else if( error ) {
+            console.error( 'Error fetching user data:', error );
+        }
     }
 
     handlePasswordChange(event) {
@@ -38,4 +50,6 @@ export default class PpLoginScreenModal extends LightningModal {
 
         this.close(id);
     }
+
+    imageUrl = illustration;
 }
