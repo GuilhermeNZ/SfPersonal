@@ -35,8 +35,9 @@ export default class PpLoginScreenModal extends LightningModal {
         signInInput.setCustomValidity( this.getSignInPasswordErrors( this.passwordDigited, this.userPassword ) );
         signInInput.reportValidity();
 
-        // lógica de autenticação ou evento
-        console.log('Email:', this.email, 'Password:', this.password);
+        if( signInInput.checkValidity() ){
+            this.close( 'signIn' );
+        }
     }
 
     getSignInPasswordErrors( passwordDigited, userPassword ) {
