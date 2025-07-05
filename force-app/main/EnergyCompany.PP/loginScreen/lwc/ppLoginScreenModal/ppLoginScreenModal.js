@@ -1,23 +1,24 @@
 import LightningModal from 'lightning/modal';
-import { track, wire } from 'lwc';
+import { wire } from 'lwc';
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
 import illustration from '@salesforce/resourceUrl/energyLoginImage';
 
 import USER_ID from '@salesforce/user/Id';
-import USER_NAME_FIELD from "@salesforce/schema/User.Name";
 import USER_EMAIL_FIELD from "@salesforce/schema/User.Email";
 import USER_PASSWORD_FIELD from "@salesforce/schema/User.PP_Password__c";
 
-export default class PpLoginScreenModal extends LightningModal {
-    @track userName = '';
-    @track userEmail = '';
-    @track userPassword = '';
+const PASSWORD_LENGTH = 8;
 
-    @wire( getRecord, { recordId: USER_ID, fields: [USER_NAME_FIELD, USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
+export default class PpLoginScreenModal extends LightningModal {
+    userEmail = '';
+    userPassword = '';
+
+    passwordDigited = '';
+
+    @wire( getRecord, { recordId: USER_ID, fields: [USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
     wiredUser( { error, data } ) {
         if( data ) {
-            this.userName = getFieldValue( data, USER_NAME_FIELD );
             this.userEmail = getFieldValue( data, USER_EMAIL_FIELD );
             this.userPassword = getFieldValue( data, USER_PASSWORD_FIELD );
         }else if( error ) {
@@ -26,29 +27,48 @@ export default class PpLoginScreenModal extends LightningModal {
     }
 
     handlePasswordChange(event) {
-        this.password = event.target.value;
+        this.passwordDigited = event.target.value;
     }
 
     handleSignIn() {
+        const signInInput = this.template.querySelector( 'lightning-input[data-id="passwordInput"]' );
+        signInInput.setCustomValidity( this.getSignInPasswordErrors( this.passwordDigited, this.userPassword ) );
+        signInInput.reportValidity();
+
         // lógica de autenticação ou evento
         console.log('Email:', this.email, 'Password:', this.password);
     }
 
+    getSignInPasswordErrors( passwordDigited, userPassword ) {
+        if( !userPassword ) {
+            return 'User not registered. Please Sign Up.';
+        }
+
+        if( passwordDigited != userPassword ) {
+            return 'Password does not match.';
+        }
+
+        return '';
+    }
+
     handleSignUp() {
-        // redirecionamento ou lógica de registro
-        console.log('Sign Up clicked');
+        //
+    }
+
+    getSignUpPasswordErrors( passwordDigited ) {
+        if( passwordDigited.length < PASSWORD_LENGTH ){
+            return 'Password must be at least ' + PASSWORD_LENGTH + ' characters long.';
+        }
+
+        return '';
     }
 
     handleOkay() {
         this.close('okay');
     }
 
-    handleOptionClick(e) {
-        const { target } = e;
-        const { id } = target.dataset;
-        this.disableClose = false;
-
-        this.close(id);
+    get passwordLabel(){
+        return 'Password (min '+PASSWORD_LENGTH+' character)';
     }
 
     imageUrl = illustration;

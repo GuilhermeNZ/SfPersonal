@@ -19,9 +19,12 @@
 
             <lightning-input
                 type="password"
-                label="Password (min 8 character)"
+                label={passwordLabel}
                 placeholder="********"
-                onchange={handlePasswordChange}>
+                onchange={handlePasswordChange}
+                value={passwordDigited}
+                data-id="passwordInput"
+                required>
             </lightning-input>
 
             <div class="forgot">
