@@ -31,6 +31,10 @@ export default class PpLoginScreen extends LightningElement {
         // if modal closed with X button, promise returns result = 'undefined'
         // if modal closed with OK button, promise returns result = 'okay'
         console.log(result);
+
+        if( result == undefined ) {
+            window.history.back();
+        }
     }
 
     closeAction() {
