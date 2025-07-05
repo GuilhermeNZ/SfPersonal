@@ -1,55 +1,100 @@
 import LightningModal from 'lightning/modal';
-import { track, wire } from 'lwc';
+import { wire } from 'lwc';
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
-import illustration from '@salesforce/resourceUrl/energyLoginImage';
+import ENERGY_LOGIN_IMAGE from '@salesforce/resourceUrl/energyLoginImage';
 
 import USER_ID from '@salesforce/user/Id';
-import USER_NAME_FIELD from "@salesforce/schema/User.Name";
 import USER_EMAIL_FIELD from "@salesforce/schema/User.Email";
 import USER_PASSWORD_FIELD from "@salesforce/schema/User.PP_Password__c";
 
-export default class PpLoginScreenModal extends LightningModal {
-    @track userName = '';
-    @track userEmail = '';
-    @track userPassword = '';
+const PASSWORD_LENGTH = 8;
 
-    @wire( getRecord, { recordId: USER_ID, fields: [USER_NAME_FIELD, USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
+export default class PpLoginScreenModal extends LightningModal {
+    userEmail = '';
+    userPassword = '';
+    passwordDigited = '';
+
+    errorsMessageWhenRendering = '';
+    errorHandledWhenRendering = false;
+
+    @wire( getRecord, { recordId: USER_ID, fields: [USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
     wiredUser( { error, data } ) {
         if( data ) {
-            this.userName = getFieldValue( data, USER_NAME_FIELD );
-            this.userEmail = getFieldValue( data, USER_EMAIL_FIELD );
-            this.userPassword = getFieldValue( data, USER_PASSWORD_FIELD );
+            this.enrichUserData( data );
         }else if( error ) {
             console.error( 'Error fetching user data:', error );
+            this.errorsMessageWhenRendering = error.message || 'Unknown error';
         }
     }
 
-    handlePasswordChange(event) {
-        this.password = event.target.value;
+    enrichUserData( data ) {
+        try{
+            this.userEmail = getFieldValue( data, USER_EMAIL_FIELD );
+            this.userPassword = getFieldValue( data, USER_PASSWORD_FIELD );
+        }catch( error ) {
+            console.error( 'Error enriching user data:', error.message );
+            this.errorsMessageWhenRendering = 'this.enrichData: ' + error.message;
+        }
+    }
+
+    renderedCallback() {
+        if( this.errorsMessageWhenRendering  && !this.errorHandled ) {
+            this.errorHandled = true;
+            setTimeout(() => {
+                this.handleError( this.errorsMessageWhenRendering );
+            }, 0);
+        }
     }
 
     handleSignIn() {
-        // lógica de autenticação ou evento
-        console.log('Email:', this.email, 'Password:', this.password);
+        try{
+            const signInInput = this.template.querySelector( 'lightning-input[data-id="passwordInput"]' );
+            signInInput.setCustomValidity( this.getSignInPasswordErrors( signInInput.value, this.userPassword ) );
+            signInInput.reportValidity();
+            if( signInInput.checkValidity() ){
+                this.close( 'signIn' );
+            }
+        }catch( error ) {
+            console.error( 'Error in handleSignIn:', error.message );
+            this.handleError( 'handleSignIn: ' + error.message );
+        }
+    }
+
+    getSignInPasswordErrors( passwordDigited, userPassword ) {
+        if( !userPassword ) {
+            return 'User not registered. Please Sign Up.';
+        }
+
+        if( passwordDigited != userPassword ) {
+            return 'Password does not match.';
+        }
+
+        return '';
     }
 
     handleSignUp() {
-        // redirecionamento ou lógica de registro
-        console.log('Sign Up clicked');
+        //
     }
 
-    handleOkay() {
-        this.close('okay');
+    getSignUpPasswordErrors( passwordDigited ) {
+        if( passwordDigited.length < PASSWORD_LENGTH ){
+            return 'Password must be at least ' + PASSWORD_LENGTH + ' characters long.';
+        }
+
+        return '';
     }
 
-    handleOptionClick(e) {
-        const { target } = e;
-        const { id } = target.dataset;
-        this.disableClose = false;
-
-        this.close(id);
+    handleError( errorMessage ) {
+        this.close( 'An unexpected error occurred. Please contact your system administrator and provide the following error details: ' + errorMessage );
     }
 
-    imageUrl = illustration;
+    get passwordLabel(){
+        return 'Password (min '+PASSWORD_LENGTH+' character)';
+    }
+
+    get energyLoginImage() {
+        return ENERGY_LOGIN_IMAGE;
+    }
+
 }

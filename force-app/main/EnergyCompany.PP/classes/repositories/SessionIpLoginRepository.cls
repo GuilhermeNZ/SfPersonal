@@ -2,7 +2,7 @@
  * @description: Class to provide stored SessionIpLogin__c collections
  * @author: Guilherme Zwipp
  */
-public virtual class SessionIpLoginRepository {
+public virtual class SessionIpLoginRepository extends AbstractRepository {
 
     private static SessionIpLoginRepository instance;
 
