@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="image-section">
-            <img src={imageUrl} alt="Login illustration" />
+            <img src={energyLoginImage} alt="EnergyLoginImage" />
         </div>
         <div class="form-section">
             <h2 class="title-text">
@@ -13,7 +13,7 @@
                 type="email"
                 label="Email"
                 value={userEmail}
-                placeholder="hello@gmail.com"
+                placeholder="example@gmail.com"
                 disabled>
             </lightning-input>
 
@@ -21,7 +21,6 @@
                 type="password"
                 label={passwordLabel}
                 placeholder="********"
-                onchange={handlePasswordChange}
                 value={passwordDigited}
                 data-id="passwordInput"
                 required>

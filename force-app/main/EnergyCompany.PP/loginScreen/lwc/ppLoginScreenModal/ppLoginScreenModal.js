@@ -2,7 +2,7 @@ import LightningModal from 'lightning/modal';
 import { wire } from 'lwc';
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
-import illustration from '@salesforce/resourceUrl/energyLoginImage';
+import ENERGY_LOGIN_IMAGE from '@salesforce/resourceUrl/energyLoginImage';
 
 import USER_ID from '@salesforce/user/Id';
 import USER_EMAIL_FIELD from "@salesforce/schema/User.Email";
@@ -13,30 +13,51 @@ const PASSWORD_LENGTH = 8;
 export default class PpLoginScreenModal extends LightningModal {
     userEmail = '';
     userPassword = '';
-
     passwordDigited = '';
+
+    errorsMessageWhenRendering = '';
+    errorHandledWhenRendering = false;
 
     @wire( getRecord, { recordId: USER_ID, fields: [USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
     wiredUser( { error, data } ) {
         if( data ) {
-            this.userEmail = getFieldValue( data, USER_EMAIL_FIELD );
-            this.userPassword = getFieldValue( data, USER_PASSWORD_FIELD );
+            this.enrichUserData( data );
         }else if( error ) {
             console.error( 'Error fetching user data:', error );
+            this.errorsMessageWhenRendering = error.message || 'Unknown error';
         }
     }
 
-    handlePasswordChange(event) {
-        this.passwordDigited = event.target.value;
+    enrichUserData( data ) {
+        try{
+            this.userEmail = getFieldValue( data, USER_EMAIL_FIELD );
+            this.userPassword = getFieldValue( data, USER_PASSWORD_FIELD );
+        }catch( error ) {
+            console.error( 'Error enriching user data:', error.message );
+            this.errorsMessageWhenRendering = 'this.enrichData: ' + error.message;
+        }
+    }
+
+    renderedCallback() {
+        if( this.errorsMessageWhenRendering  && !this.errorHandled ) {
+            this.errorHandled = true;
+            setTimeout(() => {
+                this.handleError( this.errorsMessageWhenRendering );
+            }, 0);
+        }
     }
 
     handleSignIn() {
-        const signInInput = this.template.querySelector( 'lightning-input[data-id="passwordInput"]' );
-        signInInput.setCustomValidity( this.getSignInPasswordErrors( this.passwordDigited, this.userPassword ) );
-        signInInput.reportValidity();
-
-        if( signInInput.checkValidity() ){
-            this.close( 'signIn' );
+        try{
+            const signInInput = this.template.querySelector( 'lightning-input[data-id="passwordInput"]' );
+            signInInput.setCustomValidity( this.getSignInPasswordErrors( signInInput.value, this.userPassword ) );
+            signInInput.reportValidity();
+            if( signInInput.checkValidity() ){
+                this.close( 'signIn' );
+            }
+        }catch( error ) {
+            console.error( 'Error in handleSignIn:', error.message );
+            this.handleError( 'handleSignIn: ' + error.message );
         }
     }
 
@@ -64,13 +85,16 @@ export default class PpLoginScreenModal extends LightningModal {
         return '';
     }
 
-    handleOkay() {
-        this.close('okay');
+    handleError( errorMessage ) {
+        this.close( 'An unexpected error occurred. Please contact your system administrator and provide the following error details: ' + errorMessage );
     }
 
     get passwordLabel(){
         return 'Password (min '+PASSWORD_LENGTH+' character)';
     }
 
-    imageUrl = illustration;
+    get energyLoginImage() {
+        return ENERGY_LOGIN_IMAGE;
+    }
+
 }

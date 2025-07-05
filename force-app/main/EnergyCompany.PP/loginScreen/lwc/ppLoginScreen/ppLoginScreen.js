@@ -35,10 +35,15 @@ export default class PpLoginScreen extends LightningElement {
         // if modal closed with OK button, promise returns result = 'okay'
         console.log(result);
 
+        if( result === undefined ) {
+            this.returnToPreviousPage();
+            return;
+        }
+
         if( result == 'signIn' ) {
             await this.postSignInActions();
-        }else{
-            window.history.back();
+        }else if( result.includes( 'An unexpected error occurred' ) ) {
+            this.handleError( result );
         }
     }
 
@@ -66,6 +71,16 @@ export default class PpLoginScreen extends LightningElement {
             } );
     }
 
+    handleError( errorMessage ) {
+        this.postShowToastEvent(
+            'Error',
+            errorMessage,
+            'error',
+            'sticky'
+        );
+        this.returnToPreviousPage();
+    }
+
     postShowToastEvent( title, message, variant, mode ) {
         this.dispatchEvent(
             new ShowToastEvent({
@@ -75,6 +90,10 @@ export default class PpLoginScreen extends LightningElement {
                 mode: mode
             })
         );
+    }
+
+    returnToPreviousPage() {
+        window.history.back();
     }
 
     closeScreen() {
