@@ -1,0 +1,6 @@
+Realize as seguintes açoes no código informado abaixo:
+  Refatore caso seja necessário
+  Melhore nomes de váriaveis/métodos/classes caso seja necessário
+  Melhore o código caso seja necessário
+  Melhore o encapsulamente caso seja necessário
+{Code}
