@@ -1,17 +1,11 @@
 public with sharing class PpLoginScreenModalController {
     
     @AuraEnabled
-    public static Boolean isReCAPTCHAValid(String tokenFromClient) {
-        String SECRET_KEY = '6LcC8HkrAAAAADwe0dctdHELurBfMFU4pBGtGIfk';
-        String RECAPTCHA_SERVICE_URL = 'https://www.google.com/recaptcha/api/siteverify';
-        Http http = new Http();
+    public static Boolean isReCAPTCHAValid( String tokenFromClient ) {
 
-        HttpRequest request = new HttpRequest();
-
-        request.setEndpoint(RECAPTCHA_SERVICE_URL + '?secret=' + SECRET_KEY + '&response=' + tokenFromClient);
-        request.setMethod('POST');
-        request.setHeader('Content-Length', '0');
-        HttpResponse response = http.send(request);
+        HTTPCalloutService httpCalloutService = new HTTPCalloutService( 'ReCAPTCHA3' );
+        httpCalloutService.setURLParameter( 'response', tokenFromClient );
+        HttpResponse response = httpCalloutService.sendRequest();
 
         Map<String, Object> mapOfBody = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
 
