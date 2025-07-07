@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container modal-wrapper">
         <div class="image-section">
             <img src={energyLoginImage} alt="EnergyLoginImage" />
         </div>
@@ -50,5 +50,6 @@
                 </lightning-button>
             </div>
         </div>
+        <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} class="captcha"></iframe>
     </div>
 </template>

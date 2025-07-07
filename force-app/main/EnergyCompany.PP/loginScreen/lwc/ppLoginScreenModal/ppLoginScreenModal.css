@@ -104,3 +104,18 @@
     border-bottom: 1px solid #999;
     margin: 0 0.75rem;
 }
+
+.captcha {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 300px;
+    height: 80px;
+    border: none;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.modal-wrapper {
+    position: relative;
+}
