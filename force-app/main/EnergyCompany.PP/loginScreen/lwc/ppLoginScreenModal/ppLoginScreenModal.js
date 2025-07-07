@@ -1,8 +1,10 @@
 import LightningModal from 'lightning/modal';
-import { wire } from 'lwc';
+import { wire, api } from 'lwc';
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
 import ENERGY_LOGIN_IMAGE from '@salesforce/resourceUrl/energyLoginImage';
+import pageUrl from '@salesforce/resourceUrl/recaptchaV3';
+import isReCAPTCHAValid from '@salesforce/apex/PpLoginScreenModalController.isReCAPTCHAValid';
 
 import USER_ID from '@salesforce/user/Id';
 import USER_EMAIL_FIELD from "@salesforce/schema/User.Email";
@@ -11,12 +13,37 @@ import USER_PASSWORD_FIELD from "@salesforce/schema/User.PP_Password__c";
 const PASSWORD_LENGTH = 8;
 
 export default class PpLoginScreenModal extends LightningModal {
+    @api formToken;
+    @api validReCAPTCHA = false;
+    navigateTo;
+
     userEmail = '';
     userPassword = '';
-    passwordDigited = '';
 
     errorsMessageWhenRendering = '';
-    errorHandledWhenRendering = false;
+    errorHandledWhenRenderingWhenRendering = false;
+
+    constructor(){
+        super();
+        this.navigateTo = pageUrl;
+    }
+
+    captchaLoaded( event ){
+        if( event.target.getAttribute( 'src' ).includes( 'recaptchaV3' ) ){
+
+            window.addEventListener("message", (e) => {
+                if (e.data.action == "getCAPCAH" && e.data.callCAPTCHAResponse == "NOK"){
+                    console.log("Token not obtained!")
+                } else if (e.data.action == "getCAPCAH" ) {
+                    this.formToken = e.data.callCAPTCHAResponse;
+                    isReCAPTCHAValid({tokenFromClient: this.formToken}).then(data => {
+                        this.validReCAPTCHA = data;
+                    });
+                }
+            }, false);
+
+        } 
+    }
 
     @wire( getRecord, { recordId: USER_ID, fields: [USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
     wiredUser( { error, data } ) {
@@ -39,8 +66,8 @@ export default class PpLoginScreenModal extends LightningModal {
     }
 
     renderedCallback() {
-        if( this.errorsMessageWhenRendering  && !this.errorHandled ) {
-            this.errorHandled = true;
+        if( this.errorsMessageWhenRendering  && !this.errorHandledWhenRendering ) {
+            this.errorHandledWhenRendering = true;
             setTimeout(() => {
                 this.handleError( this.errorsMessageWhenRendering );
             }, 0);
