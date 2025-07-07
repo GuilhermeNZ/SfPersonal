@@ -1,9 +1,10 @@
 import LightningModal from 'lightning/modal';
-import { wire } from 'lwc';
+import { wire, api } from 'lwc';
 import { getRecord, getFieldValue } from "lightning/uiRecordApi";
 
 import ENERGY_LOGIN_IMAGE from '@salesforce/resourceUrl/energyLoginImage';
-import pageUrl from '@salesforce/resourceUrl/recaptchaV2';
+import pageUrl from '@salesforce/resourceUrl/recaptchaV3';
+import isReCAPTCHAValid from '@salesforce/apex/PpLoginScreenModalController.isReCAPTCHAValid';
 
 import USER_ID from '@salesforce/user/Id';
 import USER_EMAIL_FIELD from "@salesforce/schema/User.Email";
@@ -12,31 +13,36 @@ import USER_PASSWORD_FIELD from "@salesforce/schema/User.PP_Password__c";
 const PASSWORD_LENGTH = 8;
 
 export default class PpLoginScreenModal extends LightningModal {
+    @api formToken;
+    @api validReCAPTCHA = false;
+    navigateTo;
+
     userEmail = '';
     userPassword = '';
-    passwordDigited = '';
 
     errorsMessageWhenRendering = '';
-    errorHandledWhenRendering = false;
-
-    navigateTo;
+    errorHandledWhenRenderingWhenRendering = false;
 
     constructor(){
         super();
         this.navigateTo = pageUrl;
-        window.addEventListener("message", this.listenForMessage);//add event listener for message that we post in our recaptchaV2 static resource html file.
     }
 
-    captchaLoaded(event){
-        if(event.target.getAttribute('src') == pageUrl){
-            console.log('Google reCAPTCHA is loaded.');
+    captchaLoaded( event ){
+        if( event.target.getAttribute( 'src' ).includes( 'recaptchaV3' ) ){
+
+            window.addEventListener("message", (e) => {
+                if (e.data.action == "getCAPCAH" && e.data.callCAPTCHAResponse == "NOK"){
+                    console.log("Token not obtained!")
+                } else if (e.data.action == "getCAPCAH" ) {
+                    this.formToken = e.data.callCAPTCHAResponse;
+                    isReCAPTCHAValid({tokenFromClient: this.formToken}).then(data => {
+                        this.validReCAPTCHA = data;
+                    });
+                }
+            }, false);
+
         } 
-    }
-
-    listenForMessage(message){
-        console.log('message : ' + JSON.stringify( message ) );//message.data - The object passed from the other window.
-        console.log('message data : ' + message.data);//message.data - The object passed from the other window.
-        console.log('message origin : ' + message.origin);//message.origin - The origin of the window that sent the message at the time postMessage was called.
     }
 
     @wire( getRecord, { recordId: USER_ID, fields: [USER_EMAIL_FIELD, USER_PASSWORD_FIELD] } )
@@ -60,17 +66,12 @@ export default class PpLoginScreenModal extends LightningModal {
     }
 
     renderedCallback() {
-        if( this.errorsMessageWhenRendering  && !this.errorHandled ) {
-            this.errorHandled = true;
+        if( this.errorsMessageWhenRendering  && !this.errorHandledWhenRendering ) {
+            this.errorHandledWhenRendering = true;
             setTimeout(() => {
                 this.handleError( this.errorsMessageWhenRendering );
             }, 0);
         }
-
-        var divElement = this.template.querySelector('div.recaptchaCheckbox');
-        //valide values for badge: bottomright bottomleft inline
-        var payload = {element: divElement, badge: 'bottomright'};
-        document.dispatchEvent(new CustomEvent("grecaptchaRender", {"detail": payload}));
     }
 
     handleSignIn() {
