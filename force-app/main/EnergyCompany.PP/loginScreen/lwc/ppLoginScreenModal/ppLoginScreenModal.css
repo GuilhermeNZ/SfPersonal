@@ -34,6 +34,7 @@
     font-weight: bold;
     margin-bottom: 2rem;
     line-height: 1.3;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .highlight {
@@ -55,37 +56,37 @@
     text-align: center;
 }
 
-.sign-button{
-    display: inline-block;
-    width: 250px;
+.sign-button {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 44px;
 }
 
-.signin-button{
+.signin-button {
     --sds-c-button-color-background: #f3c623;
-    --sds-c-button-color-background-hover: #f3c623;
-    --sds-c-button-color-background-active: #f3c623;
+    --sds-c-button-color-background-hover: #e6b800;
+    --sds-c-button-color-background-active: #d4a200;
 
     --sds-c-button-color-border: #f3c623;
-    --sds-c-button-color-border-active: #f3c623;
-    --sds-c-button-color-border-hover: #f3c623;
+    --sds-c-button-color-border-hover: #e6b800;
+    --sds-c-button-color-border-active: #d4a200;
 
     --sds-c-button-text-color: #222;
-    --sds-c-button-text-color-hover: #222;
-    --sds-c-button-text-color-active: #222;
 }
 
-.signup-button{
+.signup-button {
     --sds-c-button-color-background: #222;
-    --sds-c-button-color-background-hover: #222;
-    --sds-c-button-color-background-active: #222;
+    --sds-c-button-color-background-hover: #333;
+    --sds-c-button-color-background-active: #000;
 
     --sds-c-button-color-border: #222;
-    --sds-c-button-color-border-active: #222;
-    --sds-c-button-color-border-hover: #222;
+    --sds-c-button-color-border-hover: #333;
+    --sds-c-button-color-border-active: #000;
 
     --sds-c-button-text-color: #f3c623;
-    --sds-c-button-text-color-hover: #f3c623;
-    --sds-c-button-text-color-active: #f3c623;
 }
 
 .divider {
@@ -93,15 +94,16 @@
     align-items: center;
     text-align: center;
     color: #999;
-    font-weight: bold;
-    margin: 1rem 0;
+    font-weight: 500;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
 }
 
 .divider::before,
 .divider::after {
     content: "";
     flex: 1;
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid #ddd;
     margin: 0 0.75rem;
 }
 
@@ -118,4 +120,37 @@
 
 .modal-wrapper {
     position: relative;
+}
+
+.code-inputs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.code-box {
+    width: 48px;
+    height: 56px;
+    font-size: 1.75rem;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.code-box:focus {
+    border-color: #f3c623;
+    box-shadow: 0 0 0 3px rgba(243, 198, 35, 0.25);
+}
+
+.instruction-text {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    line-height: 1.4;
 }
