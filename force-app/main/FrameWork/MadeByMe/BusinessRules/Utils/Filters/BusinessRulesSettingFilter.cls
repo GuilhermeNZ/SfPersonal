@@ -1,0 +1,1 @@
+public with sharing class BusinessRulesSettingFilter extends Filter {}

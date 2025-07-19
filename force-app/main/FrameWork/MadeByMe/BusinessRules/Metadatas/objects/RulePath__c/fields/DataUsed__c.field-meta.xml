@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DataUsed__c</fullName>
+    <description>Campo para o armazenamento dos dados que foram utilizados para a execuçao da regra, sendo uma &quot;foto&quot; das informaçoes utilizadas no momento que a regra foi realizada.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Campo para o armazenamento dos dados que foram utilizados para a execuçao da regra, sendo uma &quot;foto&quot; das informaçoes utilizadas no momento que a regra foi realizada.</inlineHelpText>
+    <label>Dados Utilizados</label>
+    <length>131072</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

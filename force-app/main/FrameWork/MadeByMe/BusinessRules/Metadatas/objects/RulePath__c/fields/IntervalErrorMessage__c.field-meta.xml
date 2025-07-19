@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IntervalErrorMessage__c</fullName>
+    <description>Campo para o preenchimento da mensagem de erro caso aconteça algum erro no cálculo de intervalo.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Campo para o preenchimento da mensagem de erro caso aconteça algum erro no cálculo de intervalo.</inlineHelpText>
+    <label>Mensagem de Erro do Calculo do Intervalo</label>
+    <length>131072</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

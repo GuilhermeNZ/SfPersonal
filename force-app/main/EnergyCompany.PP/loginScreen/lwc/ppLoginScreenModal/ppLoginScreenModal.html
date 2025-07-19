@@ -3,53 +3,92 @@
         <div class="image-section">
             <img src={energyLoginImage} alt="EnergyLoginImage" />
         </div>
+
         <div class="form-section">
-            <h2 class="title-text">
-                Welcome to<br />
-                <span class="highlight">Energy</span> <span class="company-name">Company</span>
-            </h2>
+            <template if:false={isVerificationStep}>
+                <!-- Login -->
+                <h2 class="title-text">
+                    Welcome to<br />
+                    <span class="highlight">Energy</span> <span class="company-name">Company</span>
+                </h2>
 
-            <lightning-input
-                type="email"
-                label="Email"
-                value={userEmail}
-                placeholder="example@gmail.com"
-                disabled>
-            </lightning-input>
+                <lightning-input
+                    type="email"
+                    label="Email"
+                    value={userEmail}
+                    placeholder="example@gmail.com"
+                    disabled>
+                </lightning-input>
 
-            <lightning-input
-                type="password"
-                label={passwordLabel}
-                placeholder="********"
-                value={passwordDigited}
-                data-id="passwordInput"
-                required>
-            </lightning-input>
+                <lightning-input
+                    type="password"
+                    label={passwordLabel}
+                    placeholder="********"
+                    value={passwordDigited}
+                    data-id="passwordInput"
+                    required>
+                </lightning-input>
 
-            <div class="forgot">
-                <a>Forgot password?</a>
-            </div>
+                <div class="forgot">
+                    <a>Forgot password?</a>
+                </div>
 
-            <div class="button-container">
-                <lightning-button
-                    label="Sign in"
-                    variant="base"
-                    class="sign-button signin-button"
-                    onclick={handleSignIn}
-                    stretch>
-                </lightning-button>
+                <div class="button-container">
+                    <lightning-button
+                        label="Sign in"
+                        variant="base"
+                        class="sign-button signin-button"
+                        onclick={handleSignIn}
+                        stretch>
+                    </lightning-button>
 
-                <div class="divider">OR</div>
+                    <div class="divider">OR</div>
 
-                <lightning-button
-                    label="Sign up"
-                    variant="base"
-                    class="sign-button signup-button"
-                    onclick={handleSignUp}
-                    stretch>
-                </lightning-button>
-            </div>
+                    <lightning-button
+                        label="Sign up"
+                        variant="base"
+                        class="sign-button signup-button"
+                        onclick={handleSignUp}
+                        stretch>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <template if:true={isVerificationStep}>
+                <!-- VERIFICAÇÃO DE E-MAIL -->
+                <h2 class="title-text">E-mail Verification</h2>
+                <p class="instruction-text">
+                    We sent a verification code to <strong>{userEmail}</strong>, please enter it below:
+                </p>
+
+                <div class="code-inputs">
+                    <template for:each={codeInputs} for:item="item" for:index="index">
+                        <input key={item} value={item} type="text" maxlength="1" class="code-box" data-id={index} oninput={handleCodeInput} />
+                    </template>
+                </div>
+
+                <div class="button-container">
+                    <lightning-button
+                        label="Verificar"
+                        variant="base"
+                        class="sign-button signin-button"
+                        onclick={handleVerify}
+                        stretch>
+                    </lightning-button>
+
+                    <div class="divider">OR</div>
+
+                    <lightning-button
+                        label="Cancelar"
+                        variant="base"
+                        class="sign-button signup-button"
+                        onclick={handleCancel}
+                        stretch>
+                    </lightning-button>
+                </div>
+            </template>
         </div>
+
         <iframe src={navigateTo} name="captchaFrame" onload={captchaLoaded} class="captcha"></iframe>
     </div>
 </template>
