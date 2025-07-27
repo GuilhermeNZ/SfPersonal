@@ -8,21 +8,23 @@ public class RulePathCreatorServiceTest {
     @isTest
     private static void shouldCreateRulePathsBySObjectId() {
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'TestName'
             , true
             , 'Name=TestName'
             , 'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         Assert.areEqual( 1, [SELECT Id FROM RulePathSObjectSetting__c WHERE ObjectAPIName__c = 'BusinessRulesSetting__c'].size(), 'Must create one RulePathSObjectSetting__c' );
         Assert.areEqual( 1, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must create one RulePathFieldSetting__c' );
 
-        BusinessRulesPath__c businessRulesPath = (BusinessRulesPath__c) new BR_BusinessRulesPathFactory.BR_ExampleValidationRule(
+        Map<String,SObject> businessRulesPathIntegratedScenario = BR_BusinessRulesPathFixtureFactory.exampleIntegratedScenario(
             businessRulesSetting.Id
             , true
             , 1
-        ).createRecord();
+        );
+
+        BusinessRulesPath__c businessRulesPath = (BusinessRulesPath__c) businessRulesPathIntegratedScenario.get( 'BusinessRulesPath__c' );
 
         Test.startTest();
 
@@ -42,21 +44,19 @@ public class RulePathCreatorServiceTest {
     @isTest
     private static void shouldCreateRulePathsBySObjectIds() {
 
-        BusinessRulesSetting__c firstBusinessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c firstBusinessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'BusinessRulesSettingExample'
             , true
             , 'Name=BusinessRulesSettingExample'
             , 'BusinessRulesSetting__c'
-        ).getRecord();
+        );
 
-        BusinessRulesSetting__c secondBusinessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c secondBusinessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'BusinessRulesPathExample'
             , true
             , 'Name=BR_ExampleTwoValidationRule'
             , 'BusinessRulesPath__c'
-        ).getRecord();
-
-        insert new List<BusinessRulesSetting__c>{ firstBusinessRulesSetting, secondBusinessRulesSetting };
+        );
 
         Assert.areEqual(
             2
@@ -65,19 +65,21 @@ public class RulePathCreatorServiceTest {
         );
         Assert.areEqual( 2, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must create two RulePathFieldSetting__c' );
 
-        BusinessRulesPath__c pathForFirstSetting = (BusinessRulesPath__c) new BR_BusinessRulesPathFactory.BR_ExampleValidationRule(
+        Map<String,SObject> exampleRulePathIntegratedScenario = BR_BusinessRulesPathFixtureFactory.exampleIntegratedScenario(
             firstBusinessRulesSetting.Id
             , true
             , 1
-        ).getRecord();
+        );
 
-        BusinessRulesPath__c pathForSecondSetting = (BusinessRulesPath__c) new BR_BusinessRulesPathFactory.BR_ExampleTwoValidationRule(
+        BusinessRulesPath__c pathForFirstSetting = (BusinessRulesPath__c) exampleRulePathIntegratedScenario.get( 'BusinessRulesPath__c' );
+
+        Map<String,SObject> exampleTwoRulePathIntegratedScenario = BR_BusinessRulesPathFixtureFactory.exampleTwoIntegratedScenario(
             secondBusinessRulesSetting.Id
             , true
             , 1
-        ).getRecord();
+        );
 
-        insert new List<BusinessRulesPath__c>{ pathForFirstSetting, pathForSecondSetting };
+        BusinessRulesPath__c pathForSecondSetting = (BusinessRulesPath__c) exampleTwoRulePathIntegratedScenario.get( 'BusinessRulesPath__c' );
 
         Test.startTest();
 
@@ -114,13 +116,13 @@ public class RulePathCreatorServiceTest {
     private static void shouldThrowRulePathSObjectSettingMissingException() {
 
         TriggerHandler.bypass( 'BusinessRulesSettingHandler' );
-        
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'TestName'
             , true
             , 'Name=TestName'
             , 'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
@@ -146,18 +148,18 @@ public class RulePathCreatorServiceTest {
 
         TriggerHandler.bypass( 'BusinessRulesSettingHandler' );
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'TestName'
             , true
             , ''
             , 'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
-        RulePathSObjectSetting__c rulePathSObjectSetting = (RulePathSObjectSetting__c) new RulePathSObjectSettingFactory.DefaultRT(
+        RulePathSObjectSetting__c rulePathSObjectSetting = BR_RulePathSObjectSettingFixtureFactory.createRecord(
             'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         Assert.areEqual( 0, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must dont create RulePathFieldSetting__c' );
 
@@ -178,12 +180,12 @@ public class RulePathCreatorServiceTest {
     @isTest
     private static void shouldDontCreateRulesPathBusinessRulesPathEmpty() {
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'TestName'
             , true
             , 'Name=TestName'
             , 'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         Assert.areEqual( 1, [SELECT Id FROM RulePathSObjectSetting__c WHERE ObjectAPIName__c = 'BusinessRulesSetting__c'].size(), 'Must create one RulePathSObjectSetting__c' );
         Assert.areEqual( 1, [SELECT Id FROM RulePathFieldSetting__c].size(), 'Must create one RulePathFieldSetting__c' );

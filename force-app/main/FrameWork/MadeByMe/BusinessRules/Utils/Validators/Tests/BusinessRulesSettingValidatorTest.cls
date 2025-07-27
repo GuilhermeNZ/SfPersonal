@@ -10,7 +10,7 @@ public with sharing class BusinessRulesSettingValidatorTest {
 
         String businessRulesSettingPayload = '{"Object__c":"BusinessRulesSetting__c"}';
 
-        BusinessRulesSetting__c businessRulesSetting = BusinessRulesSettingFactory.fromJson( businessRulesSettingPayload );
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.fromJson( businessRulesSettingPayload );
 
         Map<String,Schema.DescribeSobjectResult> describeSObjectByName = new Map<String,Schema.DescribeSobjectResult>{
             'BusinessRulesSetting__c' => businessRulesSetting.getSObjectType().getDescribe()
@@ -18,7 +18,7 @@ public with sharing class BusinessRulesSettingValidatorTest {
 
         Test.startTest();
 
-        BusinessRulesSettingValidator validator = new BusinessRulesSettingValidator();
+        BusinessRulesSettingValidator validator = BusinessRulesSettingValidator.getInstance();
         validator.ruleKeyFieldsIsValid( new List<String>{'Name'}, describeSObjectByName, businessRulesSetting );
 
         Test.stopTest();
@@ -31,7 +31,7 @@ public with sharing class BusinessRulesSettingValidatorTest {
 
         String businessRulesSettingPayload = '{"Object__c":"BusinessRulesSetting__c"}';
 
-        BusinessRulesSetting__c businessRulesSetting = BusinessRulesSettingFactory.fromJson( businessRulesSettingPayload );
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.fromJson( businessRulesSettingPayload );
 
         Map<String,Schema.DescribeSobjectResult> describeSObjectByName = new Map<String,Schema.DescribeSobjectResult>{
             'BusinessRulesSetting__c' => businessRulesSetting.getSObjectType().getDescribe()
@@ -39,7 +39,7 @@ public with sharing class BusinessRulesSettingValidatorTest {
 
         Test.startTest();
 
-        BusinessRulesSettingValidator validator = new BusinessRulesSettingValidator();
+        BusinessRulesSettingValidator validator = BusinessRulesSettingValidator.getInstance();
         validator.ruleKeyFieldsIsValid( new List<String>{'InvalidField'}, describeSObjectByName, businessRulesSetting );
 
         Test.stopTest();

@@ -30,7 +30,7 @@ private class RulePathSObjectSettingUpsertServiceTest {
 
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":null}]';
 
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -52,7 +52,7 @@ private class RulePathSObjectSettingUpsertServiceTest {
 
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;Object__c=Account"}]';
 
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -89,8 +89,8 @@ private class RulePathSObjectSettingUpsertServiceTest {
         String oldBusinessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":""}]';
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;Object__c=Account"}]';
 
-        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -126,7 +126,7 @@ private class RulePathSObjectSettingUpsertServiceTest {
 
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeIds[0]+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;Object__c=Account"},{"Id":"'+businessRulesSettingFakeIds[1]+'","Object__c":"Account","RuleKey__c":"Id=TestId"}]';
 
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -175,8 +175,8 @@ private class RulePathSObjectSettingUpsertServiceTest {
         String oldBusinessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName"}]';
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName"}]';
 
-        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -210,8 +210,8 @@ private class RulePathSObjectSettingUpsertServiceTest {
         String oldBusinessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName"}]';
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;Object__c=Account"}]';
 
-        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -258,8 +258,8 @@ private class RulePathSObjectSettingUpsertServiceTest {
         String oldBusinessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName"}]';
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;Object__c=Account"}]';
 
-        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -299,7 +299,7 @@ private class RulePathSObjectSettingUpsertServiceTest {
 
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;InvalidField=InvalidValue"}]';
 
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 
@@ -332,8 +332,8 @@ private class RulePathSObjectSettingUpsertServiceTest {
         String oldBusinessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName"}]';
         String businessRulesSettingsPayload = '[{"Id":"'+businessRulesSettingFakeId+'","Object__c":"BusinessRulesSetting__c","RuleKey__c":"Name=TestName;InvalidField=InvalidValue"}]';
 
-        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
-        List<BusinessRulesSetting__c> businessRulesSettings = BusinessRulesSettingFactory.fromJsonArray( businessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> oldBusinessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( oldBusinessRulesSettingsPayload );
+        List<BusinessRulesSetting__c> businessRulesSettings = BR_BusinessRulesSettingFixtureFactory.fromJsonArray( businessRulesSettingsPayload );
 
         Test.startTest();
 

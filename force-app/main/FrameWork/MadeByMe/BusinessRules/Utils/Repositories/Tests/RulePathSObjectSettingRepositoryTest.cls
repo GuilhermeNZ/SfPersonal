@@ -5,15 +5,16 @@
 @isTest
 public with sharing class RulePathSObjectSettingRepositoryTest {
 
-    private static void shouldFindByNames() {
+    private static void shouldFindByObjectAPINames() {
 
-        RulePathSObjectSetting__c rulePathSObjectSetting = (RulePathSObjectSetting__c)
-            new RulePathSObjectSettingFactory.DefaultRT( 'TestName' ).createRecord();
+        RulePathSObjectSetting__c rulePathSObjectSetting = BR_RulePathSObjectSettingFixtureFactory.createRecord(
+            'TestName'
+        );
 
         Test.startTest();
 
-        RulePathSObjectSettingRepository repository = new RulePathSObjectSettingRepository();
-        List<RulePathSObjectSetting__c> rulePathSObjectSettings = repository.findByNames( new List<String>{'TestName'} );
+        RulePathSObjectSettingRepository repository = RulePathSObjectSettingRepository.getInstance();
+        List<RulePathSObjectSetting__c> rulePathSObjectSettings = repository.findByObjectAPINames( new List<String>{'TestName'} );
 
         Test.stopTest();
 

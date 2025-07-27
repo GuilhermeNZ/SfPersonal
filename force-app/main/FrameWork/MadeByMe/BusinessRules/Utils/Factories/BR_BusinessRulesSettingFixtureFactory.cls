@@ -3,9 +3,13 @@
  * @author: Guilherme Zwipp
  */
 @isTest
-public with sharing class BusinessRulesSettingFactory {
+public inherited sharing class BR_BusinessRulesSettingFixtureFactory {
 
-    public static BusinessRulesSetting__c buildNew( String name, Boolean isActivated, String ruleKey, String objectName ) {
+    public static BusinessRulesSetting__c createRecord( String name, Boolean isActivated, String ruleKey, String objectName ) {
+        return createRecord( buildRecord( name, isActivated, ruleKey, objectName ) );
+    }
+    
+    public static BusinessRulesSetting__c buildRecord( String name, Boolean isActivated, String ruleKey, String objectName ) {
         return new BusinessRulesSetting__c(
             Name = name
             , isActivated__c = isActivated
@@ -14,12 +18,9 @@ public with sharing class BusinessRulesSettingFactory {
         );
     }
 
-    public class DefaultRT extends SObjectFactory{
-
-        public DefaultRT( String name, Boolean isActivated, String ruleKey, String objectName ) {
-            super( buildNew( name, isActivated, ruleKey, objectName ) );
-        }
-
+    public static BusinessRulesSetting__c createRecord( BusinessRulesSetting__c businessRulesSetting ) {
+        insert businessRulesSetting;
+        return businessRulesSetting;
     }
 
     public static BusinessRulesSetting__c fromJson( String payload ){

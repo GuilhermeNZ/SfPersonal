@@ -8,9 +8,9 @@ public with sharing class BusinessRulesSettingHandlerTest {
     @isTest 
     private static void insertRulePathSetting() {
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.buildRecord(
             'TestRuleSetting', true, 'Name=TestName;Object__c=Account', 'BusinessRulesSetting__c'
-        ).getRecord();
+        );
 
         Test.startTest();
 
@@ -44,19 +44,19 @@ public with sharing class BusinessRulesSettingHandlerTest {
 
         TriggerHandler.bypass( 'BusinessRulesSettingHandler' );
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'TestRuleSetting', true, 'Name=TestName', 'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
-        RulePathSObjectSetting__c rulePathSetting = (RulePathSObjectSetting__c) new RulePathSObjectSettingFactory.DefaultRT(
+        RulePathSObjectSetting__c rulePathSetting = BR_RulePathSObjectSettingFixtureFactory.createRecord(
             'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
-        RulePathFieldSetting__c rulePathFieldSetting = (RulePathFieldSetting__c) new BR_RulePathFieldSettingFactory.DefaultRT(
+        RulePathFieldSetting__c rulePathFieldSetting = BR_RulePathFieldSettingFixtureFactory.createRecord(
             'Name', rulePathSetting.Id
-        ).createRecord();
+        );
 
         Test.startTest();
 
@@ -89,9 +89,9 @@ public with sharing class BusinessRulesSettingHandlerTest {
     @isTest 
     private static void dontInsertRulePathSettingInvalidFieldError() {
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.buildRecord(
             'TestRuleSetting', true, 'InvalidField=InvalidValue;InvalidField2=InvalidValue2', 'BusinessRulesSetting__c'
-        ).getRecord();
+        );
 
         Test.startTest();
 
@@ -119,19 +119,19 @@ public with sharing class BusinessRulesSettingHandlerTest {
 
         TriggerHandler.bypass( 'BusinessRulesSettingHandler' );
 
-        BusinessRulesSetting__c businessRulesSetting = (BusinessRulesSetting__c) new BusinessRulesSettingFactory.DefaultRT(
+        BusinessRulesSetting__c businessRulesSetting = BR_BusinessRulesSettingFixtureFactory.createRecord(
             'TestRuleSetting', true, 'Name=TestName', 'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
         TriggerHandler.clearBypass( 'BusinessRulesSettingHandler' );
 
-        RulePathSObjectSetting__c rulePathSetting = (RulePathSObjectSetting__c) new RulePathSObjectSettingFactory.DefaultRT(
+        RulePathSObjectSetting__c rulePathSetting = BR_RulePathSObjectSettingFixtureFactory.createRecord(
             'BusinessRulesSetting__c'
-        ).createRecord();
+        );
 
-        RulePathFieldSetting__c rulePathFieldSetting = (RulePathFieldSetting__c) new BR_RulePathFieldSettingFactory.DefaultRT(
+        RulePathFieldSetting__c rulePathFieldSetting = BR_RulePathFieldSettingFixtureFactory.createRecord(
             'Name', rulePathSetting.Id
-        ).createRecord();
+        );
 
         Test.startTest();
 
